@@ -1,0 +1,94 @@
+@import "./config.scss";
+
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  /*border: 10px solid transparent;*/
+}
+
+::-webkit-scrollbar-track {
+  /*box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2) inset;*/
+  background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 20px;
+  background-clip: content-box;
+  /*box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2) inset;*/
+  background: #cdcdcd;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+@font-face {
+  font-family: Alibaba-PuHuiTi-R;
+  src: url("../../static/fonts/Alibaba-PuHuiTi-Regular.otf");
+}
+@font-face {
+  font-family: AlibabaPuHuiTiR;
+  src: url("../../static/fonts/Alibaba-PuHuiTi-Regular.otf");
+}
+@font-face {
+  font-family: Alibaba-PuHuiTi-L;
+  src: url("../../static/fonts/Alibaba-PuHuiTi-Light.otf");
+}
+@font-face {
+  font-family: AlibabaPuHuiTiL;
+  src: url("../../static/fonts/Alibaba-PuHuiTi-Light.otf");
+}
+@font-face {
+  font-family: Alibaba-PuHuiTi-M;
+  src: url("../../static/fonts/Alibaba-PuHuiTi-Medium.otf");
+}
+@font-face {
+  font-family: AlibabaPuHuiTiM;
+  src: url("../../static/fonts/Alibaba-PuHuiTi-Medium.otf");
+}
+img[lazy="loading"]{
+  display:block;
+  width:50px !important;
+  height:50px !important;
+}
+img[lazy="error"]{
+  display:block;
+  width:50px !important;
+  height:50px !important;
+}
+img[data-test='test']{
+  display: block; /* 解决img标签底部边框的问题*/
+}
+.el-message{
+  top: 180px!important;
+}
+input{
+  -webkit-tap-highlight-color:transparent!important;
+}
+input:webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+}
+input:-internal-autofill-selected{
+  background: #ffffff;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition-delay: 111111s;
+  -webkit-transition: color 11111s ease-out, background-color 111111s ease-out;
+}

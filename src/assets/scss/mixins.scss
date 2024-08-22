@@ -1,0 +1,68 @@
+@mixin space-between {
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin bg {
+  background: #ffffff;
+}
+@mixin row {
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  flex-direction: row;
+  align-items: center;
+}
+@mixin column{
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  flex-direction: column;
+  align-items: center;
+}
+@mixin flex-start {
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+@mixin center{
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-end{
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  justify-content: flex-end;
+  align-items: center;
+}
+@mixin start-center{
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  justify-content: flex-start;
+  align-items: center;
+}
+@mixin placeholder{
+  font-size: 16px;
+  color: #A2AAB1;
+  font-family: Alibaba-PuHuiTi;
+}
+@mixin placeholder-mb{
+  font-size: 24px;
+  color: #A2AAB1;
+  font-family: Alibaba-PuHuiTi;
+}
+@mixin space-around{
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  justify-content: space-around;
+  align-items: center;
+}
+@mixin row-center{
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

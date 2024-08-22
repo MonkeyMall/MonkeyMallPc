@@ -1,131 +1,94 @@
-import moment from "moment";
-import store from "@/store";
-import {
-	VERSION,
-	MODEL_TEST_VERSION,
-	SERVER_TYPE,
-	TEST_URL,
-	MO_URL,
-	YFB_URL,
-	PRO_URL,
-	DEV_URL
-} from "@/constant";
+export default {
+  install(Vue) {
+    Vue.prototype.isMobile = function() {
+      return /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
+    };
+    Vue.prototype.setLanguage = function(value = "zh") {
+      this.$router.push({
+        query: {...Object.assign(this.$route.query, {'lang': value}), time: new Date().getTime()}
+      })
+      localStorage.setItem("language", value);
+      setTimeout(() => {
+        this.$router.go(0);
+        window.scrollTo(0,0) /* 切换语言刷新页面使其回到顶部*/
+      }, 10)
+    };
+  }
+};
 
-// 将字符串的字符全部转换为小写字符
-export function lowerCase(str) {
-	const arr = str.split("");
-	let newStr = "";
-	// 通过for循环遍历数组
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] >= "A" && arr[i] <= "Z") { newStr += arr[i].toLowerCase(); } else { newStr += arr[i]; }
-	}
-	return newStr;
+export function scrollTop(val) {
+  let speed = val || 5;
+  (function smoothscroll() {
+    var currentScroll =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (currentScroll > 0) {
+      window.requestAnimationFrame(smoothscroll);
+      window.scrollTo(0, currentScroll - currentScroll / speed);
+    }
+  })();
+}
+export function getUrlKey(name, url) {
+  return (
+    decodeURIComponent(
+      (new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(url) || [
+        ,
+        ""
+      ])[1].replace(/\+/g, "%20")
+    ) || null
+  );
+}
+export function replaceParamVal(paramName,replaceWith) {
+  var oUrl = this.location.href.toString();
+  var re=eval('/('+ paramName+'=)([^&]*)/gi');
+  var nUrl = oUrl.replace(re,paramName+'='+replaceWith);
+  this.location = nUrl;
+  window.location.href=nUrl
 }
 
-// 数据导出（要求接口是get方法啊）
-export function exportDataFormatUrl(request_url, request_params, is_new) {
-	const server_url = switchServerUrl();
+// 时间戳转指定格式日期
+export function transferTime(time, format='yyyy-mm-dd') {
+  if(!(/^\d+$/.test(time))) {
+    return '请传入正确的时间戳格式'
+  }
+  if(/[abcefgjklnopqrtuvwxz]/gi.test(format)){
+    return '请输入正确的转换格式'
+  }
+  const date = time ? new Date(Number(time)) : new Date();
+  const transform = (i) => {return i < 10 ? `0${i}` : i}
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const hour = date.getHours();
+  const min = date.getMinutes();
+  const sec = date.getSeconds();
 
-	let url = server_url + request_url;
-
-	if (SERVER_TYPE == 3) {
-		url = url + "/version/" + VERSION;
-	} else {
-		url = url + "/version/" + MODEL_TEST_VERSION;
-	}
-
-	const params = JSON.parse(JSON.stringify(request_params));
-	if (store.getters.token) {
-		params.sys_token = store.getters.token;
-	}
-	let data = "?";
-	for (const key in params) {
-		data = data + "&" + key + "=" + params[key];
-	}
-
-	url = url + data;
-
-	console.log(url);
-
-	if (is_new) {
-		// 打开新窗口
-		window.open(url);
-	} else {
-		// 在本窗口打开
-		window.location.href = url;
-	}
-}
-
-// 获取当前服务器的请求url
-export function switchServerUrl() {
-	let server_url = "";
-	switch (SERVER_TYPE) {
-	case 0:
-		server_url = TEST_URL;
-		break;
-	case 1:
-		server_url = MO_URL;
-		break;
-	case 2:
-		server_url = YFB_URL;
-		break;
-	case 3:
-		server_url = PRO_URL;
-		break;
-	case 4:
-		server_url = DEV_URL;
-		break;
-	}
-	return server_url;
-}
-
-/**
- * 格式换权限菜单返回数据
- * @param data
- */
-export function formatPermissionList(data) {
-	const list = data;
-	const role_arr = [];// 菜单权限
-	const button_arr = [];// button权限
-	// 循环一级列表
-	for (const i in list) {
-		const i_item = list[i].children;
-		// 循环2级列表
-		for (const j in i_item) {
-			const j_item = i_item[j];
-			if (j_item.url) {
-				if (j == 0) {
-					role_arr.push({
-						url: "/" + list[i].url.split("/")[1],
-						icon: list[i].icon
-					});
-				}
-				role_arr.push({
-					url: j_item.url,
-					icon: j_item.icon
-
-				});
-				// button权限赋值存起来
-				const k_item = j_item.buttonList;
-				for (const k in k_item) {
-					if (k_item[k].url) {
-						button_arr.push(lowerCase(k_item[k].url));
-					}
-				}
-			}
-			const i_item_c = j_item.children;
-			// 循环3级列表
-			for (const z in i_item_c) {
-				const z_item = i_item_c[z];
-				if (z_item.url) {
-					role_arr.push({
-						url: z_item.url,
-						icon: z_item.icon
-
-					});
-				}
-			}
-		}
-	}
-	return { role_arr, button_arr };
+  const time_result = format.replace(/(yy){1,2}|m{1,2}|d{1,2}|h{1,2}|i{1,2}|s{1,2}/gi, (item) => {
+    switch (item.toUpperCase()) {
+      case 'YY':
+        return String(year).substr(2,2);
+      case 'YYYY':
+        return year;
+      case 'M':
+        return month;
+      case 'MM':
+        return transform(month);
+      case 'D':
+        return day;
+      case 'DD':
+        return transform(day);
+      case 'H':
+        return hour;
+      case 'HH':
+        return transform(hour);
+      case 'I':
+        return min;
+      case 'II':
+        return transform(min)
+      case 'S':
+        return sec;
+      case 'SS':
+        return transform(sec);
+    }
+  })
+  return time_result
 }

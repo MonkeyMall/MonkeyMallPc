@@ -1,0 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+$mult-color: #333333; //主要文字、标题 rgba(51, 51, 51, 1)
+$mult-color-inverse: #fff; //反色
+$mult-color-grey: #999; //辅助灰色，rgba(153, 153, 153, 1);
+$mult-color-placeholder: #FC515F; // 强调文字颜色 rgba(252, 81, 95, 1)
+$mult-color-tag-1: #FF8D1A; // rgba(255, 141, 26, 1);
+$mult-color-tag-2: #3568F5; // rgba(53, 104, 245, 1);
+$mult-color-tag-3: #00baad; // rgba(0, 186, 173, 1);
+$mult-color-tag-4: #e05fe9; // rgba(224, 95, 233, 1);
+$mult-color-disable: #c0c0c0;
+$mult-color-blank: #000000; // rgba(0, 0, 0, 1);

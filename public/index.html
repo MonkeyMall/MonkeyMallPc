@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+  <link rel="icon" href="https://www.wm-imotor.com/img/public/favicon.ico" type="image/x-icon">
+<!--    <link rel="stylesheet" href="https://cos-data.wm-imotor.com/website/plugin/animate.min.css">-->
+  <title>小宋模板</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <!-- 使用CDN的CSS文件 -->
+  <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.css) { %>
+    <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" />
+    <% } %>
+      <!-- 使用CDN的JS文件 -->
+      <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
+        <script type="text/javascript" src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+        <% } %>
+    <!--统计js growing-->
+<!--    <script src="https://assets.giocdn.com/2.1/gio.js"></script>
+    <% if (process.env.NODE_ENV!='production') { %>
+      <script src="https://apptest.wm-imotor.com/statistics/tongji-v2.js"></script>
+      <% }else{ %>
+      <script src="https://www.wm-imotor.com/statistics/tongji-v2.js"></script>
+      <% }%>-->
+    <script>
+        if(window.location.pathname.indexOf('index.html') > -1) {
+            window.location.replace(window.location.href.replace('index.html', ''))
+        }
+    </script>
+
+    <!-- End GrowingIO Analytics code version: 2.1 -->
+    <script src="https://at.alicdn.com/t/font_2795751_hleubhxjlit.js"></script>
+    <!-- <script src="https://assets.giocdn.com/2.1/gio.js"></script> -->
+    <script src="https://api.map.baidu.com/api?v=2.0&ak=LkUm164i6e51HenQPWxU8Nb29tc0Psyl"></script>
+    <script
+      src="https://api.map.baidu.com/getscript?v=2.0&ak=LkUm164i6e51HenQPWxU8Nb29tc0Psyl&services=&t=20210803154751"></script>
+
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but vue-cli-config doesn't work properly without JavaScript
+      enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+<!--<script src="https://cos-data.wm-imotor.com/website/plugin/wow.js"></script>-->
+</body>
+
+</html>
