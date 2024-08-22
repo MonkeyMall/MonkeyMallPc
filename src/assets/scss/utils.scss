@@ -1,4 +1,121 @@
 @import "./config.scss";
+@font-face {
+  font-family: "cl-iconfont"; /* Project id 3254019 */
+  src: url('//at.alicdn.com/t/c/font_3254019_h02ghb7ckt5.woff2?t=1691864294356') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3254019_h02ghb7ckt5.woff?t=1691864294356') format('woff'),
+       url('//at.alicdn.com/t/c/font_3254019_h02ghb7ckt5.ttf?t=1691864294356') format('truetype');
+}
+
+.cl-iconfont {
+  font-family: "cl-iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cl-icon-back:before {
+  content: "\e7e0";
+}
+
+.cl-icon-refresh:before {
+  content: "\e6a4";
+}
+
+.cl-icon-home:before {
+  content: "\e6b8";
+}
+
+.cl-icon-design:before {
+  content: "\e6c0";
+}
+
+.cl-icon-iot:before {
+  content: "\e607";
+}
+
+.cl-icon-amount:before {
+  content: "\e615";
+}
+
+.cl-icon-menu:before {
+  content: "\e600";
+}
+
+.cl-icon-phone:before {
+  content: "\e603";
+}
+
+.cl-icon-monitor:before {
+  content: "\e69e";
+}
+
+.cl-icon-dept:before {
+  content: "\e7b8";
+}
+
+.cl-icon-dict2:before {
+  content: "\e651";
+}
+
+.cl-icon-track:before {
+  content: "\e610";
+}
+
+.cl-icon-earth:before {
+  content: "\e613";
+}
+
+.cl-icon-map:before {
+  content: "\e614";
+}
+
+.cl-icon-data:before {
+  content: "\e8c6";
+}
+
+.cl-icon-fx:before {
+  content: "\e639";
+}
+
+.cl-icon-params:before {
+  content: "\e601";
+}
+
+.cl-icon-del:before {
+  content: "\e61e";
+}
+
+.cl-icon-db:before {
+  content: "\e687";
+}
+
+.cl-icon-dict:before {
+  content: "\e621";
+}
+
+.cl-icon-device:before {
+  content: "\e88d";
+}
+
+.cl-icon-user:before {
+  content: "\e7ea";
+}
+
+.cl-icon-exit:before {
+  content: "\e88c";
+}
+
+.cl-icon-fold:before {
+  content: "\e605";
+}
+
+.cl-icon-unfold:before {
+  content: "\e60a";
+}
+
+
+
 .icon {
   width: 1em; height: 1em;
   vertical-align: -0.15em;

@@ -1,5 +1,5 @@
 <template>
-  <ContainerLayout :isHeader="true" :isFooter="true">
+  <ContainerLayout :isHeader="false" :isFooter="false">
     <template slot="main">
       <MB v-if="isMobile()" :list="list"></MB>
       <PC v-else :list="list"></PC>
@@ -13,7 +13,7 @@ import PC from "./components/pc";
 import MB from "./components/mb";
 import {banner} from '@/api/banner'
 export default {
-  name: "Home",
+  name: "Login",
   components: {
     ContainerLayout,
     PC,

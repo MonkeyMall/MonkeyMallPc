@@ -56,10 +56,19 @@ const router = new Router({
       }
     },
     {
-      path: "/about1",
-      name: "about1",
-      component: () => import("./views/About1.vue")
-    }
+      path: "/login",
+      name: "login",
+      component: () => import("./views/Login/Index.vue"),
+      meta: {
+        name: 'login',
+        title: "登录",
+        type: "登录，社区，调侃，社会现状，失业人员",
+        headline: "猿猴社区",
+        keywords: "登录，社区，调侃，社会现状，失业人员",
+        description:
+          "登录，社区，调侃，社会现状，失业人员，搜索公司，入职闭坑"
+      }
+    },
   ]
 });
 router.beforeEach((to, from, next) => {
