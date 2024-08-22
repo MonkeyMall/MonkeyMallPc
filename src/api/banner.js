@@ -3,6 +3,7 @@ import config from "@/config";
 //
 export const urlMap = {
   companyList: "/api/company/list",
+  ridiculeList: "/api/ridicule/list",
 };
 // console.log('环境', process.env)
 const BASE = process.env.NODE_ENV === 'development' ? config.BASE_API_BANNER : process.env.VUE_APP_BASE_API_BANNER
@@ -13,9 +14,18 @@ Object.keys(urlMap).forEach(key => {
 });
 
 export function companyList(params) {
-    return request({
-        url: urlMap['companyList'],
-        method: "get",
-        params
-    });
+  return request({
+      url: urlMap['companyList'],
+      method: "get",
+      params
+  });
+}
+
+// 侃言列表
+export function getRidiculeList(params) {
+  return request({
+    url: urlMap['ridiculeList'],
+    method: 'get',
+    params
+  })
 }

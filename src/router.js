@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home/Home.vue";
+import Ridicule from "./views/ridicule/Index.vue";
 
 Vue.use(Router);
 /*const originalPush = Router.prototype.push;
@@ -17,18 +18,42 @@ const router = new Router({
       name: "home",
       component: Home,
       meta: {
+        name: 'home',
         title: "首页",
-        type: "品牌宣传",
-        headline: "小宋模板官网",
-        keywords: "小宋, 小宋模板,小宋模板官网,智能汽车",
+        type: "搜索公司，入职闭坑",
+        headline: "猿猴社区",
+        keywords: "搜索公司，入职闭坑",
         description:
-          "小宋模板科技集团（WM Motor）成立于2015年，公司名字取自德语世界冠军（Weltmeister）。作为扎根于中国的硬科技创新代表，小宋模板自创立之初便制定了明确的集团发展“三步走”战略。小宋模板始终秉持”科技普惠“的初心，以“用得爽、用得起”的产品和服务，让每个中国家庭都拥有属于自己的新能源智能出行生活。"
+          "搜索公司，入职闭坑"
+      }
+    },
+    {
+      path: "/ridicule",
+      name: "ridicule",
+      component: Ridicule,
+      meta: {
+        name: 'ridicule',
+        title: "侃言",
+        type: "社区，调侃，社会现状，失业人员",
+        headline: "猿猴社区",
+        keywords: "社区，调侃，社会现状，失业人员",
+        description:
+          "搜索公司，入职闭坑"
       }
     },
     {
       path: "/about",
       name: "about",
-      component: () => import("./views/About.vue")
+      component: () => import("./views/About/Index.vue"),
+      meta: {
+        name: 'about',
+        title: "关于我们",
+        type: "社区，调侃，社会现状，失业人员",
+        headline: "猿猴社区",
+        keywords: "社区，调侃，社会现状，失业人员",
+        description:
+          "搜索公司，入职闭坑"
+      }
     },
     {
       path: "/about1",

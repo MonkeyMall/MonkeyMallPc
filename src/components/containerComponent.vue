@@ -73,6 +73,7 @@ export default {
 <style scoped>
 .main-pc {
   overflow-x: hidden;
+  background: #f5f6f9;
 }
 .main-mb {
   margin-top: 100px;

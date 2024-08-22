@@ -1,37 +1,51 @@
 <template>
-  <div class="about">
-    <h1>This is an about page <span>111</span></h1>
-    <div @click="goAbout1">点击跳转</div>
-  </div>
+  <ContainerLayout :isHeader="true" :isFooter="true">
+    <template slot="main">
+      <MB v-if="isMobile()" :list="list"></MB>
+      <PC v-else :list="list"></PC>
+    </template>
+  </ContainerLayout>
 </template>
+
 <script>
+import ContainerLayout from "@/components/containerComponent";
+import PC from "./components/pc";
+import MB from "./components/mb";
+import {banner} from '@/api/banner'
 export default {
-  name: "About",
+  name: "Home",
   components: {
+    ContainerLayout,
+    PC,
+    MB
   },
   data() {
     return {
-      
+      map: new Map ([
+          ['zh', 1],
+          ['en', 2]
+      ]),
+      list: []
     };
   },
   created() {
+    this.onBannerList()
   },
   mounted() {},
   computed: {},
   methods: {
-    goAbout1() {
-      this.$router.push({
-        name: "About1"
-      });
+    async onBannerList() {
+      const params = {
+        platform: this.isMobile() ? 'mb' : 'pc',
+        language: this.map.get(this.lang)
+      }
+      const {code,data} = await banner(params)
+      console.log(code,data)
+      if(code === 1) {
+        this.list = data
+      }
     }
   }
 };
 </script>
-<style lang="scss" scoped>
-h1 {
-  color: #333;
-  span {
-    color: green;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

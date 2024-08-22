@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <ul>
+    <ul class="web-left">
       <li v-for="(item, index) in list" :key="index">
         <img :src="item.logo || require('@static/imgs/yuan.png')" alt="" class="c-logo">
         <div>
@@ -57,6 +57,7 @@ export default {
   gap: 20px;
   ul {
     flex: 1;
+    
     li {
       display: flex;
       gap: 20px;
@@ -68,6 +69,7 @@ export default {
       margin-bottom: 20px;
       border-radius: 4px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+      background: #fff;
       .c-logo {
         width: 50px;
         height: 50px;
@@ -91,6 +93,7 @@ export default {
   .web-right {
     width: 240px;
     min-height: 100%;
+    background: #fff;
   }
 }
 </style>

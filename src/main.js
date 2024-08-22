@@ -9,7 +9,7 @@ import common from "@/utils/index";
 import "animate.css";
 // import moment from "moment";
 import "moment/locale/zh-cn";
-import "@/assets/scss/utils.scss";
+import "@scss/utils.scss";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import animated from "animate.css";

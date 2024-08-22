@@ -11,33 +11,13 @@
   <title>小宋模板</title>
   <meta name="viewport"
     content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-  <!-- 使用CDN的CSS文件 -->
-  <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.css) { %>
-    <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" />
-    <% } %>
-      <!-- 使用CDN的JS文件 -->
-      <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
-        <script type="text/javascript" src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
-        <% } %>
-    <!--统计js growing-->
-<!--    <script src="https://assets.giocdn.com/2.1/gio.js"></script>
-    <% if (process.env.NODE_ENV!='production') { %>
-      <script src="https://apptest.wm-imotor.com/statistics/tongji-v2.js"></script>
-      <% }else{ %>
-      <script src="https://www.wm-imotor.com/statistics/tongji-v2.js"></script>
-      <% }%>-->
     <script>
         if(window.location.pathname.indexOf('index.html') > -1) {
             window.location.replace(window.location.href.replace('index.html', ''))
         }
     </script>
 
-    <!-- End GrowingIO Analytics code version: 2.1 -->
-    <script src="https://at.alicdn.com/t/font_2795751_hleubhxjlit.js"></script>
-    <!-- <script src="https://assets.giocdn.com/2.1/gio.js"></script> -->
-    <script src="https://api.map.baidu.com/api?v=2.0&ak=LkUm164i6e51HenQPWxU8Nb29tc0Psyl"></script>
-    <script
-      src="https://api.map.baidu.com/getscript?v=2.0&ak=LkUm164i6e51HenQPWxU8Nb29tc0Psyl&services=&t=20210803154751"></script>
+    <script src="https://at.alicdn.com/t/c/font_4602016_fzio5y012e.js"></script>
 
 </head>
 

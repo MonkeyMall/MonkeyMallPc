@@ -17,10 +17,10 @@
         </div>
       </div>
       <ul>
-        <li>首页</li>
-        <li>论坛</li>
-        <li>积分商城</li>
-        <li>关于我们</li>
+        <li @click="onJump('/', 'router')" :class="[$route.meta.name == 'home' ? 'active' : '']">首页</li>
+        <li @click="onJump('/ridicule', 'router')" :class="[$route.meta.name == 'ridicule' ? 'active' : '']">论坛</li>
+        <li @click="onJump('', 'router')">积分商城</li>
+        <li @click="onJump('/about', 'router')" :class="[$route.meta.name == 'about' ? 'active' : '']">关于我们</li>
       </ul>
     </div>
   </div>
@@ -33,11 +33,15 @@ export default {
   name: "WebMenu",
   data() {
     return {
-      input: ''
+      input: '',
+      tabName: ''
     };
   },
   computed: {
     
+  },
+  created() {
+    console.log('路由信息：', this.$route);
   },
   methods: {
     onJump(url, type) {
@@ -112,6 +116,9 @@ $mult-color-blank: #000000; // rgba(0, 0, 0, 1);
       gap: 30px;
       li {
         cursor: pointer;
+        &.active {
+          color: $mult-color-tag-3;
+        }
         &:hover {
           color: $mult-color-tag-3;
         }
