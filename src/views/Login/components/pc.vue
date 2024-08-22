@@ -1,6 +1,73 @@
 <template>
 	<div class="page-login">
-		123
+		<div class="box">
+			<!-- <div class="logo">
+				<img src="/logo.png" alt="Logo" />
+				<div class="name">
+          ceshicsasda
+				</div>
+			</div> -->
+
+			<p class="desc">快速开发后台权限管理系统</p>
+
+			<div class="form">
+				<el-form label-position="top" class="form">
+					<el-form-item label="用户名">
+						<input
+							v-model="form.username"
+							placeholder="请输入用户名"
+							maxlength="20"
+							type="text"
+							:readonly="readonly"
+							autocomplete="off"
+							@focus="readonly = false"
+						/>
+					</el-form-item>
+
+					<el-form-item label="密码">
+						<input
+							v-model="form.password"
+							type="password"
+							placeholder="请输入密码"
+							maxlength="20"
+							autocomplete="off"
+						/>
+					</el-form-item>
+
+					<!-- <el-form-item label="验证码">
+						<div class="row">
+							<input
+								v-model="form.verifyCode"
+								placeholder="图片验证码"
+								maxlength="4"
+								@keyup.enter="toLogin"
+							/>
+
+							<pic-captcha
+								:ref="setRefs('picCaptcha')"
+								v-model="form.captchaId"
+								@change="
+									() => {
+										form.verifyCode = '';
+									}
+								"
+							/>
+						</div>
+					</el-form-item> -->
+
+					<div class="op">
+						<el-button type="primary" @click="toLogin"
+							>登录</el-button
+						>
+					</div>
+				</el-form>
+			</div>
+		</div>
+
+		<div class="bg">
+			<cl-svg name="bg"></cl-svg>
+		</div>
+		<a href="https://cool-js.com" class="copyright"> Copyright © COOL </a>
 	</div>
 </template>
 
@@ -51,8 +118,8 @@ $color: #2c3142;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
-	width: 100%;
+	width: 100vw;
+	height: 100vh;
 	position: relative;
 	background-color: #fff;
 	color: $color;
@@ -133,6 +200,7 @@ $color: #2c3142;
 
 			:deep(.el-form) {
 				.el-form-item {
+          display: flex;
 					margin-bottom: 20px;
 				}
 

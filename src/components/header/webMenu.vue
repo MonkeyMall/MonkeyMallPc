@@ -16,12 +16,15 @@
           </el-input>
         </div>
       </div>
-      <ul>
-        <li @click="onJump('/', 'router')" :class="[$route.meta.name == 'home' ? 'active' : '']">首页</li>
-        <li @click="onJump('/ridicule', 'router')" :class="[$route.meta.name == 'ridicule' ? 'active' : '']">论坛</li>
-        <li @click="onJump('', 'router')">积分商城</li>
-        <li @click="onJump('/about', 'router')" :class="[$route.meta.name == 'about' ? 'active' : '']">关于我们</li>
-      </ul>
+      <div class="menu">
+        <ul>
+          <li @click="onJump('/', 'router')" :class="[$route.meta.name == 'home' ? 'active' : '']">首页</li>
+          <li @click="onJump('/ridicule', 'router')" :class="[$route.meta.name == 'ridicule' ? 'active' : '']">论坛</li>
+          <li @click="onJump('', 'router')">积分商城</li>
+          <li @click="onJump('/about', 'router')" :class="[$route.meta.name == 'about' ? 'active' : '']">关于我们</li>
+        </ul>
+        <div class="login-btn" @click="onJump('/login', 'router')">登录</div>
+      </div>
     </div>
   </div>
 </template>
@@ -111,16 +114,35 @@ $mult-color-blank: #000000; // rgba(0, 0, 0, 1);
         margin-left: 20px;
       }
     }
-    ul {
+    .menu {
       display: flex;
-      gap: 30px;
-      li {
-        cursor: pointer;
-        &.active {
-          color: $mult-color-tag-3;
+      align-items: center;
+      ul {
+        display: flex;
+        gap: 30px;
+        li {
+          cursor: pointer;
+          &.active {
+            color: $mult-color-tag-3;
+          }
+          &:hover {
+            color: $mult-color-tag-3;
+          }
         }
+      }
+      .login-btn {
+        margin-left: 20px;
+        color: #fff !important;
+        border-radius: 4px;
+        text-align: center;
+        width: 60px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 14px;
+        background-image: linear-gradient(45deg, #37abec, #2466f5);
+        cursor: pointer;
         &:hover {
-          color: $mult-color-tag-3;
+          color: $mult-color-tag-3; 
         }
       }
     }

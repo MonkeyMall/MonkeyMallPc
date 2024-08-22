@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="login">
-      <el-form :model="loginForm" :rules="rules" ref="loginForm" label-width="0" class="login-loginForm">
+      <!-- <el-form :model="loginForm" :rules="rules" ref="loginForm" label-width="0" class="login-loginForm">
         <el-form-item prop="name">
           <el-input v-model="loginForm.name" placeholder="请输入用户名"></el-input>
         </el-form-item>
@@ -9,7 +9,7 @@
           <el-input v-model="loginForm.password" placeholder="请输入密码"></el-input>
         </el-form-item>
       </el-form>
-      <div @click="submitForm('loginForm')" class="submit">登录</div>
+      <div @click="submitForm('loginForm')" class="submit">登录</div> -->
     </div>
   </div>
 </template>
