@@ -3,7 +3,7 @@ function setRem() {
   const width = document.documentElement.clientWidth;
   let size = (width / 750) * 100;
   //低于1200就认为是移动端
-  document.documentElement.style.fontSize = (width > 1200 ? 100 : size) + "px";
+  document.documentElement.style.fontSize = (width > 1200 ? 16 : size) + "px";
 }
 setRem();
 window.addEventListener("resize", setRem);

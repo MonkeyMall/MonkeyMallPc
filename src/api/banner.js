@@ -2,6 +2,7 @@ import request from "@/utils/request";
 import config from "@/config";
 //
 export const urlMap = {
+  userLogin: "/api/user/login",
   companyList: "/api/company/list",
   ridiculeList: "/api/ridicule/list",
 };
@@ -12,6 +13,14 @@ Object.keys(urlMap).forEach(key => {
     urlMap[key] = urlMap[key];
     // urlMap[key] = BASE + urlMap[key];
 });
+
+export function userLogin(params) {
+  return request({
+      url: urlMap['userLogin'],
+      method: "post",
+      data: params
+  });
+}
 
 export function companyList(params) {
   return request({

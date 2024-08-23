@@ -1,91 +1,65 @@
 <template>
 	<div class="page-login">
-		<div class="box">
-			<!-- <div class="logo">
-				<img src="/logo.png" alt="Logo" />
-				<div class="name">
-          ceshicsasda
-				</div>
-			</div> -->
-
-			<p class="desc">快速开发后台权限管理系统</p>
-
-			<div class="form">
-				<el-form label-position="top" class="form">
-					<el-form-item label="用户名">
-						<input
-							v-model="form.username"
-							placeholder="请输入用户名"
-							maxlength="20"
-							type="text"
-							:readonly="readonly"
-							autocomplete="off"
-							@focus="readonly = false"
-						/>
-					</el-form-item>
-
-					<el-form-item label="密码">
-						<input
-							v-model="form.password"
-							type="password"
-							placeholder="请输入密码"
-							maxlength="20"
-							autocomplete="off"
-						/>
-					</el-form-item>
-
-					<!-- <el-form-item label="验证码">
-						<div class="row">
-							<input
-								v-model="form.verifyCode"
-								placeholder="图片验证码"
-								maxlength="4"
-								@keyup.enter="toLogin"
-							/>
-
-							<pic-captcha
-								:ref="setRefs('picCaptcha')"
-								v-model="form.captchaId"
-								@change="
-									() => {
-										form.verifyCode = '';
-									}
-								"
-							/>
-						</div>
-					</el-form-item> -->
-
-					<div class="op">
-						<el-button type="primary" @click="toLogin"
-							>登录</el-button
-						>
-					</div>
-				</el-form>
-			</div>
-		</div>
-
-		<div class="bg">
-			<cl-svg name="bg"></cl-svg>
-		</div>
-		<a href="https://cool-js.com" class="copyright"> Copyright © COOL </a>
+    <div class="login-box">
+      <div class="login-box-left">
+        <p class="wec">微信小程序</p>
+        <p class="des">打开微信扫码体验</p>
+        <div class="qr-code">
+          <img src="@/static/imgs/wechat.jpg" alt="">
+        </div>
+      </div>
+      <div class="box">
+        <p class="desc">猿猴宝宝社区，欢迎您</p>
+        <div class="form">
+          <el-form label-position="top" class="form">
+            <el-form-item label="用户名">
+              <input
+                v-model="form.username"
+                placeholder="请输入用户名"
+                maxlength="20"
+                type="text"
+                :readonly="readonly"
+                autocomplete="off"
+                @focus="readonly = false"
+              />
+            </el-form-item>
+  
+            <el-form-item label="密码">
+              <input
+                v-model="form.password"
+                type="password"
+                placeholder="请输入密码"
+                maxlength="20"
+                autocomplete="off"
+              />
+            </el-form-item>
+            <div class="op">
+              <el-button type="primary" @click="loginFn"
+                >登录</el-button
+              >
+            </div>
+          </el-form>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">
+      晋ICP备2024043727号
+    </p>
 	</div>
 </template>
 
 <script>
 import {
-  companyList
+  userLogin
 } from "@/api/banner";
-import windowRight from "@/components/windowRight/windowRight";
 import { mapMutations } from "vuex";
 
 var that = null;
 export default {
   components: {
-    windowRight
   },
   data() {
     return {
-      title: ['我','我','我','我','我'],
       readonly: false,
       form: {
         username: "",
@@ -95,15 +69,14 @@ export default {
     };
   },
   created() {
-    this.getData()
+    // this.loginFn()
   },
   mounted() {},
   computed: {},
   methods: {
-    async getData() {
-      let {data} = await companyList();
-      this.list = data || []
-      console.log('list:', data);
+    async loginFn() {
+      let data = await userLogin(this.form);
+      console.log('data:', data);
     },
     toLogin() {
     },
@@ -121,152 +94,134 @@ $color: #2c3142;
 	width: 100vw;
 	height: 100vh;
 	position: relative;
-	background-color: #fff;
+	background-color: #b8e5f8;
+  background-image: url(https://static.zhihu.com/heifetz/assets/sign_bg.47eec442.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 	color: $color;
-
-	.bg {
-		position: absolute;
-		left: 0;
-		top: 0;
-		height: 100%;
-		width: 90%;
-		pointer-events: none;
-		transform: rotate(180deg) scaleY(-1);
-
-		.cl-svg {
-			height: 100%;
-			width: 100%;
-			fill: $color;
-		}
-	}
-
-	.copyright {
-		position: absolute;
-		bottom: 15px;
-		left: 0;
-		text-align: center;
-		width: 100%;
-		color: #666;
-		font-size: 14px;
-	}
-
-	.box {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
-		width: 50%;
-		position: absolute;
-		right: 0;
-		top: 0;
-		z-index: 9;
-
-		.logo {
-			height: 50px;
-			margin-bottom: 20px;
-			display: flex;
-			align-items: center;
-
-			img {
-				height: 46px;
-				background-color: $color;
-				border-radius: 50px;
-				border: 3px solid $color;
-				margin-right: 10px;
-			}
-
-			span {
-				display: inline-block;
-				font-size: 38px;
-				font-weight: bold;
-				line-height: 1;
-				letter-spacing: 3px;
-
-				&:nth-child(6) {
-					animation: dou 1s infinite linear;
-				}
-			}
-		}
-
-		.desc {
-			font-size: 15px;
-			letter-spacing: 1px;
-			margin-bottom: 50px;
-		}
-
-		.form {
-			width: 300px;
-
-			:deep(.el-form) {
-				.el-form-item {
+  .login-box {
+    height: 283px;
+    display: flex;
+    background-color: #fff;
+		border-radius: 5px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    .login-box-left {
+      width: 300px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #eee;
+      .wec {
+        color: #373a40;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 23px;
+      }
+      .des {
+        margin-top: 8px;
+        margin-bottom: 24px;
+        color: #373a40;
+        font-size: 14px;
+        line-height: 20px;
+      }
+      .qr-code {
+        width: 120px;
+        height: 120px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .box {
+      width: 300px;
+      height: 100%;
+      padding: 30px;
+      font-size: 12px;
+      .desc {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      ::v-deep .el-form-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        .el-form-item__label {
+          width: 50px;
+          text-align: right;
+          color: #666;
+          margin-bottom: 0;
+          padding: 0;
+        }
+        .el-form-item__content {
+          flex: 1;
           display: flex;
-					margin-bottom: 20px;
-				}
-
-				.el-form-item__label {
-					padding-left: 5px;
-				}
-
-				input {
-					height: 45px;
-					width: 100%;
-					box-sizing: border-box;
-					font-size: 17px;
-					border: 0;
-					border-radius: 0;
-					background-color: #f8f8f8;
-					padding: 0 15px;
-					border-radius: 6px;
-					position: relative;
-
-					&:-webkit-autofill {
-						box-shadow: none;
-						-webkit-box-shadow: 0 0 0 1000px #f8f8f8 inset;
-						box-shadow: 0 0 0 1000px #f8f8f8 inset;
-					}
-
-					&::placeholder {
-						font-size: 14px;
-					}
-				}
-
-				.row {
-					display: flex;
-					align-items: center;
-					width: 100%;
-					position: relative;
-
-					.pic-captcha {
-						position: absolute;
-						right: 0;
-						top: 0;
-					}
-				}
-			}
-		}
-
-		.op {
-			display: flex;
-			justify-content: center;
-			margin-top: 40px;
-
-			:deep(.el-button) {
-				height: 45px;
-				width: 100%;
-				font-size: 15px;
-				border-radius: 6px;
-				letter-spacing: 1px;
-			}
-		}
-	}
+          align-items: center;
+          input {
+            flex: 1;
+            height: 20px; 
+            line-height: 20px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            outline: none;
+            &:focus {
+              border-color: #409eff;
+            }
+          }
+        }
+      }
+      .op {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      ::v-deep .el-form-item__content input {
+        flex: 1;
+        height: 20px; 
+        line-height: 20px;
+      }
+      ::v-deep .el-button {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+.copyright {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  color: #666;
+  font-size: 14px;
+}
+.custom-shape-divider-top-1724377286 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
 }
 
-@media screen and (max-width: 1024px) {
-	.page-login {
-		.box {
-			width: 100%;
-		}
-	}
+.custom-shape-divider-top-1724377286 svg {
+    position: relative;
+    display: block;
+    width: calc(180% + 1.3px);
+    height: 115px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1724377286 .shape-fill {
+  fill: #c1e6f2;
 }
 </style>
