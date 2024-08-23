@@ -14,11 +14,11 @@ Object.keys(urlMap).forEach(key => {
     // urlMap[key] = BASE + urlMap[key];
 });
 
-export function userLogin(params) {
+export function userLogin(para) {
   return request({
-      url: urlMap['userLogin'],
-      method: "post",
-      data: params
+    url: urlMap["userLogin"],
+    method: "post",
+    data: para
   });
 }
 

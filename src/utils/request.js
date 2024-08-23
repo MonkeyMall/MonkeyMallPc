@@ -11,6 +11,7 @@ service.defaults.headers["Content-Type"] = "application/x-www-form-urlencoded";
 service.interceptors.request.use(
   config => {
     config.headers.platform = "PC";
+    // config.headers['Content-Type'] = "application/x-www-form-urlencoded";
     // if (config.headers.responseType) {
     //   config.responseType = config.headers.responseType;
     // }
