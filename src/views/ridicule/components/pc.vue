@@ -55,6 +55,11 @@
             </li>
           </ul>
         </div>
+        <div class="demo-drawer__footer">
+          <div class="pl-input">
+            <el-input v-model="input" placeholder="理性发言，友善互动"></el-input>
+          </div>
+        </div>
       </el-drawer>
     </div>
   </div>
@@ -126,6 +131,8 @@ export default {
 
 <style lang="scss" scoped>
 .PC-drawer {
+  position: relative;
+  height: 100vh;
   ::v-deep .el-drawer__header {
     font-size: 18px;
     font-weight: 600;
@@ -141,6 +148,10 @@ export default {
       margin: 20px;
       color: #000;
       font-size: 16px;
+    }
+    .pl-input {
+      padding: 10px 20px;
+      background: #fff;
     }
     ul {
       li {
