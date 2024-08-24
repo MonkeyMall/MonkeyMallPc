@@ -19,7 +19,7 @@
 <script>
 import {
   companyList
-} from "@/api/banner";
+} from "@/api/index";
 import windowRight from "@/components/windowRight/windowRight";
 import { mapMutations } from "vuex";
 

@@ -17,7 +17,7 @@
 <script>
 import {
   companyList
-} from "@/api/banner";
+} from "@/api/index";
 import { mapMutations } from "vuex";
 
 var that = null;

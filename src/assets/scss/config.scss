@@ -15,3 +15,11 @@ $mult-color-tag-3: #00baad; // rgba(0, 186, 173, 1);
 $mult-color-tag-4: #e05fe9; // rgba(224, 95, 233, 1);
 $mult-color-disable: #c0c0c0;
 $mult-color-blank: #000000; // rgba(0, 0, 0, 1);
+
+
+.overHidden {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}

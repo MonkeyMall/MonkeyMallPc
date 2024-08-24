@@ -51,7 +51,7 @@
 <script>
 import {
   userLogin
-} from "@/api/banner";
+} from "@/api/index";
 import { mapState, mapMutations, mapActions } from "vuex";
 
 var that = null;
@@ -62,8 +62,8 @@ export default {
     return {
       readonly: false,
       form: {
-        username: "",
-        password: "",
+        username: "songyanbin",
+        password: "admin123",
       },
       list: []
     };
@@ -78,6 +78,9 @@ export default {
     async loginFn() {
       let data = await this.user_login(this.form);
       console.log('登录1', data)
+      if (data.code == 200) {
+        this.$router.push({ path: "/" });
+      }
     },
     toLogin() {
     },

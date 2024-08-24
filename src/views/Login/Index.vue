@@ -11,7 +11,7 @@
 import ContainerLayout from "@/components/containerComponent";
 import PC from "./components/pc";
 import MB from "./components/mb";
-import {banner} from '@/api/banner'
+import {banner} from '@/api/index'
 export default {
   name: "Login",
   components: {

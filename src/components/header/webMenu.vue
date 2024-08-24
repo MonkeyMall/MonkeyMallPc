@@ -7,7 +7,7 @@
           猿猴宝宝社区<br/>
           <span>- 共享找工作 -</span>
         </div>
-        <div class="search">
+        <div class="search" v-if="isSearch">
           <el-input
             placeholder="请输入您要搜索的公司名称"
             v-model="input"
@@ -23,7 +23,33 @@
           <li @click="onJump('', 'router')">积分商城</li>
           <li @click="onJump('/about', 'router')" :class="[$route.meta.name == 'about' ? 'active' : '']">关于我们</li>
         </ul>
-        <div class="login-btn" @click="onJump('/login', 'router')">登录</div>
+        <div v-if="userInfo && userInfo.username" class="user-info">
+          <el-dropdown>
+            <span class="el-dropdown-link">
+              {{ userInfo.username }}
+              <i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>
+                <i class="el-icon-house"></i>
+                个人中心
+              </el-dropdown-item>
+              <el-dropdown-item>
+                <i class="el-icon-document-add"></i>
+                创建公司
+              </el-dropdown-item>
+              <el-dropdown-item>
+                <i class="el-icon-chat-dot-square"></i>
+                创建调侃
+              </el-dropdown-item>
+              <el-dropdown-item>
+                <i class="el-icon-house"></i>
+                退出登录
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
+        <div v-else class="login-btn" @click="onJump('/login', 'router')">登录</div>
       </div>
     </div>
   </div>
@@ -31,20 +57,25 @@
 <script>
 import $ from "jquery";
 import { debounce } from "@/utils/deviceType";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   name: "WebMenu",
   data() {
     return {
       input: '',
-      tabName: ''
+      tabName: '',
+      isSearch: false
     };
   },
   computed: {
-    
+    ...mapState(['userInfo'])
   },
   created() {
     console.log('路由信息：', this.$route);
+    if (this.$route.meta.name == 'home') {
+      this.isSearch = true
+    }
   },
   methods: {
     onJump(url, type) {
@@ -56,6 +87,9 @@ export default {
         this.$router.push(url);
       }
     },
+    clickTrigger() {
+      
+    }
   }
 };
 </script>
@@ -129,6 +163,10 @@ $mult-color-blank: #000000; // rgba(0, 0, 0, 1);
             color: $mult-color-tag-3;
           }
         }
+      }
+      .user-info {
+        margin-left: 30px;
+        cursor: pointer;
       }
       .login-btn {
         margin-left: 20px;

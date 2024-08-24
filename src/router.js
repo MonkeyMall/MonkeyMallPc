@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home/Home.vue";
 import Ridicule from "./views/ridicule/Index.vue";
+import store from "./store";
 
 Vue.use(Router);
 /*const originalPush = Router.prototype.push;
@@ -71,7 +72,9 @@ const router = new Router({
     },
   ]
 });
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
+  console.log('刷新执行')
+  store.dispatch("get_user_info");
   const oldKeywords = document.getElementsByName("keywords").item(0);
   if (oldKeywords) {
     oldKeywords.remove();

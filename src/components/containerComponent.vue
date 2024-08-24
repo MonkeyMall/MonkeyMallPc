@@ -4,8 +4,8 @@
     <div :class="[platform === 'pc' ? 'main-pc' : 'main-mb']">
       <slot name="main"></slot>
     </div>
-    <!-- <Footer v-if="isFooter" />
     <FixedWindow v-if="!isMobile() && isShow" />
+    <!-- <Footer v-if="isFooter" />
     <IframeContainer/>  -->
   </div>
 </template>
