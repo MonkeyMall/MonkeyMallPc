@@ -52,7 +52,7 @@
 import {
   userLogin
 } from "@/api/banner";
-import { mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 var that = null;
 export default {
@@ -74,9 +74,10 @@ export default {
   mounted() {},
   computed: {},
   methods: {
+    ...mapActions(["user_login"]),
     async loginFn() {
-      let data = await userLogin(this.form);
-      console.log('data:', data);
+      let data = await this.user_login(this.form);
+      console.log('登录1', data)
     },
     toLogin() {
     },

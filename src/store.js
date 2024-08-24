@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { userLogin } from '@/api/banner'
 
 Vue.use(Vuex);
 
@@ -32,7 +33,25 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    update_location({ commit }, data) {
+    user_login({ commit }, userInfo) {
+      console.log('走了')
+      const username = userInfo.username.trim()
+      const password = userInfo.password
+      const code = userInfo.code
+      const uuid = userInfo.uuid
+      return new Promise((resolve, reject) => {
+        userLogin(userInfo).then(res => {
+          let data = res.data
+          console.log('登录参数', res)
+          // setToken(data.access_token)
+          // commit('SET_TOKEN', data.access_token)
+          // setExpiresIn(data.expires_in)
+          // commit('SET_EXPIRES_IN', data.expires_in)
+          resolve(res.data)
+        }).catch(error => {
+          reject(error)
+        })
+      })
       commit("UPDATE_LOCATION", data);
     },
     update_customer_service({ commit }, data) {

@@ -6,7 +6,11 @@ const service = axios.create({
   timeout: 20000 // 请求超时时间
 });
 // service.defaults.headers["Content-Type"] = "multipart/form-data";
-service.defaults.headers["Content-Type"] = "application/x-www-form-urlencoded";
+// service.defaults.headers["Content-Type"] = "application/x-www-form-urlencoded";
+service.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
+service.defaults.headers['Access-Control-Allow-Origin'] = '*'
+service.defaults.headers['Access-Control-Allow-Methods'] = 'PUT, POST, GET, DELETE'
+service.defaults.headers['Access-Control-Allow-Private-Network'] = true
 // request拦截器
 service.interceptors.request.use(
   config => {
