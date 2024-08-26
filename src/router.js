@@ -29,6 +29,19 @@ const router = new Router({
       }
     },
     {
+      path: "/componyInfo",
+      name: "componyInfo",
+      component: () => import("./views/Compony/Index.vue"),
+      meta: {
+        name: 'home',
+        title: "公司详情",
+        type: "公司详情，搜索公司，入职闭坑",
+        headline: "猿猴社区",
+        keywords: "公司详情，搜索公司，入职闭坑",
+        description: "公司详情，搜索公司，入职闭坑"
+      }
+    },
+    {
       path: "/ridicule",
       name: "ridicule",
       component: Ridicule,

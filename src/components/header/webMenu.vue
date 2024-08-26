@@ -2,10 +2,12 @@
   <div class="pc" id="PC_MENU">
     <div class="header-menu">
       <div class="logo">
-        <img src="@/static/imgs/logo.png" alt="">
-        <div class="text">
-          猿猴宝宝社区<br/>
-          <span>- 共享找工作 -</span>
+        <div class="logo-img" @click="onJump('/', 'router')">
+          <img src="@/static/imgs/logo.png" alt="">
+          <div class="text">
+            猿猴宝宝社区<br/>
+            <span>- 共享找工作 -</span>
+          </div>
         </div>
         <div class="search" v-if="isSearch">
           <el-input
@@ -128,6 +130,12 @@ $mult-color-blank: #000000; // rgba(0, 0, 0, 1);
       display: flex;
       align-items: center;
       gap: 5px;
+      .logo-img {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+      }
       img {
         width: 40px;
         height: 40px;

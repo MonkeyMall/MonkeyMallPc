@@ -92,3 +92,21 @@ export function transferTime(time, format='yyyy-mm-dd') {
   })
   return time_result
 }
+
+// 字典转化
+import dictData from '@/utils/dictData.js'
+export function dictHx(value, type) {
+  if (!value) return ''
+  let selectItemArray = dictData[type].filter(item => {return item.value == value})
+  if (selectItemArray.length > 0) {
+    return selectItemArray[0].label
+  } else {
+    return '其他'
+  }
+}
+
+// 用户名前后两位显示*
+export function usernameFormat(username) {
+  if (!username) return ''
+  return username.substr(0, 3) + '****' + username.substr(-2)
+}

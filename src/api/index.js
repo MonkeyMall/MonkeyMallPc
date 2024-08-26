@@ -65,3 +65,21 @@ export function addCommentRidicule(params) {
 		data: params
 	})
 }
+
+// 公司详情
+export function getComponyInfo(query) {
+  return request({
+    url: '/api/compony/info',
+    method: 'get',
+    params: query
+  })
+}
+
+// 公司评论列表
+export function getCommentsComponyList(query) {
+  return request({
+    url: '/api/commentsCompony/list',
+    method: 'get',
+    params: query
+  })
+}

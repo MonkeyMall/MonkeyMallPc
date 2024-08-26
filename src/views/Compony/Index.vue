@@ -11,8 +11,9 @@
 import ContainerLayout from "@/components/containerComponent";
 import PC from "./components/pc";
 import MB from "./components/mb";
+import {banner} from '@/api/index'
 export default {
-  name: "Home",
+  name: "About",
   components: {
     ContainerLayout,
     PC,
@@ -28,6 +29,7 @@ export default {
     };
   },
   created() {
+    this.onBannerList()
   },
   mounted() {},
   computed: {},

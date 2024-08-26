@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <ul class="web-left">
-      <li v-for="(item, index) in list" :key="index">
+      <li v-for="(item, index) in list" :key="index" @click="goComponyInfo(item._id)">
         <img :src="item.logo || require('@static/imgs/yuan.png')" alt="" class="c-logo">
         <div>
           <p class="name">{{ item.name }}</p>
@@ -9,6 +9,13 @@
           <p>评论数：0</p>
         </div>
       </li>
+      <div class="pageFy">
+        <pageNum 
+          :currentPage="currentPage" 
+          :total="total" 
+          @changePage="handleCurrentChange"
+        />
+      </div>
     </ul>
     <div class="web-right">
       <windowRight />
@@ -21,17 +28,25 @@ import {
   companyList
 } from "@/api/index";
 import windowRight from "@/components/windowRight/windowRight";
-import { mapMutations } from "vuex";
+import pageNum from "@/components/pageNum/index.vue";
+
 
 var that = null;
 export default {
   name: "Home",
   components: {
-    windowRight
+    windowRight,
+    pageNum
   },
   data() {
     return {
-      list: []
+      list: [],
+      currentPage: 1,
+      total: 0,
+      query: {
+        page: 1,
+        reffer: 'pc'
+      }
     };
   },
   created() {
@@ -40,10 +55,29 @@ export default {
   mounted() {},
   computed: {},
   methods: {
-    async getData() {
-      let {data} = await companyList();
+    async getData(type) {
+      let {data, count} = await companyList(this.query);
       this.list = data || []
+      this.total = count
       console.log('list:', data);
+    },
+    goComponyInfo(id) {
+      // this.$router.push(`/componyInfo`);
+      // this.$router.push({
+      //   path: `/companyInfo/${id}`
+      // })
+      this.$router.push({
+        path: "/componyInfo",
+        query: {
+          id: id
+        }
+      });
+
+    },
+    handleCurrentChange(val) {
+      console.log('子组件再调用父组件的方法:', val);
+      this.query.page = val
+      this.getData()
     }
   }
 };
@@ -57,7 +91,6 @@ export default {
   gap: 20px;
   ul {
     flex: 1;
-    
     li {
       display: flex;
       gap: 20px;
@@ -65,11 +98,12 @@ export default {
       align-items: center;
       font-size: 14px;
       border: 1px solid #efefef;
-      padding: 10px;
+      padding: 20px;
       margin-bottom: 20px;
       border-radius: 4px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
       background: #fff;
+      cursor: pointer;;
       .c-logo {
         width: 50px;
         height: 50px;

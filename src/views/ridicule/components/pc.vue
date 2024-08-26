@@ -33,13 +33,10 @@
         </div>
       </li>
       <div class="pageFy">
-        <el-pagination
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page="currentPage"
-          layout="total, prev, pager, next, jumper"
-          :total="total">
-        </el-pagination>
+        <pageNum 
+          :currentPage="currentPage" 
+          :total="total" 
+        />
       </div>
     </ul>
     <!-- <div class="web-right">
@@ -102,13 +99,15 @@ import {
   addCommentRidicule
 } from "@/api/index";
 import windowRight from "@/components/windowRight/windowRight";
+import pageNum from "@/components/pageNum/index.vue";
 import { mapMutations } from "vuex";
 
 var that = null;
 export default {
   name: "Ridicule",
   components: {
-    windowRight
+    windowRight,
+    pageNum
   },
   data() {
     return {
@@ -205,12 +204,6 @@ export default {
           contentId: item._id
         })
       }
-    },
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
     }
   }
 };
