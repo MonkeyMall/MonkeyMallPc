@@ -2,10 +2,10 @@
   <div class="ridicule">
     <ul class="web-left">
       <li v-for="(item, index) in list" 
-          :key="index" 
-          :class="[lookIndex === index ? 'active' : '']"
-          @click="tapBarItem('click', item._id, index)"
+        :key="index" 
+        :class="[lookIndex === index ? 'active' : '']"
       >
+      <!-- @click="tapBarItem('click', item._id, index)" -->
         <p class="title">{{ item.title }}</p>
         <div :class="['content', lookIndex == index ? 'active' : '']">
           <span v-html="item.content.length > 200 && !item.isShowMore ? item.content.slice(0, 200) + '...' : item.content"></span>
@@ -18,7 +18,13 @@
             </svg>
             436 条评论
           </div>
-          <div class="content-bar-item">
+          <div class="content-bar-item" @click="tapBarItem('pl', item._id, index)">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-31pinglun"></use>
+            </svg>
+            评论
+          </div>
+          <div class="content-bar-item" @click="collenctFn(index)">
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-shoucang1"></use>
             </svg>
@@ -26,10 +32,20 @@
           </div>
         </div>
       </li>
+      <div class="pageFy">
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="currentPage"
+          layout="total, prev, pager, next, jumper"
+          :total="total">
+        </el-pagination>
+      </div>
     </ul>
-    <div class="web-right">
+    <!-- <div class="web-right">
       <windowRight />
-    </div>
+    </div> -->
+    <!-- 评论右弹框 -->
     <div class="PC-drawer" v-if="commentInfo">
       <el-drawer
         :title="commentInfo.count + '条评论'"
@@ -38,7 +54,7 @@
         :before-close="handleClose">
         <div class="pl-list">
           <div class="select-item overHidden" v-html="commentInfo.contentInfo[0].content"></div>
-          <ul>
+          <ul v-if="commentInfo.data && commentInfo.data.length">
             <li v-for="(item, index) in commentInfo.data" :key="index">
               <p class="anthor">
                 <span class="person">{{ item.userId.username }}</span>
@@ -49,15 +65,29 @@
               </p>
               <p class="pl-cons">{{ item.commentContents }}</p>
               <div class="pl-bar">
-                <div class="pl-bar-btn">回复</div>
-                <div class="pl-bar-time">{{ item.startTime }}</div>
+                <div class="pl-bar-btn" @click="hfFn(index)">回复</div>
+                <div class="pl-bar-time" v-time="item.startTime"></div>
+              </div>
+              <div class="hf-input" v-show="item.isInput">
+                <div class="pl-input">
+                  <el-input 
+                    v-model="fhText" 
+                    placeholder="理性发言，友善互动">
+                  </el-input>
+                  <el-button type="primary" @click="submitPlFn('hf', commentInfo, index)">回复</el-button>
+                </div>
               </div>
             </li>
           </ul>
+          <div v-else class="empty">
+            <p>暂无相关评论</p>
+            <p>~快来给作者评论一下吧~</p>
+          </div>
         </div>
         <div class="demo-drawer__footer">
           <div class="pl-input">
-            <el-input v-model="input" placeholder="理性发言，友善互动"></el-input>
+            <el-input v-model="plText" placeholder="理性发言，友善互动"></el-input>
+            <el-button type="primary" @click="submitPlFn('add', commentInfo)">评论</el-button>
           </div>
         </div>
       </el-drawer>
@@ -68,7 +98,8 @@
 <script>
 import {
   getRidiculeList,
-  ridiculeCommentList
+  ridiculeCommentList,
+  addCommentRidicule
 } from "@/api/index";
 import windowRight from "@/components/windowRight/windowRight";
 import { mapMutations } from "vuex";
@@ -84,7 +115,12 @@ export default {
       list: [],
       drawer: false,
       commentInfo: null,
-      lookIndex: ''
+      lookIndex: '',
+      plText: '',
+      fhText: '',
+      id: '', // 当前操作的文章id
+      currentPage: 1,
+      total: 0
     };
   },
   created() {
@@ -93,24 +129,44 @@ export default {
   mounted() {},
   computed: {},
   methods: {
+    // 评论列表
     async getData() {
-      let {data} = await getRidiculeList();
+      let {data, count} = await getRidiculeList();
       data.map(item =>{
         item.isShowMore = false
       })
       this.list = data || []
+      this.total = count
       console.log('list:', data);
     },
+    load() {
+      console.log("加载下一页")
+    },
+    // 内容的评论列表
     async getCommentList(id) {
       let data = await ridiculeCommentList({
         page: 1,
         contentId: id
       });
       console.log('data:', data);
+      data.data.map(item =>{
+        item.isInput = false
+      })
       this.commentInfo = data
     },
+    // 点击阅读更多
     moreFn(index) {
+      this.lookIndex = index
       this.$set(this.list[index], 'isShowMore', !this.list[index].isShowMore)
+    },
+    // 收藏
+    collenctFn(index) {
+
+    },
+    // 点击回复
+    hfFn(index) {
+      this.id = this.commentInfo.data[index]._id
+      this.$set(this.commentInfo.data[index], 'isInput', !this.commentInfo.data[index].isInput)
     },
     tapBarItem(type,id, index) {
       this.lookIndex = index
@@ -124,6 +180,37 @@ export default {
     },
     handleClose(done) {
       done();
+    },
+    // 提交评论、回复的数据
+    async submitPlFn(type, item, index) {
+      let text = '', creatUserId=''
+      if(type === 'add'){
+        text = this.plText
+      }else if(type === 'hf'){
+        text = this.fhText
+        creatUserId = item.data[index].userId._id
+      }
+      console.log('提交', type, item, index)
+        const data = await addCommentRidicule({
+        contentId: item.contentInfo[0]._id,
+        commentContents: text,
+        creatUserId
+      })
+      if (data.code === 200) {
+        this.plText = ''
+        this.fhText = ''
+        this.getData()
+        this.getCommentList({
+          page: 1,
+          contentId: item._id
+        })
+      }
+    },
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
     }
   }
 };
@@ -143,15 +230,42 @@ export default {
     font-size: 14px;
     text-align: left;
   }
+  ::v-deep .demo-drawer__footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+  }
+  .pl-input {
+    display: flex;
+    gap: 10px;
+  }
   .pl-list {
+    margin-bottom: 80px;
     .select-item {
       margin: 20px;
       color: #000;
       font-size: 16px;
     }
-    .pl-input {
-      padding: 10px 20px;
-      background: #fff;
+    ul {
+      li {
+        padding: 10px 0;
+        &:not(:last-child) {
+          border-bottom: 1px solid #f8f8fa;
+        }
+        .anthor {
+          margin-bottom: 5px;
+          font-size: 12px;
+          color: #8491a5;
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          .person {
+            font-size: 15px;
+          }
+        }
+      }
     }
     ul {
       li {
@@ -198,15 +312,28 @@ export default {
             color: #8491a5;
           }
         }
+        .hf-input {
+          margin-top: 5px;
+        }
       }
     } 
+    .empty {
+      text-align: center;
+      padding: 20px;
+      color: #8491a5;
+      margin-top: 60px;
+    }
   }
 }
+
 .ridicule {
   width: 1200px;
   margin: 80px auto;
   display: flex;
   gap: 20px;
+  .pageFy {
+    margin-top: 20px;
+  }
   ul {
     background: #fff;
     padding: 20px;
@@ -246,6 +373,12 @@ export default {
           margin-top: 5px;
           .icon{
             fill: #8491a5;
+          }
+          &:hover {
+            color: rgba(0, 186, 173, .6);
+            .icon{
+              fill: rgba(0, 186, 173, .6);
+            }
           }
         }
       }

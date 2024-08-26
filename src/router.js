@@ -73,8 +73,10 @@ const router = new Router({
   ]
 });
 router.beforeEach(async (to, from, next) => {
-  console.log('刷新执行')
-  store.dispatch("get_user_info");
+  console.log('刷新执行', to, from)
+  if (to.name !== "login") {
+    store.dispatch("get_user_info");
+  }
   const oldKeywords = document.getElementsByName("keywords").item(0);
   if (oldKeywords) {
     oldKeywords.remove();

@@ -48,10 +48,20 @@ export function getRidiculeList(params) {
     params
   })
 }
+
 export function ridiculeCommentList(params) {
   return request({
     url: urlMap['ridiculeCommentList'],
     method: 'post',
     data: params
   })
+}
+
+// 调侃评论
+export function addCommentRidicule(params) {
+	return request({
+		url: "/api/comment/add",
+		method: "post",
+		data: params
+	})
 }

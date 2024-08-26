@@ -55,6 +55,7 @@ export default {
     }
   },
   mounted() {
+    let that = this;
     window.addEventListener("scroll", function() {
       that.isShow = onScroll(200);
     });

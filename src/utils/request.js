@@ -1,7 +1,9 @@
 import axios from "axios";
 import { Message } from 'element-ui';
+import router from '@/router';
+
 // 创建axios实例
-const nocodeList = ["welthub/applet/getActivityQrCode"];
+// const nocodeList = ["welthub/applet/getActivityQrCode"];
 const service = axios.create({
   timeout: 20000 // 请求超时时间
 });
@@ -38,6 +40,7 @@ service.interceptors.response.use(
         type: "warning",
         duration: 3 * 1000
       });
+      router.push({ path: '/login' })
     return Promise.reject(response);
     } else {
       return response.data;

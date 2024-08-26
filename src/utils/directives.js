@@ -51,3 +51,22 @@ Vue.directive("draggable", {
     };
   }
 });
+
+Vue.directive("time", {
+  bind: function(el, binding) {
+    console.log('1122', binding.value)
+    var date = new Date(binding.value);
+    var Y = date.getFullYear() + "-";
+    var M =
+      (date.getMonth() + 1 < 10
+        ? "0" + (date.getMonth() + 1)
+        : date.getMonth() + 1) + "-";
+    var D = (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + " ";
+    var h = date.getHours() + ":";
+    var m = date.getMinutes() + ":";
+    var s = date.getSeconds();
+    el.innerHTML = Y + M + D;
+    // return Y + M + D;
+    // return Y + M + D + h + m + s;
+  }
+});
