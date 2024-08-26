@@ -5,8 +5,7 @@
       <slot name="main"></slot>
     </div>
     <FixedWindow v-if="!isMobile() && isShow" />
-    <!-- <Footer v-if="isFooter" />
-    <IframeContainer/>  -->
+    <!-- <Footer v-if="isFooter" />  -->
   </div>
 </template>
 
@@ -14,7 +13,6 @@
 import Header from "@/components/header/index";
 import Footer from "@/components/footer/index";
 import FixedWindow from "@/components/fixedWindow/index";
-import IframeContainer from "@/components/IframeContainer";
 import { onScroll } from "@/utils/deviceType";
 export default {
   name: "containerComponent",
@@ -22,7 +20,6 @@ export default {
     Header,
     Footer,
     FixedWindow,
-    IframeContainer
   },
   props: {
     isHeader: {
