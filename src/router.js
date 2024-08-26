@@ -70,6 +70,19 @@ const router = new Router({
       }
     },
     {
+      path: "/mine",
+      name: "mine",
+      component: () => import("./views/Mine/Index.vue"),
+      meta: {
+        name: 'mine',
+        title: "个人中心",
+        type: "公司详情，搜索公司，入职闭坑",
+        headline: "猿猴社区",
+        keywords: "公司详情，搜索公司，入职闭坑",
+        description: "公司详情，搜索公司，入职闭坑"
+      }
+    },
+    {
       path: "/login",
       name: "login",
       component: () => import("./views/Login/Index.vue"),

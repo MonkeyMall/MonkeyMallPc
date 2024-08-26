@@ -17,9 +17,9 @@
         />
       </div>
     </ul>
-    <div class="web-right">
+    <!-- <div class="web-right">
       <windowRight />
-    </div>
+    </div> -->
   </div>
 </template>
 

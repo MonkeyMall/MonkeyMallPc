@@ -26,25 +26,25 @@
           <li @click="onJump('/about', 'router')" :class="[$route.meta.name == 'about' ? 'active' : '']">关于我们</li>
         </ul>
         <div v-if="userInfo && userInfo.username" class="user-info">
-          <el-dropdown>
+          <el-dropdown @command="handleCommand">
             <span class="el-dropdown-link">
               {{ userInfo.username }}
               <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>
+              <el-dropdown-item command="mine">
                 <i class="el-icon-house"></i>
                 个人中心
               </el-dropdown-item>
-              <el-dropdown-item>
+              <el-dropdown-item command="addCompany">
                 <i class="el-icon-document-add"></i>
                 创建公司
               </el-dropdown-item>
-              <el-dropdown-item>
+              <el-dropdown-item command="addRidicule">
                 <i class="el-icon-chat-dot-square"></i>
                 创建调侃
               </el-dropdown-item>
-              <el-dropdown-item>
+              <el-dropdown-item command="loginOut">
                 <i class="el-icon-refresh-left"></i>
                 退出登录
               </el-dropdown-item>
@@ -88,6 +88,26 @@ export default {
         document.body.style.overflow = 'auto'
         this.$router.push(url);
       }
+    },
+    handleCommand(type) {
+      let path = ''
+      switch(type) {
+        case 'mine':
+          path = '/mine'
+          break;
+        case 'addCompany':
+          path = '/addCompany'
+          break;
+        case 'addRidicule':
+          path = '/addRidicule'
+          break;
+        case 'loginOut':
+          // this.$store.commit('SET_USERINFO', {})
+          // this.$store.commit('SET_TOKEN', '')
+          // this.$router.push('/login')
+          // return
+      }
+      this.onJump(path, 'router');
     },
     clickTrigger() {
       
