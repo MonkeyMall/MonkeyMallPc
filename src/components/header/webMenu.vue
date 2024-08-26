@@ -43,7 +43,7 @@
                 创建调侃
               </el-dropdown-item>
               <el-dropdown-item>
-                <i class="el-icon-house"></i>
+                <i class="el-icon-refresh-left"></i>
                 退出登录
               </el-dropdown-item>
             </el-dropdown-menu>
