@@ -18,6 +18,10 @@
         我的订单
       </div>
       <div class="mine-item">
+        <i class="iconfont">&#xe613;</i>
+        我的公司创建
+      </div>
+      <div class="mine-item">
         <i class="iconfont">&#xe6b9;</i>
         公司收藏
       </div>

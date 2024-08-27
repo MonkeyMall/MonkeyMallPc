@@ -32,15 +32,15 @@
               <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="mine">
+              <el-dropdown-item command="mine" :class="[$route.meta.name == 'mine' ? 'active' : '']">
                 <i class="el-icon-house"></i>
                 个人中心
               </el-dropdown-item>
-              <el-dropdown-item command="addCompany">
+              <el-dropdown-item command="addCompany" :class="[$route.meta.name == 'addCompany' ? 'active' : '']">
                 <i class="el-icon-document-add"></i>
                 创建公司
               </el-dropdown-item>
-              <el-dropdown-item command="addRidicule">
+              <el-dropdown-item command="addRidicule" :class="[$route.meta.name == 'addRidicule' ? 'active' : '']">
                 <i class="el-icon-chat-dot-square"></i>
                 创建调侃
               </el-dropdown-item>
@@ -128,6 +128,9 @@ $mult-color-tag-3: #00baad; // rgba(0, 186, 173, 1);
 $mult-color-tag-4: #e05fe9; // rgba(224, 95, 233, 1);
 $mult-color-disable: #c0c0c0;
 $mult-color-blank: #000000; // rgba(0, 0, 0, 1);
+.active {
+  color: #3568F5;
+}
 #PC_MENU {
   padding: 0 20px;
   height: 60px;

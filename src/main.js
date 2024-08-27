@@ -22,6 +22,9 @@ import { point } from "@/mixins/point";
 import Resource from "@/config/resource";
 import vueMiniPlayer from "vue-mini-player";
 import "vue-mini-player/lib/vue-mini-player.css";
+// 富文本组件
+import Editor from "@/components/Editor"
+Vue.component('Editor', Editor)
 
 Vue.use(vueMiniPlayer);
 // 判断设备类型
@@ -34,6 +37,7 @@ Vue.component("icon-svg", IconSvg);
 // Vue.mixin(Mixin);
 // Vue.mixin(gioPoint);
 // Vue.use(VueAweSomeSwiper);
+
 Vue.use(animated);
 Vue.use(ElementUI);
 Vue.use(VueLazyload, {

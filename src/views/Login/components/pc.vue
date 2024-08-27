@@ -99,7 +99,7 @@ $color: #2c3142;
 	height: 100vh;
 	position: relative;
 	background-color: #b8e5f8;
-  background-image: url(https://static.zhihu.com/heifetz/assets/sign_bg.47eec442.png);
+  background-image: url('../../../static/imgs/lbg.png');
   background-repeat: no-repeat;
   background-size: cover;
 	color: $color;
@@ -108,7 +108,7 @@ $color: #2c3142;
     display: flex;
     background-color: #fff;
 		border-radius: 5px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
     padding: 20px;
     .login-box-left {
       width: 300px;
@@ -150,6 +150,7 @@ $color: #2c3142;
         font-weight: bold;
         margin-top: 10px;
         margin-bottom: 20px;
+        text-align: center;
       }
       ::v-deep .el-form-item {
         display: flex;
