@@ -25,10 +25,12 @@
 
 <script>
 import {
-  companyList
+  companyList,
+  commentsCollect
 } from "@/api/index";
 import windowRight from "@/components/windowRight/windowRight";
 import pageNum from "@/components/pageNum/index.vue";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 
 var that = null;
@@ -45,6 +47,7 @@ export default {
       total: 0,
       query: {
         page: 1,
+        name: '',
         reffer: 'pc'
       }
     };
@@ -53,7 +56,18 @@ export default {
     this.getData()
   },
   mounted() {},
-  computed: {},
+  computed: {
+    ...mapState(['searchText'])
+  },
+  watch: {
+    searchText: {
+      handler(newVal) {
+        this.query.name = newVal
+        this.getData()
+      },
+      immediate: true
+    }
+  },
   methods: {
     async getData(type) {
       let {data, count} = await companyList(this.query);

@@ -11,10 +11,17 @@
         </div>
         <div class="search" v-if="isSearch">
           <el-input
-            placeholder="请输入您要搜索的公司名称"
+            :placeholder="placeholderText"
             v-model="input"
-            clearable>
-            <el-button slot="append" icon="el-icon-search"></el-button>
+            clearable
+            change="onSearch"
+            @keyup.enter.native="onSearch"
+            @clear="onSearch">
+            <el-button 
+              slot="append" 
+              icon="el-icon-search"
+              @click="onSearch"
+            ></el-button>
           </el-input>
         </div>
       </div>
@@ -68,7 +75,8 @@ export default {
     return {
       input: '',
       tabName: '',
-      isSearch: false
+      isSearch: false,
+      placeholderText: '请输入您要搜索的公司名称'
     };
   },
   computed: {
@@ -76,8 +84,13 @@ export default {
   },
   created() {
     console.log('路由信息：', this.$route);
-    if (this.$route.meta.name == 'home') {
+    if (this.$route.meta.name == 'home' || this.$route.meta.name == 'ridicule') {
       this.isSearch = true
+      if (this.$route.meta.name == 'home') {
+        this.placeholderText = '公司名称'
+      } else {
+        this.placeholderText = '调侃标题'
+      }
     }
   },
   methods: {
@@ -112,6 +125,10 @@ export default {
     },
     clickTrigger() {
       
+    },
+    onSearch() {
+      console.log('搜索内容', this.input)
+      this.$store.commit('SET_SEARCHTEXT', this.input)
     }
   }
 };

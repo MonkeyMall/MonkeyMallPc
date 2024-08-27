@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="componyTitle">
+      <p class="componyTitle-title">{{ info.name }}</p>
+    </div>
     <div class="compony">
       <p class="label-title">基础信息</p>
       <div class="label-content">
@@ -51,7 +54,10 @@
       </ul>
     </div>
     <div class="empty">
-      <p class="label-title">工作感受</p>
+      <div class="label-title">
+        <span>工作感受</span>
+        <div class="addMessage" @click="addPlFn()">我也来发表</div>
+      </div>
       <ul class="company-ganshou" v-if="componyCommentList.length">
         <li v-for="(item, index) in componyCommentList" :key="index">
           <div class="usrname">
@@ -69,13 +75,33 @@
         <div class="joinMessageBtn" @click="addPlFn()">工作感受</div>
       </div>
     </div>
+    <el-dialog
+      title="工作感受"
+      :visible.sync="dialogVisible"
+      width="700px"
+      :before-close="handleClose">
+      <div>
+        <el-input
+          type="textarea"
+          :autosize="{ minRows: 10, maxRows: 10}"
+          :placeholder="'请输入您对 ' + info.name + ' 的感受'"
+          maxlength="200"
+          v-model="form.componyContents">
+        </el-input>
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="submitCommentsComponyAdd">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
 import {
   getComponyInfo,
-  getCommentsComponyList
+  getCommentsComponyList,
+  setCommentsComponyAdd
 } from "@/api/index";
 import {
   dictHx,
@@ -94,10 +120,16 @@ export default {
     return {
       componyCommentList: [],
       info: null,
+      dialogVisible: false,
+      form: {
+        componyId: '',
+        componyContents: ''
+      }
     };
   },
   created() {
     this.id = this.$route.query.id
+    this.form.componyId = this.$route.query.id
     this.getList()
     this.getComponyCommentListFn()
   },
@@ -123,6 +155,26 @@ export default {
       })
       this.componyCommentList = data.data || []
     },
+    // 添加公司的评论
+    async submitCommentsComponyAdd() {
+      if (!this.form.componyContents) {
+        this.$message.error('请输入工作感受')
+        return
+      }
+      const {code} = await setCommentsComponyAdd(this.form)
+      if (code === 200) {
+        // this.$message.success('评论成功')
+        this.dialogVisible = false
+        this.form.componyContents = ''
+        this.getComponyCommentListFn()
+      }
+    },
+    addPlFn() {
+      this.dialogVisible = true
+    },
+    handleClose() {
+      this.dialogVisible = false
+    }
   }
 };
 </script>
@@ -133,13 +185,39 @@ export default {
   font-weight: 600;
   color: #333333;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  .addMessage {
+    font-size: 14px;
+    color: #999999;
+    cursor: pointer;
+    padding: 5px 10px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    &:hover {
+      color: #fff;
+      background: #ff6600;
+    }
+  }
 }
 .mt-30 {
   margin-top: 30px;
 }
-.compony {
+.componyTitle {
   width: 1200px;
   margin: 80px auto 0;
+  background: #fff;
+  padding: 20px 30px;
+  .componyTitle-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+  }
+}
+.compony {
+  width: 1200px;
+  margin: 30px auto 0;
   background: #fff;
   padding: 30px;
   .label-content {

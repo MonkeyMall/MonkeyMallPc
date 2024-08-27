@@ -10,7 +10,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    userInfo: null
+    userInfo: null,
+    searchText: ''
   },
   getters: {
     getUserInfo(state) {
@@ -24,6 +25,9 @@ export default new Vuex.Store({
     LOGIN_OUT(state) {
       state.userInfo = null;
       removeItem('userInfo')
+    },
+    SET_SEARCHTEXT(state, payload) {
+      state.searchText = payload
     }
   },
   actions: {

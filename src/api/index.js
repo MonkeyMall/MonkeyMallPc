@@ -92,3 +92,21 @@ export function getCommentsComponyList(query) {
     params: query
   })
 }
+
+// 添加公司评论
+export function setCommentsComponyAdd(params) {
+  return request({
+    url: '/api/commentsCompony/add',
+    method: "post",
+		data: params
+  })
+}
+
+// 用户收藏公司
+export function commentsCollect(params) {
+  return request({
+    url: '/api/compony/collect',
+    method: "post",
+		data: params
+  })
+}

@@ -36,6 +36,7 @@
         <pageNum 
           :currentPage="currentPage" 
           :total="total" 
+          @changePage="handleCurrentChange"
         />
       </div>
     </ul>
@@ -100,7 +101,7 @@ import {
 } from "@/api/index";
 import windowRight from "@/components/windowRight/windowRight";
 import pageNum from "@/components/pageNum/index.vue";
-import { mapMutations } from "vuex";
+import { mapState, mapMutations } from "vuex";
 
 var that = null;
 export default {
@@ -119,18 +120,34 @@ export default {
       fhText: '',
       id: '', // 当前操作的文章id
       currentPage: 1,
-      total: 0
+      total: 0,
+      query: {
+        page: 1,
+        title: '',
+        reffer: 'pc'
+      }
     };
   },
   created() {
     this.getData()
   },
   mounted() {},
-  computed: {},
+  computed: {
+    ...mapState(['searchText'])
+  },
+  watch: {
+    searchText: {
+      handler(newVal) {
+        this.query.title = newVal
+        this.getData()
+      },
+      immediate: true
+    }
+  },
   methods: {
     // 评论列表
     async getData() {
-      let {data, count} = await getRidiculeList();
+      let {data, count} = await getRidiculeList(this.query);
       data.map(item =>{
         item.isShowMore = false
       })
@@ -138,8 +155,10 @@ export default {
       this.total = count
       console.log('list:', data);
     },
-    load() {
-      console.log("加载下一页")
+    handleCurrentChange(val) {
+      console.log('子组件再调用父组件的方法:', val);
+      this.query.page = val
+      this.getData()
     },
     // 内容的评论列表
     async getCommentList(id) {

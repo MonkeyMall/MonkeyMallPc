@@ -163,7 +163,11 @@ module.exports = {
       plugins.push(
         new PrerenderSpaPlugin({
           staticDir: resolve("dist"),
-          routes: ["/", "/about", "/TestDrive", "/Agreement", "/News", "/NewsPcDetail", "/NewsMbDetail", "/W6", "/EX-5", "/EX-6-PLUS", "/EX-5-JKX", "/E5", "/FinancialCalculator", "/AfterSaleService", "/Configuration", "/M7","/Reserve", "/consuService","/Barsofgold","/TestDriveSuccess", "/counselor", "/E.5", "/league"],
+          routes: [
+            "/", "/login", "/componyInfo", "/ridicule", 
+            "/about", "/mine",
+            "/mine", "/addCompany", "/addRidicule"
+          ],
           postProcess(ctx) {
             console.log('是什么东西呀', ctx)
             ctx.route = ctx.originalRoute;

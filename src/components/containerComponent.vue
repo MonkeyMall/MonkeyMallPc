@@ -49,15 +49,10 @@ export default {
     var pageName = this.$route.name || "";
     console.log("PageNama", pageName);
     this.getVPage(pageName);
-    // this.getVPage("W6");
-    // const that = this;
-    // window.addEventListener("scroll", function() {
-    //   that.isShow = onScroll(0);
-    // });
   },
   methods: {
     getVPage(name) {
-      if (name === "W6" || name === "EX-5" || name === "E.5") {
+      if (name === "login") {
         this.isShow = false;
       } else {
         this.isShow = true;

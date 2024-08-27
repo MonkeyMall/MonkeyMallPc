@@ -1,8 +1,8 @@
 <template>
   <ContainerLayout :isHeader="false" :isFooter="false">
     <template slot="main">
-      <MB v-if="isMobile()" :list="list"></MB>
-      <PC v-else :list="list"></PC>
+      <MB v-if="isMobile()"></MB>
+      <PC v-else></PC>
     </template>
   </ContainerLayout>
 </template>
@@ -11,7 +11,6 @@
 import ContainerLayout from "@/components/containerComponent";
 import PC from "./components/pc";
 import MB from "./components/mb";
-import {banner} from '@/api/index'
 export default {
   name: "Login",
   components: {
@@ -21,30 +20,15 @@ export default {
   },
   data() {
     return {
-      map: new Map ([
-          ['zh', 1],
-          ['en', 2]
-      ]),
-      list: []
+      
     };
   },
   created() {
-    this.onBannerList()
   },
   mounted() {},
   computed: {},
   methods: {
-    async onBannerList() {
-      const params = {
-        platform: this.isMobile() ? 'mb' : 'pc',
-        language: this.map.get(this.lang)
-      }
-      const {code,data} = await banner(params)
-      console.log(code,data)
-      if(code === 1) {
-        this.list = data
-      }
-    }
+    
   }
 };
 </script>
