@@ -66,6 +66,15 @@ export function addCommentRidicule(params) {
 	})
 }
 
+// 调侃创建
+export function addRidicule(params) {
+	return request({
+		url: "/api/ridicule/add",
+		method: "post",
+		data: params
+	});
+}
+
 // 公司详情
 export function getComponyInfo(query) {
   return request({

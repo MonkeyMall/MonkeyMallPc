@@ -1,25 +1,24 @@
 <template>
   <div class="addRidiculePc">
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="标题" prop="name">
-        <el-input v-model="ruleForm.name" placeholder="请输入标题"></el-input>
+      <el-form-item label="标题" prop="title">
+        <el-input v-model="ruleForm.title" placeholder="请输入标题"></el-input>
       </el-form-item>
-      <el-form-item label="分类" prop="name">
-        <el-select v-model="ruleForm.region" placeholder="请选择分类">
-          <el-option label="区域一" value="shanghai"></el-option>
-          <el-option label="区域二" value="beijing"></el-option>
+      <el-form-item label="分类" prop="category">
+        <el-select v-model="ruleForm.category" placeholder="请选择分类">
+          <el-option :label="item.label" :value="item.value" v-for="(item, index) in categoryOptions" :key="index"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="简介" prop="desc">
-        <el-input type="textarea" v-model="ruleForm.desc" placeholder="请输入简介"></el-input>
+      <el-form-item label="简介" prop="description">
+        <el-input type="textarea" v-model="ruleForm.description" placeholder="请输入简介"></el-input>
       </el-form-item>
-      <el-form-item label="内容" prop="desc">
-        <editor v-model="ruleForm.questionText" :min-height="192" />
+      <el-form-item label="内容" prop="contents">
+        <editor v-model="ruleForm.contents" :min-height="192" />
       </el-form-item>
-      <el-form-item label="是否发布" prop="name">
-        <el-select v-model="ruleForm.region" placeholder="请选择是否发布">
-          <el-option label="是" value="shanghai"></el-option>
-          <el-option label="否" value="beijing"></el-option>
+      <el-form-item label="是否发布" prop="posted">
+        <el-select v-model="ruleForm.posted" placeholder="请选择是否发布">
+          <el-option label="是" :value="1"></el-option>
+          <el-option label="否" :value="0"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item>
@@ -32,9 +31,10 @@
 
 <script>
 import {
-  companyList
+  addRidicule
 } from "@/api/index";
 import windowRight from "@/components/windowRight/windowRight";
+import dictData from '@/utils/dictData.js'
 import { mapMutations } from "vuex";
 
 var that = null;
@@ -45,30 +45,49 @@ export default {
   },
   data() {
     return {
+      categoryOptions: dictData.categoryOptions,
       list: [],
       ruleForm: {
-        name: '',
-        region: '',
-        desc: '',
-        questionText: ''
+        posted: '',
+        category: '',
+        description: '',
+        title: '',
+        contents: ''
+      },
+      rules: {
+        title: [
+          { required: true, message: '请输入标题', trigger: 'blur' },
+          // { min: 3, max: 50, message: '长度在 3 到 50 个字符', trigger: 'blur' }
+        ],
+        category: [
+          { required: true, message: '请选择分类', trigger: 'change' }
+        ],
+        description: [
+          { required: true, message: '请输入简介', trigger: 'blur' },
+          // { min: 3, max: 100, message: '长度在 3 到 100 个字符', trigger: 'blur' }
+        ],
+        contents: [
+          { required: true, message: '请输入内容', trigger: 'blur' }
+        ],
+        posted: [
+          { required: true, message: '请选择是否发布', trigger: 'change' }
+        ]
       }
     };
   },
   created() {
-    this.getData()
   },
   mounted() {},
   computed: {},
   methods: {
-    async getData() {
-      let {data} = await companyList();
-      this.list = data || []
-      console.log('list:', data);
-    },
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
+    async submitForm(formName) {
+      console.log('add form:', this.ruleForm)
+      this.$refs[formName].validate(async (valid) => {
         if (valid) {
-          alert('submit!');
+          let { code } = await addRidicule(this.ruleForm)
+          if (code === 200) {
+            this.$router.push('/ridicule')
+          }
         } else {
           console.log('error submit!!');
           return false;
