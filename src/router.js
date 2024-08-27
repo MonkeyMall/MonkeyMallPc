@@ -83,6 +83,32 @@ const router = new Router({
       }
     },
     {
+      path: "/addCompany",
+      name: "addCompany",
+      component: () => import("./views/Mine/AddCompony.vue"),
+      meta: {
+        name: 'mine',
+        title: "创建公司",
+        type: "公司详情，搜索公司，入职闭坑",
+        headline: "猿猴社区",
+        keywords: "公司详情，搜索公司，入职闭坑",
+        description: "公司详情，搜索公司，入职闭坑"
+      }
+    },
+    {
+      path: "/addRidicule",
+      name: "addRidicule",
+      component: () => import("./views/Mine/AddRidicule.vue"),
+      meta: {
+        name: 'mine',
+        title: "创建调侃",
+        type: "公司详情，搜索公司，入职闭坑",
+        headline: "猿猴社区",
+        keywords: "公司详情，搜索公司，入职闭坑",
+        description: "公司详情，搜索公司，入职闭坑"
+      }
+    },
+    {
       path: "/login",
       name: "login",
       component: () => import("./views/Login/Index.vue"),

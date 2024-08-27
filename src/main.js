@@ -22,6 +22,7 @@ import { point } from "@/mixins/point";
 import Resource from "@/config/resource";
 import vueMiniPlayer from "vue-mini-player";
 import "vue-mini-player/lib/vue-mini-player.css";
+
 Vue.use(vueMiniPlayer);
 // 判断设备类型
 import isMobile from "@/utils/deviceType";

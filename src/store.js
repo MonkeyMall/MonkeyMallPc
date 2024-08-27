@@ -4,7 +4,7 @@ import {
   userLogin,
   userInfo
 } from '@/api/index'
-import { setItem } from '@/utils/storage.js'
+import { setItem, removeItem } from '@/utils/storage.js'
 
 Vue.use(Vuex);
 
@@ -20,6 +20,10 @@ export default new Vuex.Store({
   mutations: {
     SET_USERINFO(state, payload) {
       state.userInfo = payload;
+    },
+    LOGIN_OUT(state) {
+      state.userInfo = null;
+      removeItem('userInfo')
     }
   },
   actions: {
@@ -38,6 +42,13 @@ export default new Vuex.Store({
         })
       })
     },
+    // 退出登录
+    // user_login_out({ commit }, userInfo) {
+    //   return new Promise((resolve, reject) => {
+    //     commit('SET_USERINFO', data)
+    //     setItem('userInfo', data)
+    //   })
+    // },
     // 获取用户信息
     get_user_info({ commit }) {
       return new Promise((resolve, reject) => {

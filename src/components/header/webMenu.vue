@@ -22,7 +22,7 @@
         <ul>
           <li @click="onJump('/', 'router')" :class="[$route.meta.name == 'home' ? 'active' : '']">首页</li>
           <li @click="onJump('/ridicule', 'router')" :class="[$route.meta.name == 'ridicule' ? 'active' : '']">论坛</li>
-          <li @click="onJump('', 'router')">积分商城</li>
+          <!-- <li @click="onJump('', 'router')">积分商城</li> -->
           <li @click="onJump('/about', 'router')" :class="[$route.meta.name == 'about' ? 'active' : '']">关于我们</li>
         </ul>
         <div v-if="userInfo && userInfo.username" class="user-info">
@@ -59,6 +59,7 @@
 <script>
 import $ from "jquery";
 import { debounce } from "@/utils/deviceType";
+import Cookies from 'js-cookie';
 import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
@@ -102,10 +103,10 @@ export default {
           path = '/addRidicule'
           break;
         case 'loginOut':
-          // this.$store.commit('SET_USERINFO', {})
-          // this.$store.commit('SET_TOKEN', '')
-          // this.$router.push('/login')
-          // return
+          Cookies.remove('userInfo')
+          this.$store.commit('LOGIN_OUT', null)
+          this.$router.push('/login')
+          return
       }
       this.onJump(path, 'router');
     },

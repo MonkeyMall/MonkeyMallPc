@@ -1,27 +1,6 @@
 <template>
   <div class="mine">
-    <div class="user-info">
-      <img src="@/static/imgs/logo.png">
-      <div class="user-name">用户名</div>
-    </div>
-    <div class="mine-list">
-      <div class="mine-item">
-        <i class="iconfont">&#xe6bf;</i>
-        我的侃言
-      </div>
-      <div class="mine-item">
-        <i class="iconfont">&#xe606;</i>
-        收货地址
-      </div>
-      <div class="mine-item">
-        <i class="iconfont">&#xe657;</i>
-        我的订单
-      </div>
-      <div class="mine-item">
-        <i class="iconfont">&#xe6b9;</i>
-        公司收藏
-      </div>
-    </div>
+    创建调侃
   </div>
 </template>
 
