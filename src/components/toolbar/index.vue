@@ -1,5 +1,5 @@
 <template>
-  <div class="toolbar" v-show="isShow">
+  <div :class="['toolbar', scrollHide ? 'toolbar-hide fadeOut animated' : '']" v-show="isShow">
     <el-breadcrumb separator="/">
       <!-- :to="{ path: '/' }" -->
       <el-breadcrumb-item v-for="(item,index) in list" :key="index">{{ item }}</el-breadcrumb-item>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-
+import { onScroll } from "@/utils/deviceType";
 export default {
   name: "ToolBar",
   props: {
@@ -22,13 +22,17 @@ export default {
   },
   data() {
     return {
-      list: []
+      list: [],
+      scrollHide: false
     };
   },
   watch: {
     
   },
   mounted() {
+    window.addEventListener("scroll", () => {
+      this.scrollHide = onScroll(30);
+    });
     this.list = this.$route.meta.toolbartext || [];
     console.log('面包屑数据', this.list)
     // this.isShow = this.topShow;

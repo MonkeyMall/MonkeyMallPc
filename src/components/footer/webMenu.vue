@@ -1,6 +1,24 @@
 <template>
   <div class="footer-box">
-    
+    <div class="footer-box-left">
+      <div class="qr-code">
+        <img src="@/static/imgs/logo.png" alt="">
+      </div>
+      <div class="ss">
+        <p class="wec wec1">猿猴宝宝社区</p>
+        <p class="des des1">共享找工作</p>
+        <p class="des des1">起来调侃</p>
+      </div>
+    </div>
+    <div class="footer-box-left">
+      <div class="qr-code">
+        <img src="@/static/imgs/wechat.jpg" alt="">
+      </div>
+      <div>
+        <p class="wec">微信小程序</p>
+        <p class="des">打开微信扫码体验</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -29,175 +47,46 @@ export default {
   background: white;
   height: auto;
   font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
-  &.webFooter {
-    height: 100vh;
-    background: #1b1b1b;
-    position: relative;
-    .footer-box {
-      height: 100vh;
-      position: relative;
-      .footer-top-img{
-        padding-top: 100px;
-      }
-      .pc {
-        position: absolute;
-        bottom: 80px;
-      }
-    }
-  }
-}
-.pc {
-  height: 551px;
-  // background: #1b1b1b;
-  text-align: left;
-  overflow: hidden;
-  .footerContainer {
-    margin-top: 119px;
-    margin-left: 199px;
-    margin-right: 199px;
+  .footer-box-left {
+    width: 500px;
+    height: 200px;
     display: flex;
-    justify-content: space-between;
-    .footerLeftMenu {
+    align-items: center;
+    gap: 30px;
+    .ss {
       display: flex;
-      .leftList {
-        font-size: 17px;
-        font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
-        font-weight: normal;
-        color: #999999;
-        line-height: 23px;
-        li {
-          list-style: none;
-          margin-bottom: 29px;
-          cursor: pointer;
-          height: 23px;
-          line-height: 23px;
-        }
-        li:hover {
-          color: #ffffff;
-        }
-        .first {
-          color: #e0e1e2;
-        }
-      }
-      .rightList {
-        margin-left: 186px;
-        font-size: 17px;
-        font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
-        font-weight: normal;
-        color: #999999;
-        line-height: 23px;
-        li {
-          list-style: none;
-          margin-bottom: 29px;
-          cursor: pointer;
-          height: 23px;
-          line-height: 23px;
-        }
-        li:hover {
-          color: #ffffff;
-        }
-        .first {
-          color: #e0e1e2;
-        }
+      flex-direction: column;
+    }
+    .wec {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 23px;
+      &.wec1 {
+        color: #00baad;
+        margin-bottom: 0;
       }
     }
-    .rightContainer {
-      .logo {
-        text-align: end;
-        img {
-          width: 122px;
-          cursor: pointer;
-        }
-      }
-      .contactType {
-        text-align: end;
-        margin-top: 95px;
-        img {
-          width: 36.91px;
-          cursor: pointer;
-        }
-        .contactTypeLeft {
-          margin-right: 31px;
-        }
-      }
-      .language {
-        cursor: pointer;
-        width: 63px;
-        height: 26px;
-        line-height: 26px;
-        font-size: 13px;
-        border-radius: 2px;
-        border: 1px solid #979797;
-        color: #999999;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 41px;
-        position: absolute;
-        right: 199px;
-        padding-left: 8px;
-        padding-right: 8px;
-        div {
-          text-align: center;
-        }
-        .languageText {
-          font-size: 13px;
-          font-family: Alibaba-PuHuiTi-B, Alibaba-PuHuiTi;
-          font-weight: normal;
-          color: #999999;
-          line-height: 13px;
-        }
-        .languageImg {
-          width: 33.3%;
-          img {
-            width: 13px;
-            margin-top: 6px;
-          }
-        }
+    .des {
+      margin-top: 20px;
+      margin-bottom: 24px;
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 16px;
+      &.des1 {
+        color: #999;
+        margin-bottom: 0;
       }
     }
-  }
-  .Copyright {
-    width: 1524px;
-    height: 1px;
-    border-top: 1px solid #383838;
-    margin-left: 199px;
-    margin-top: 93px;
-    //display: flex;
-    text-align: center;
-    div:first-child {
-      font-size: 17px;
-      font-family: Helvetica;
-      line-height: 20px;
-      margin-top: 17px;
-    }
-    a{
-      color: #8b8787;
-      text-decoration: none;
+    .qr-code {
+      width: 120px;
+      height: 120px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
 </style>
-<style>
-.popover {
-  width: 172px !important;
-  padding: 18px 15px 0 15px !important;
-}
-.hover {
-  text-align: center;
-}
-.qrcode {
-  font-size: 12px;
-  font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
-  font-weight: normal;
-  color: #595959;
-  line-height: 12px;
-  margin-bottom: 28px;
-  margin-top: 17px;
-}
-.qrcodeImg {
-  width: 125px;
-  height: 125px;
-  margin-right: 5px;
-}
-</style>
+

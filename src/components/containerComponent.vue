@@ -5,7 +5,7 @@
       <slot name="main"></slot>
     </div>
     <FixedWindow v-if="!isMobile() && isShow" />
-    <!-- <Footer v-if="isFooter" />  -->
+    <Footer v-if="isFooter" /> 
   </div>
 </template>
 
