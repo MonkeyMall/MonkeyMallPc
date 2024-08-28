@@ -32,7 +32,7 @@ export default {
     },
     swi: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data() {
@@ -70,8 +70,7 @@ export default {
 .main-mb {
   margin-top: 100px;
 }
-/* .container-component.swi{
-  height: 100vh;
-  overflow: hidden;
-} */
+.container-component.swi{
+  padding-top: 120px;
+}
 </style>

@@ -340,7 +340,7 @@ export default {
 
 .ridicule {
   width: 1200px;
-  margin: 80px auto;
+  margin: 0px auto;
   display: flex;
   gap: 20px;
   .pageFy {

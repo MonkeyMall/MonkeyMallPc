@@ -100,7 +100,7 @@ export default {
 <style lang="scss" scoped>
 .home {
   width: 1200px;
-  margin: 80px auto;
+  margin: 0 auto;
   display: flex;
   gap: 20px;
   ul {

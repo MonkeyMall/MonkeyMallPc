@@ -75,6 +75,15 @@ export function addRidicule(params) {
 	});
 }
 
+// 我的侃言列表
+export function getRidiculeMyList(query) {
+  return request({
+    url: '/api/ridicule/my/list',
+    method: 'get',
+    params: query
+  })
+}
+
 // 公司详情
 export function getComponyInfo(query) {
   return request({

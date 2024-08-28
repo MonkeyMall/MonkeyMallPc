@@ -25,7 +25,8 @@ const router = new Router({
         headline: "猿猴社区",
         keywords: "搜索公司，入职闭坑",
         description:
-          "搜索公司，入职闭坑"
+          "搜索公司，入职闭坑",
+        toolbartext: ["首页"]
       }
     },
     {
@@ -38,7 +39,8 @@ const router = new Router({
         type: "公司详情，搜索公司，入职闭坑",
         headline: "猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
-        description: "公司详情，搜索公司，入职闭坑"
+        description: "公司详情，搜索公司，入职闭坑",
+        toolbartext: ["首页", "公司详情"]
       }
     },
     {
@@ -52,7 +54,8 @@ const router = new Router({
         headline: "猿猴社区",
         keywords: "社区，调侃，社会现状，失业人员",
         description:
-          "搜索公司，入职闭坑"
+          "搜索公司，入职闭坑",
+        toolbartext: ["侃言"]
       }
     },
     {
@@ -66,7 +69,8 @@ const router = new Router({
         headline: "猿猴社区",
         keywords: "社区，调侃，社会现状，失业人员",
         description:
-          "搜索公司，入职闭坑"
+          "搜索公司，入职闭坑",
+        toolbartext: ["关于我们"]
       }
     },
     {
@@ -79,7 +83,22 @@ const router = new Router({
         type: "公司详情，搜索公司，入职闭坑",
         headline: "猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
-        description: "公司详情，搜索公司，入职闭坑"
+        description: "公司详情，搜索公司，入职闭坑",
+        toolbartext: ["个人中心"]
+      }
+    },
+    {
+      path: "/myRidicule",
+      name: "myRidicule",
+      component: () => import("./views/Mine/MyRidicule.vue"),
+      meta: {
+        name: 'mine',
+        title: "个人中心",
+        type: "公司详情，搜索公司，入职闭坑",
+        headline: "猿猴社区",
+        keywords: "公司详情，搜索公司，入职闭坑",
+        description: "公司详情，搜索公司，入职闭坑",
+        toolbartext: ["个人中心", "我的调侃"]
       }
     },
     {
@@ -92,7 +111,8 @@ const router = new Router({
         type: "公司详情，搜索公司，入职闭坑",
         headline: "猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
-        description: "公司详情，搜索公司，入职闭坑"
+        description: "公司详情，搜索公司，入职闭坑",
+        toolbartext: ["个人中心", "创建公司"]
       }
     },
     {
@@ -105,7 +125,8 @@ const router = new Router({
         type: "公司详情，搜索公司，入职闭坑",
         headline: "猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
-        description: "公司详情，搜索公司，入职闭坑"
+        description: "公司详情，搜索公司，入职闭坑",
+        toolbartext: ["个人中心", "创建调侃"]
       }
     },
     {

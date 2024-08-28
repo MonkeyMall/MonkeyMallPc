@@ -43,10 +43,10 @@
                 <i class="el-icon-house"></i>
                 个人中心
               </el-dropdown-item>
-              <el-dropdown-item command="addCompany" :class="[$route.meta.name == 'addCompany' ? 'active' : '']">
+              <!-- <el-dropdown-item command="addCompany" :class="[$route.meta.name == 'addCompany' ? 'active' : '']">
                 <i class="el-icon-document-add"></i>
                 创建公司
-              </el-dropdown-item>
+              </el-dropdown-item> -->
               <el-dropdown-item command="addRidicule" :class="[$route.meta.name == 'addRidicule' ? 'active' : '']">
                 <i class="el-icon-chat-dot-square"></i>
                 创建调侃
@@ -61,16 +61,19 @@
         <div v-else class="login-btn" @click="onJump('/login', 'router')">登录</div>
       </div>
     </div>
+    <ToolBar></ToolBar>
   </div>
 </template>
 <script>
-import $ from "jquery";
-import { debounce } from "@/utils/deviceType";
+import ToolBar from "@/components/toolbar";
 import Cookies from 'js-cookie';
 import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   name: "WebMenu",
+  components: {
+    ToolBar,
+  },
   data() {
     return {
       input: '',

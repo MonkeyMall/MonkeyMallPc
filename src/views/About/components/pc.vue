@@ -49,7 +49,7 @@ export default {
 <style lang="scss" scoped>
 .about {
   width: 1200px;
-  margin: 80px auto;
+  margin: 0px auto;
   background: #fff;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

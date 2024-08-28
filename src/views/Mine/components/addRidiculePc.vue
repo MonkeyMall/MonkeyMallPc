@@ -104,7 +104,7 @@ export default {
 <style lang="scss" scoped>
 .addRidiculePc {
   width: 1200px;
-  margin: 80px auto;
+  margin: 0px auto;
   background: #fff;
   padding: 20px;
   box-sizing: border-box;

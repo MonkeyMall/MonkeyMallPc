@@ -5,23 +5,23 @@
       <div class="user-name">用户名</div>
     </div>
     <div class="mine-list">
-      <div class="mine-item">
+      <div class="mine-item" @click="jump('/myRidicule')">
         <i class="iconfont">&#xe6bf;</i>
         我的侃言
       </div>
-      <div class="mine-item">
+      <div class="mine-item" @click="jump('')">
         <i class="iconfont">&#xe606;</i>
         收货地址
       </div>
-      <div class="mine-item">
+      <!-- <div class="mine-item">
         <i class="iconfont">&#xe657;</i>
         我的订单
-      </div>
-      <div class="mine-item">
+      </div> -->
+      <div class="mine-item" @click="jump('')">
         <i class="iconfont">&#xe613;</i>
         我的公司创建
       </div>
-      <div class="mine-item">
+      <div class="mine-item" @click="jump('')">
         <i class="iconfont">&#xe6b9;</i>
         公司收藏
       </div>
@@ -57,6 +57,13 @@ export default {
       let {data} = await companyList();
       this.list = data || []
       console.log('list:', data);
+    },
+    jump(url) {
+      if (!url) {
+        // 敬请期待
+        this.$message.warning('敬请期待')
+      }
+      this.$router.push(url);
     }
   }
 };
@@ -65,7 +72,7 @@ export default {
 <style lang="scss" scoped>
 .mine {
   width: 1200px;
-  margin: 80px auto;
+  margin: 0px auto;
   display: flex;
   gap: 20px;
   .user-info {
