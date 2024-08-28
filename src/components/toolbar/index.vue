@@ -31,7 +31,7 @@ export default {
   mounted() {
     this.list = this.$route.meta.toolbartext || [];
     console.log('面包屑数据', this.list)
-    this.isShow = this.topShow;
+    // this.isShow = this.topShow;
   },
   methods: {
     
