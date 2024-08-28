@@ -16,7 +16,7 @@
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-liaotian"></use>
             </svg>
-            {{ countNumArr[index] }} 条评论
+            436 条评论
           </div>
           <div class="content-bar-item" @click="tapBarItem('pl', item._id, index)">
             <svg class="icon" aria-hidden="true">
@@ -95,13 +95,10 @@
 
 <script>
 import {
-  getRidiculeList,
+  getRidiculeMyList,
   ridiculeCommentList,
   addCommentRidicule
 } from "@/api/index";
-import {
-  isLogin
-} from "@/utils/index";
 import windowRight from "@/components/windowRight/windowRight";
 import pageNum from "@/components/pageNum/index.vue";
 import { mapState, mapMutations } from "vuex";
@@ -116,7 +113,6 @@ export default {
   data() {
     return {
       list: [],
-      countNumArr: [],
       drawer: false,
       commentInfo: null,
       lookIndex: '',
@@ -151,13 +147,12 @@ export default {
   methods: {
     // 评论列表
     async getData() {
-      let {data, count, countNumArr} = await getRidiculeList(this.query);
+      let {data, count} = await getRidiculeMyList(this.query);
       data.map(item =>{
         item.isShowMore = false
       })
       this.list = data || []
       this.total = count
-      this.countNumArr = countNumArr
       console.log('list:', data);
     },
     handleCurrentChange(val) {
@@ -188,7 +183,6 @@ export default {
     },
     // 点击回复
     hfFn(index) {
-      if(!isLogin()) return
       this.id = this.commentInfo.data[index]._id
       this.$set(this.commentInfo.data[index], 'isInput', !this.commentInfo.data[index].isInput)
     },
@@ -207,7 +201,6 @@ export default {
     },
     // 提交评论、回复的数据
     async submitPlFn(type, item, index) {
-      if(!isLogin()) return
       let text = '', creatUserId=''
       if(type === 'add'){
         text = this.plText

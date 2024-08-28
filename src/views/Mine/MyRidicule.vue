@@ -1,22 +1,19 @@
 <template>
-  <ContainerLayout :isHeader="false" :isFooter="false" :swi="false">
+  <ContainerLayout :isHeader="true" :isFooter="true">
     <template slot="main">
-      <MB v-if="isMobile()"></MB>
-      <PC v-else></PC>
+      <PC></PC>
     </template>
   </ContainerLayout>
 </template>
 
 <script>
 import ContainerLayout from "@/components/containerComponent";
-import PC from "./components/pc";
-import MB from "./components/mb";
+import PC from "./components/myRidiculePc";
 export default {
-  name: "Login",
+  name: "Mine",
   components: {
     ContainerLayout,
     PC,
-    MB
   },
   data() {
     return {

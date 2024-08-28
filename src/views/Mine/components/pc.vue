@@ -2,7 +2,7 @@
   <div class="mine">
     <div class="user-info">
       <img src="@/static/imgs/logo.png">
-      <div class="user-name">用户名</div>
+      <div class="user-name">{{ userInfo.username }}</div>
     </div>
     <div class="mine-list">
       <div class="mine-item" @click="jump('/myRidicule')">
@@ -33,6 +33,7 @@
 import {
   companyList
 } from "@/api/index";
+import { getItem } from "@/utils/storage";
 import windowRight from "@/components/windowRight/windowRight";
 import { mapMutations } from "vuex";
 
@@ -44,6 +45,7 @@ export default {
   },
   data() {
     return {
+      userInfo: getItem('userInfo'),
       list: []
     };
   },

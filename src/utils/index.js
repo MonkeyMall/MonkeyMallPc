@@ -1,3 +1,7 @@
+import {
+  getItem
+} from '@/utils/storage.js'
+import router from '@/router';
 export default {
   install(Vue) {
     Vue.prototype.isMobile = function() {
@@ -109,4 +113,15 @@ export function dictHx(value, type) {
 export function usernameFormat(username) {
   if (!username) return ''
   return username.substr(0, 3) + '****' + username.substr(-2)
+}
+
+// 用户是否登录
+export function isLogin(username) {
+  let userInfo = getItem('userInfo')
+  if (!userInfo) {
+    router.push('/login')
+    return false
+  } else {
+    return true
+  }
 }

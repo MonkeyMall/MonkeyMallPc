@@ -108,6 +108,9 @@ import {
   usernameFormat
 } from '@/utils/index.js'
 import windowRight from "@/components/windowRight/windowRight";
+import {
+  isLogin
+} from "@/utils/index";
 import { mapMutations } from "vuex";
 
 var that = null;
@@ -170,6 +173,10 @@ export default {
       }
     },
     addPlFn() {
+      if (!isLogin()) {
+        this.$router.push('/login')
+        return
+      }
       this.dialogVisible = true
     },
     handleClose() {

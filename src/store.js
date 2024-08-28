@@ -4,13 +4,16 @@ import {
   userLogin,
   userInfo
 } from '@/api/index'
+import {
+  getItem
+} from '@/utils/storage.js'
 import { setItem, removeItem } from '@/utils/storage.js'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    userInfo: null,
+    userInfo: getItem('userInfo') ? getItem('userInfo') : null,
     searchText: ''
   },
   getters: {
