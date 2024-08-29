@@ -12,24 +12,27 @@
           <span v-if="item.content.length > 200" class="more" @click="moreFn(index)">{{!item.isShowMore ? '阅读全文' : '收起'}}</span>
         </div>
         <div class="content-bar">
-          <div class="content-bar-item" @click="tapBarItem('pl', item._id, index)">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-liaotian"></use>
-            </svg>
-            {{ countNumArr[index] }} 条评论
+          <div class="content-bar-left">
+            <div class="content-bar-item" @click="tapBarItem('pl', item._id, index)">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-liaotian"></use>
+              </svg>
+              {{ countNumArr[index] }} 条评论
+            </div>
+            <div class="content-bar-item" @click="tapBarItem('pl', item._id, index)">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-31pinglun"></use>
+              </svg>
+              评论
+            </div>
+            <div class="content-bar-item" @click="collenctFn(index)">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-shoucang1"></use>
+              </svg>
+              收藏
+            </div>
           </div>
-          <div class="content-bar-item" @click="tapBarItem('pl', item._id, index)">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-31pinglun"></use>
-            </svg>
-            评论
-          </div>
-          <div class="content-bar-item" @click="collenctFn(index)">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-shoucang1"></use>
-            </svg>
-            收藏
-          </div>
+          <div class="content-bar-right" v-time="item.startTime"></div>
         </div>
       </li>
       <div class="pageFy">
@@ -384,21 +387,30 @@ export default {
       }
       .content-bar {
         display: flex;
-        gap: 15px;
-        &-item {
-          font-size: 14px;
-          color: #8491a5;
-          cursor: pointer;
-          margin-top: 5px;
-          .icon{
-            fill: #8491a5;
-          }
-          &:hover {
-            color: rgba(0, 186, 173, .6);
+        justify-content: space-between;
+        .content-bar-left {
+          display: flex;
+          gap: 15px;
+          .content-bar-item {
+            font-size: 14px;
+            color: #8491a5;
+            cursor: pointer;
+            margin-top: 5px;
             .icon{
-              fill: rgba(0, 186, 173, .6);
+              fill: #8491a5;
+            }
+            &:hover {
+              color: rgba(0, 186, 173, .6);
+              .icon{
+                fill: rgba(0, 186, 173, .6);
+              }
             }
           }
+        }
+        .content-bar-right {
+          font-size: 14px;
+          color: #8491a5;
+          margin-top: 5px;
         }
       }
     }

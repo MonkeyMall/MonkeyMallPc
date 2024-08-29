@@ -48,7 +48,7 @@ export default {
 
 <style lang="scss" scoped>
 .about {
-  width: 1200px;
+  width: 1160px;
   margin: 0px auto;
   background: #fff;
   padding: 20px;
