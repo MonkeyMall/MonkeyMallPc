@@ -34,42 +34,18 @@ service.interceptors.response.use(
   response => {
     console.log('请求结果', response);
     if (response.data.code !== 200) {
-      Message({
-        showClose: true,
-        message: response.data.message,
-        type: "warning",
-        duration: 3 * 1000
-      });
-      router.push({ path: '/login' })
+      console.log('请求结果 - !200', response);
+      // Message({
+      //   showClose: true,
+      //   message: response.data.message,
+      //   type: "warning",
+      //   duration: 3 * 1000
+      // });
+      // router.push({ path: '/login' })
     return Promise.reject(response);
     } else {
       return response.data;
     }
-    // /**
-    //  * code为非1是抛错 可结合自己业务进行修改
-    //  */
-    // // console.log(response)
-    // // const url = response.config.url;
-    // const res = response.data;
-    // // const hasNocode = nocodeList.some(k => url.indexOf(k) > -1);
-    // console.log('是什么', hasNocode)
-    // // if (hasNocode) {
-    //   return res;
-    // // }
-    // res.code = Number(res.code);
-    // if (res.code !== 1) {
-    //   // 4002:非法的token; 4003 oken 过期了token验证失败
-    //
-    //   // Message({
-    //   //   showClose: true,
-    //   //   message: res.desc,
-    //   //   type: "error",
-    //   //   duration: 5 * 1000
-    //   // });
-    //   return Promise.reject(res);
-    // } else {
-    //   return response.data;
-    // }
   },
   error => {
     var errorMsg;
@@ -90,11 +66,6 @@ service.interceptors.response.use(
     } else {
       errorMsg = error.message;
     }
-    // Message({
-    //   message: errorMsg,
-    //   type: "error",
-    //   duration: 5 * 1000
-    // });
     return Promise.reject(error);
   }
 );

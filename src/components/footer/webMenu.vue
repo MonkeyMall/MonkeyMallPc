@@ -7,7 +7,7 @@
       <div class="ss">
         <p class="wec wec1">猿猴宝宝社区</p>
         <p class="des des1">共享找工作</p>
-        <p class="des des1">起来调侃</p>
+        <p class="des des1">一起来调侃</p>
       </div>
     </div>
     <div class="footer-box-left">

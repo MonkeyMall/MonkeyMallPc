@@ -14,5 +14,5 @@ app.use(compression())
 app.use(express.static(path.join(__dirname, '/dist')))
 
 // 监听8080端口
-app.listen('8080')
+app.listen('8081')
 console.log('Loaded PRO Front On ')

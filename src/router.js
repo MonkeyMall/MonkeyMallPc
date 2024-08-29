@@ -1,8 +1,5 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home/Home.vue";
-import Ridicule from "./views/ridicule/Index.vue";
-import store from "./store";
 
 Vue.use(Router);
 /*const originalPush = Router.prototype.push;
@@ -17,7 +14,7 @@ const router = new Router({
     {
       path: "/",
       name: "home",
-      component: Home,
+      component: () => import("./views/Home/Home.vue"),
       meta: {
         name: 'home',
         title: "首页",
@@ -37,7 +34,7 @@ const router = new Router({
         name: 'home',
         title: "公司详情",
         type: "公司详情，搜索公司，入职闭坑",
-        headline: "猿猴社区",
+        headline: "公司详情-猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
         description: "公司详情，搜索公司，入职闭坑",
         toolbartext: ["首页", "公司详情"]
@@ -46,12 +43,12 @@ const router = new Router({
     {
       path: "/ridicule",
       name: "ridicule",
-      component: Ridicule,
+      component: () => import("./views/ridicule/Index.vue"),
       meta: {
         name: 'ridicule',
         title: "侃言",
         type: "社区，调侃，社会现状，失业人员",
-        headline: "猿猴社区",
+        headline: "侃言-猿猴社区",
         keywords: "社区，调侃，社会现状，失业人员",
         description:
           "搜索公司，入职闭坑",
@@ -66,7 +63,7 @@ const router = new Router({
         name: 'about',
         title: "关于我们",
         type: "社区，调侃，社会现状，失业人员",
-        headline: "猿猴社区",
+        headline: "关于我们-猿猴社区",
         keywords: "社区，调侃，社会现状，失业人员",
         description:
           "搜索公司，入职闭坑",
@@ -81,7 +78,7 @@ const router = new Router({
         name: 'mine',
         title: "个人中心",
         type: "公司详情，搜索公司，入职闭坑",
-        headline: "猿猴社区",
+        headline: "个人中心-猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
         description: "公司详情，搜索公司，入职闭坑",
         toolbartext: ["个人中心"]
@@ -93,9 +90,9 @@ const router = new Router({
       component: () => import("./views/Mine/MyRidicule.vue"),
       meta: {
         name: 'mine',
-        title: "个人中心",
+        title: "我的调侃",
         type: "公司详情，搜索公司，入职闭坑",
-        headline: "猿猴社区",
+        headline: "我的调侃-猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
         description: "公司详情，搜索公司，入职闭坑",
         toolbartext: ["个人中心", "我的调侃"]
@@ -109,7 +106,7 @@ const router = new Router({
         name: 'addCompany',
         title: "创建公司",
         type: "公司详情，搜索公司，入职闭坑",
-        headline: "猿猴社区",
+        headline: "创建公司-猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
         description: "公司详情，搜索公司，入职闭坑",
         toolbartext: ["个人中心", "创建公司"]
@@ -123,7 +120,7 @@ const router = new Router({
         name: 'addRidicule',
         title: "创建调侃",
         type: "公司详情，搜索公司，入职闭坑",
-        headline: "猿猴社区",
+        headline: "创建调侃-猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
         description: "公司详情，搜索公司，入职闭坑",
         toolbartext: ["个人中心", "创建调侃"]
@@ -137,7 +134,7 @@ const router = new Router({
         name: 'login',
         title: "登录",
         type: "登录，社区，调侃，社会现状，失业人员",
-        headline: "猿猴社区",
+        headline: "登录-猿猴社区",
         keywords: "登录，社区，调侃，社会现状，失业人员",
         description:
           "登录，社区，调侃，社会现状，失业人员，搜索公司，入职闭坑"

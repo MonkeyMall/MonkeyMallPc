@@ -13,7 +13,6 @@
 import Header from "@/components/header/index";
 import Footer from "@/components/footer/index";
 import FixedWindow from "@/components/fixedWindow/index";
-import { onScroll } from "@/utils/deviceType";
 export default {
   name: "containerComponent",
   components: {
@@ -47,7 +46,6 @@ export default {
   },
   mounted() {
     var pageName = this.$route.name || "";
-    console.log("PageNama", pageName);
     this.getVPage(pageName);
   },
   methods: {

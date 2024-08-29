@@ -213,7 +213,7 @@ export default {
 }
 .componyTitle {
   width: 1200px;
-  margin: 80px auto 0;
+  margin: 0 auto 0;
   background: #fff;
   padding: 20px 30px;
   .componyTitle-title {
