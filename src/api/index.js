@@ -119,3 +119,12 @@ export function commentsCollect(params) {
 		data: params
   })
 }
+
+// 注册
+export function register(params) {
+	return request({
+		url: "/api/user/register",
+		method: "post",
+		data: params
+	});
+}

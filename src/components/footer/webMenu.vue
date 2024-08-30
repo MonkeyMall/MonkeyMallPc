@@ -19,6 +19,13 @@
         <p class="des">打开微信扫码体验</p>
       </div>
     </div>
+    <div class="footer-box-left">
+      <div>
+        <p class="wec">联系方式：598349146@qq.com</p>
+        <p class="des">版权所有 © all rights reserved</p>
+        <p class="des">晋ICP备2024043727号</p>
+      </div>
+    </div>
   </div>
 </template>
 

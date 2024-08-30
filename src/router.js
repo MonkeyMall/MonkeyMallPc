@@ -140,6 +140,20 @@ const router = new Router({
           "登录，社区，调侃，社会现状，失业人员，搜索公司，入职闭坑"
       }
     },
+    {
+      path: "/register",
+      name: "register",
+      component: () => import("./views/register/Index.vue"),
+      meta: {
+        name: 'register',
+        title: "注册",
+        type: "登录，社区，调侃，社会现状，失业人员",
+        headline: "注册-猿猴社区",
+        keywords: "登录，社区，调侃，社会现状，失业人员",
+        description:
+          "登录，社区，调侃，社会现状，失业人员，搜索公司，入职闭坑"
+      }
+    },
   ]
 });
 router.beforeEach(async (to, from, next) => {

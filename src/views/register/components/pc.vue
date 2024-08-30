@@ -11,7 +11,7 @@
       <div class="box">
         <p class="desc">猿猴宝宝社区，欢迎您</p>
         <div class="form">
-          <el-form label-position="top" class="form">
+          <el-form label-position="top" class="form" label-width="150px">
             <el-form-item label="用户名">
               <input
                 v-model="form.username"
@@ -33,15 +33,24 @@
                 autocomplete="off"
               />
             </el-form-item>
+            <el-form-item label="确认密码" label-width="150px">
+              <input
+                v-model="form.repassword"
+                type="password"
+                placeholder="请输入确认密码"
+                maxlength="20"
+                autocomplete="off"
+              />
+            </el-form-item>
             <div class="op">
               <el-button type="primary" @click="loginFn"
-                >登录</el-button
+                >注册</el-button
               >
             </div>
           </el-form>
-          <div class="login" @click="toLogin">
-            注册
-          </div>
+        </div>
+        <div class="login" @click="toLogin">
+          登录
         </div>
       </div>
     </div>
@@ -53,8 +62,11 @@
 
 <script>
 import {
-  userLogin
+  register
 } from "@/api/index";
+import {
+  setItem
+} from '@/utils/storage.js'
 import { mapState, mapMutations, mapActions } from "vuex";
 
 var that = null;
@@ -67,6 +79,7 @@ export default {
       form: {
         username: "songyanbin",
         password: "admin123",
+        repassword: 'admin123'
       },
       list: []
     };
@@ -79,14 +92,17 @@ export default {
   methods: {
     ...mapActions(["user_login"]),
     async loginFn() {
-      let data = await this.user_login(this.form);
-      console.log('登录1', data)
+      let data = await register(this.form);
+      console.log('注册', data);
       if (data.code == 200) {
+        setItem('userInfo', 
+          {username : this.form.username}
+        )
         this.$router.push({ path: "/" });
       }
     },
     toLogin() {
-      this.$router.push({ path: "/register" });
+      this.$router.push({ path: "/login" });
     },
   }
 };
@@ -119,7 +135,7 @@ $color: #2c3142;
   background-size: cover;
 	color: $color;
   .login-box {
-    height: 283px;
+    // height: 283px;
     display: flex;
     background-color: #fff;
 		border-radius: 5px;
@@ -127,7 +143,7 @@ $color: #2c3142;
     padding: 20px;
     .login-box-left {
       width: 300px;
-      height: 100%;
+      // height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;

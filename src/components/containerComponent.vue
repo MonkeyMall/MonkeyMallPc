@@ -62,7 +62,7 @@ export default {
 
 <style scoped>
 .main-pc {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   background: #f5f6f9;
 }
 .main-mb {

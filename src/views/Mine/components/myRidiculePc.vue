@@ -339,7 +339,7 @@ export default {
 }
 
 .ridicule {
-  width: 1200px;
+  width: 100%;
   margin: 0px auto;
   display: flex;
   gap: 20px;

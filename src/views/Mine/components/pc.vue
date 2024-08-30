@@ -7,7 +7,11 @@
     <div class="mine-list">
       <div class="mine-item" @click="jump('/myRidicule')">
         <i class="iconfont">&#xe6bf;</i>
-        我的侃言
+        我的调侃
+      </div>
+      <div class="mine-item" @click="jump('/addRidicule')">
+        <i class="el-icon-chat-dot-square"></i>
+        创建调侃
       </div>
       <div class="mine-item" @click="jump('')">
         <i class="iconfont">&#xe606;</i>
