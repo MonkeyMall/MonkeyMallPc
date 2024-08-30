@@ -10,7 +10,7 @@ module.exports = {
       ]
     },
     "postcss-pxtorem": {
-      rootValue: 16, // 根元素字体大小，用于将像素转换为rem的基准值
+      rootValue: 75, // 根元素字体大小，用于将像素转换为rem的基准值
       unitPrecision: 10, // rem的小数位数
       propList: ["*"], // 需要转换的属性列表，['*']表示所有属性都会被转换
       minPixelValue: 2, // 小于或等于该值的像素单位不被转换

@@ -1,22 +1,14 @@
 <template>
   <div class="phone_home">
-    <p class="text">测试字体</p>
-    <p class="PC-text">测试字体</p>
-    <div class="blo"></div>
+    <mbIndex />
   </div>
 </template>
 
 <script>
+import mbIndex from "@/components/mb/index.vue";
 export default {
   name: "phone_home",
-  props: {},
-  data() {
-    return {};
-  },
-  created() {},
-  mounted() {},
-  computed: {},
-  methods: {}
+  components: { mbIndex }
 };
 </script>
 

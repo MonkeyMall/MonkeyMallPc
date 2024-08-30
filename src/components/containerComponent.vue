@@ -1,11 +1,11 @@
 <template>
   <div :class="['container-component', swi ? 'swi' : '']">
-    <Header v-if="isHeader" />
+    <Header v-if="isHeader && !isMobile()" />
     <div :class="[platform === 'pc' ? 'main-pc' : 'main-mb']">
       <slot name="main"></slot>
     </div>
     <FixedWindow v-if="!isMobile() && isShow" />
-    <Footer v-if="isFooter" /> 
+    <Footer v-if="isFooter && !isMobile()" /> 
   </div>
 </template>
 
@@ -65,9 +65,9 @@ export default {
   /* overflow-x: hidden; */
   background: #f5f6f9;
 }
-.main-mb {
+/* .main-mb {
   margin-top: 100px;
-}
+} */
 .container-component.swi{
   padding-top: 120px;
 }

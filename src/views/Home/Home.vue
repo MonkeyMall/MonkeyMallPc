@@ -1,5 +1,5 @@
 <template>
-  <ContainerLayout :isHeader="true" :isFooter="true">
+  <ContainerLayout :isHeader="true" :isFooter="true" :swi="!isMobile()">
     <template slot="main">
       <!-- <ToolBar></ToolBar> -->
       <MB v-if="isMobile()"></MB>
