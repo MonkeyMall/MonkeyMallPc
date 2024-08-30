@@ -1,6 +1,6 @@
 <template>
   <div class="ridicule">
-    <ul class="web-left">
+    <ul class="web-left" v-if="list.length">
       <li v-for="(item, index) in list" 
         :key="index" 
         :class="[lookIndex === index ? 'active' : '']"
@@ -43,6 +43,7 @@
         />
       </div>
     </ul>
+    <empty v-else />
     <!-- <div class="web-right">
       <windowRight />
     </div> -->
@@ -106,6 +107,7 @@ import {
   isLogin
 } from "@/utils/index";
 import windowRight from "@/components/windowRight/windowRight";
+import empty from "@/components/empty/index";
 import pageNum from "@/components/pageNum/index.vue";
 import { mapState, mapMutations } from "vuex";
 
@@ -114,6 +116,7 @@ export default {
   name: "Ridicule",
   components: {
     windowRight,
+    empty,
     pageNum
   },
   data() {

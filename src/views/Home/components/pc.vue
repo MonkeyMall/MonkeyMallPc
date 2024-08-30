@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <ul class="web-left">
+    <ul class="web-left" v-if="list.length">
       <li v-for="(item, index) in list" :key="index" @click="goComponyInfo(item._id)">
         <img :src="item.logo || require('@static/imgs/yuan.png')" alt="" class="c-logo">
         <div>
           <p class="name">{{ item.name }}</p>
           <p class="address">{{ item.address }}</p>
-          <p>评论数：0</p>
+          <p>浏览量：{{ item.views }}</p>
         </div>
       </li>
       <div class="pageFy">
@@ -17,6 +17,7 @@
         />
       </div>
     </ul>
+    <empty v-else />
     <!-- <div class="web-right">
       <windowRight />
     </div> -->
@@ -29,6 +30,7 @@ import {
   commentsCollect
 } from "@/api/index";
 import windowRight from "@/components/windowRight/windowRight";
+import empty from "@/components/empty/index";
 import pageNum from "@/components/pageNum/index.vue";
 import { mapState, mapMutations, mapActions } from "vuex";
 
@@ -38,6 +40,7 @@ export default {
   name: "Home",
   components: {
     windowRight,
+    empty,
     pageNum
   },
   data() {
