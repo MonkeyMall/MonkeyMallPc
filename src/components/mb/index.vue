@@ -4,7 +4,8 @@
       <p class="index-title">- 猿猴宝宝社区 -</p>
       <div class="mbItem">
         <p class="title">微信小程序</p>
-        <p class="des">打开微信扫码体验</p>
+        <p class="des">方式1:打开微信扫码体验</p>
+        <p class="des">方式2:微信 搜索 "猿猴宝宝" 小程序</p>
         <div class="qr-code">
           <img src="@/static/imgs/wechat.jpg" alt="">
         </div>
