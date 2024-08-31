@@ -76,6 +76,10 @@ export default {
   z-index: 999;
   right: 50px;
   bottom: 100px;
+  padding: 20px;
+  background: #f5f6f9;
+  cursor: pointer;
+  border-radius: 50%;
   .icon {
     width: 100%;
     height: 100%;

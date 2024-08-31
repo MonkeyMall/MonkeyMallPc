@@ -3,37 +3,52 @@
     <ul class="web-left" v-if="list.length">
       <li v-for="(item, index) in list" 
         :key="index" 
-        :class="[lookIndex === index ? 'active' : '']"
+        :class="[lookIndex === index ? 'active' : '', item.by < 0 && item.isShowMore ? 'fixed' : '']"
       >
       <!-- @click="tapBarItem('click', item._id, index)" -->
-        <p class="title">{{ item.title }}</p>
-        <div :class="['content', lookIndex == index ? 'active' : '']">
-          <span v-html="item.content.length > 200 && !item.isShowMore ? item.content.slice(0, 200) + '...' : item.content"></span>
-          <span v-if="item.content.length > 200" class="more" @click="moreFn(index)">{{!item.isShowMore ? '阅读全文' : '收起'}}</span>
+       <div :ref="'p_' + index">
+        <!-- //{{ item.by }} -->
+         <p class="title">{{ item.title }}</p> 
+         <div :class="['content', item.isShowMore ? 'active' : '']">
+           <span v-html="item.content.length > 200 && !item.isShowMore ? item.content.slice(0, 200) + '...' : item.content"></span>
+           <!-- <span v-if="item.content.length > 200" class="more" @click="moreFn(index)">{{!item.isShowMore ? '阅读全文' : '收起'}}</span> -->
+         </div>
+         <div class="creatTime">
+          发布于：<span class="content-bar-right" v-time="item.startTime"></span>
         </div>
-        <div class="content-bar">
-          <div class="content-bar-left">
-            <div class="content-bar-item" @click="tapBarItem('pl', item._id, index)">
-              <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-liaotian"></use>
-              </svg>
-              {{ countNumArr[index] }} 条评论
-            </div>
-            <div class="content-bar-item" @click="tapBarItem('pl', item._id, index)">
-              <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-31pinglun"></use>
-              </svg>
-              评论
-            </div>
-            <div class="content-bar-item" @click="collenctFn(index)">
-              <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-shoucang1"></use>
-              </svg>
-              收藏
-            </div>
-          </div>
-          <div class="content-bar-right" v-time="item.startTime"></div>
-        </div>
+         <div class="content-bar-box">
+           <div class="content-bar">
+             <div class="content-bar-left">
+               <div class="content-bar-item" @click="tapBarItem('pl', item._id, index)">
+                <i class="iconfont">&#xe61d;</i>
+                 <!-- <svg class="icon" aria-hidden="true">
+                   <use xlink:href="#icon-liaotian"></use>
+                 </svg> -->
+                 {{ countNumArr[index] }} 条评论
+               </div>
+               <div class="content-bar-item" @click="tapBarItem('pl', item._id, index)">
+                <i class="iconfont">&#xe604;</i>
+                 <!-- <svg class="icon" aria-hidden="true">
+                   <use xlink:href="#icon-31pinglun"></use>
+                 </svg> -->
+                 评论
+               </div>
+               <div class="content-bar-item" @click="collenctFn(item)">
+                <i :class="['iconfont', collentTypeArr[index] ? 'active zoomIn animated' : '']">&#xe661;</i>
+                 <!-- <svg :class="['icon', collentTypeArr[index] ? 'active' : '']" aria-hidden="true">
+                   <use xlink:href="#icon-shoucang1"></use>
+                 </svg> -->
+                 收藏
+               </div>
+             </div>
+             <div class="content-bar-right">
+              <span v-if="item.content.length > 200" class="more" @click="moreFn(index)">{{!item.isShowMore ? '阅读全文' : '收起'}}</span>
+              <i class="iconfont" v-if="item.content.length > 200" v-show="!item.isShowMore">&#xe7a2;</i>
+              <i class="iconfont" v-if="item.content.length > 200" v-show="item.isShowMore">&#xe7a3;</i>
+             </div>
+           </div>
+         </div>
+       </div>
       </li>
       <div class="pageFy">
         <pageNum 
@@ -101,7 +116,9 @@
 import {
   getRidiculeList,
   ridiculeCommentList,
-  addCommentRidicule
+  addCommentRidicule,
+  ridiculeCollent,
+  getRidiculeIsCollent
 } from "@/api/index";
 import {
   isLogin
@@ -123,6 +140,7 @@ export default {
     return {
       list: [],
       countNumArr: [],
+      collentTypeArr: [],
       drawer: false,
       commentInfo: null,
       lookIndex: '',
@@ -141,7 +159,11 @@ export default {
   created() {
     this.getData()
   },
-  mounted() {},
+  mounted() {
+    if (this.$route.query.title) {
+      this.query.title = this.$route.query.title
+    }
+  },
   computed: {
     ...mapState(['searchText'])
   },
@@ -155,19 +177,31 @@ export default {
     }
   },
   methods: {
+    // 监听
+    scrollItemToBottom(list) {
+      window.addEventListener('scroll', () => {
+        for (let i = 0; i <= list.length; i++) {
+          let [div] = this.$refs['p_' + i ]  // 特别注意这一行，赋值给了数组
+          this.$set(this.list[i], 'by', window.innerHeight - div.getBoundingClientRect().bottom )
+          
+          // this.list[i].by = div.getBoundingClientRect().y - window.innerHeight
+          // console.log("-"+i+"-",div.getBoundingClientRect(), window.innerHeight)
+        }
+      })
+    },
     // 评论列表
     async getData() {
-      let {data, count, countNumArr} = await getRidiculeList(this.query);
+      let {data, count, countNumArr, collentTypeArr} = await getRidiculeList(this.query);
       data.map(item =>{
         item.isShowMore = false
       })
       this.list = data || []
+      this.scrollItemToBottom(data)
       this.total = count
       this.countNumArr = countNumArr
-      console.log('list:', data);
+      this.collentTypeArr = collentTypeArr
     },
     handleCurrentChange(val) {
-      console.log('子组件再调用父组件的方法:', val);
       this.query.page = val
       this.getData()
     },
@@ -177,7 +211,6 @@ export default {
         page: 1,
         contentId: id
       });
-      console.log('data:', data);
       data.data.map(item =>{
         item.isInput = false
       })
@@ -186,11 +219,30 @@ export default {
     // 点击阅读更多
     moreFn(index) {
       this.lookIndex = index
-      this.$set(this.list[index], 'isShowMore', !this.list[index].isShowMore)
+      this.list.forEach((item, i) => {
+        if(i === index){
+          item.isShowMore = !item.isShowMore
+        }else{
+          item.isShowMore = false
+        }
+      })
+      // this.$set(this.list[index], 'isShowMore', !this.list[index].isShowMore)
     },
     // 收藏
-    collenctFn(index) {
-
+    async collenctFn(item) {
+      if(!isLogin()) return
+      let data = await getRidiculeIsCollent({
+        ridiculeId: item._id
+      })
+      console.log('收藏数据', data)
+      // 还没有收藏
+      let dataCollent = await ridiculeCollent({
+        ridiculeId: item._id,
+        type: data.isCollect ? 0 : 1 // 收藏类型 1 收藏 2 取消收藏
+      })
+      if (dataCollent.code === 200) {
+        this.getData()
+      }
     },
     // 点击回复
     hfFn(index) {
@@ -221,7 +273,6 @@ export default {
         text = this.fhText
         creatUserId = item.data[index].userId._id
       }
-      console.log('提交', type, item, index)
         const data = await addCommentRidicule({
         contentId: item.contentInfo[0]._id,
         commentContents: text,
@@ -373,47 +424,117 @@ export default {
         border: 1px solid rgba(0, 186, 173, .6);
         border-radius: 8px;
       }
+      &:hover {
+        // border-top: 1px solid #f0f0f0;
+        // border-bottom: 1px solid #f0f0f0;
+        background: #f8f8fa;
+        .title {
+          color: #55a393;
+        }
+      }
+      &.fixed {
+        .content-bar-box {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          display: flex;
+          justify-content: center;
+          .content-bar {
+            width: 1140px;
+            background: #fff;
+            padding: 15px 9px;
+            box-shadow: 0 -1px 3px #ddd;
+            .content-bar-left {
+              .content-bar-item {
+                font-size: 16px;
+                font-weight: 600;
+              }
+            }
+            .content-bar-right {
+              font-size: 16px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
       .title{
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 600;
         text-align: left;
         margin-bottom: 5px;
       }
+      .creatTime{
+        color: #8491a5;
+        font-size: 14px;
+        margin-top: 10px
+      }
       .content{
-        font-size: 15px;
+        font-size: 18px;
         color: #191b1f;
         text-align: left;
         .more{
+          font-size: 14px;
           color: #09408e;
           cursor: pointer;
         }
       }
-      .content-bar {
-        display: flex;
-        justify-content: space-between;
-        .content-bar-left {
+      .content-bar-box {
+        // width: 1200px;
+        // height: 100vh;
+        // position: fixed;
+        // top: 0;
+        // left: 0;
+        // right: 0;
+        // bottom: 0;
+        // background: red;
+        font-weight: bold;
+        .content-bar {
           display: flex;
-          gap: 15px;
-          .content-bar-item {
-            font-size: 14px;
-            color: #8491a5;
-            cursor: pointer;
-            margin-top: 5px;
-            .icon{
-              fill: #8491a5;
-            }
-            &:hover {
-              color: rgba(0, 186, 173, .6);
+          justify-content: space-between;
+          padding: 10px 0px;
+          .content-bar-left {
+            display: flex;
+            gap: 15px;
+            .content-bar-item {
+              font-size: 14px;
+              color: #8491a5;
+              cursor: pointer;
+              margin-top: 5px;
+              .iconfont{
+                color: #8491a5;
+                &.active {
+                  color: #00baad;
+                }
+              }
               .icon{
-                fill: rgba(0, 186, 173, .6);
+                fill: #8491a5;
+                &.active {
+                  fill: #00baad;
+                }
+              }
+              &:hover {
+                color: rgba(0, 186, 173, .6);
+                .iconfont{
+                  fill: rgba(0, 186, 173, .6);
+                }
+              }
+              .icon{
+                fill: #8491a5;
+                &.active {
+                  fill: #00baad;
+                }
               }
             }
           }
-        }
-        .content-bar-right {
-          font-size: 14px;
-          color: #8491a5;
-          margin-top: 5px;
+          .content-bar-right {
+            font-size: 14px;
+            color: #8491a5;
+            margin-top: 5px;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+          }
         }
       }
     }

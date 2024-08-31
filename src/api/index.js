@@ -128,3 +128,30 @@ export function register(params) {
 		data: params
 	});
 }
+
+// 用户收藏调侃
+export function ridiculeCollent(params) {
+	return request({
+		url: "/api/ridicule/collect",
+		method: "post",
+		data: params
+	});
+}
+
+// 用户收藏调侃列表
+export function getRidiculeCollentList(query) {
+  return request({
+    url: '/api/ridicule/collect/list',
+    method: 'get',
+    params: query
+  })
+}
+// 查询指定用户是否收藏了指定调侃
+export function getRidiculeIsCollent(query) {
+  return request({
+    url: '/api/ridicule/collect/isCollect',
+    method: 'get',
+    params: query
+  })
+}
+

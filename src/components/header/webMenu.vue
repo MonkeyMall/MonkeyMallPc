@@ -95,6 +95,10 @@ export default {
         this.placeholderText = '调侃标题'
       }
     }
+    if (this.$route.query.title) {
+      this.input = this.$route.query.title
+      this.$store.commit('SET_SEARCHTEXT', this.input)
+    }
   },
   methods: {
     onJump(url, type) {

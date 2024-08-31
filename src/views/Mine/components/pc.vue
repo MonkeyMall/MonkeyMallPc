@@ -9,6 +9,10 @@
         <i class="iconfont">&#xe6bf;</i>
         我的调侃
       </div>
+      <div class="mine-item" @click="jump('/myCollentPcRidicule')">
+        <i class="iconfont">&#xe6b9;</i>
+        收藏的调侃
+      </div>
       <div class="mine-item" @click="jump('/addRidicule')">
         <i class="el-icon-chat-dot-square"></i>
         创建调侃

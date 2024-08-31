@@ -63,6 +63,7 @@ export default {
 <style scoped>
 .main-pc {
   /* overflow-x: hidden; */
+  min-height: calc(100vh - 360px);
   background: #f5f6f9;
 }
 /* .main-mb {

@@ -99,6 +99,20 @@ const router = new Router({
       }
     },
     {
+      path: "/myCollentPcRidicule",
+      name: "myCollentPcRidicule",
+      component: () => import("./views/Mine/CollentRidicule.vue"),
+      meta: {
+        name: 'mine',
+        title: "我收藏的调侃",
+        type: "公司详情，搜索公司，入职闭坑",
+        headline: "收藏调侃-猿猴社区",
+        keywords: "公司详情，搜索公司，入职闭坑",
+        description: "公司详情，搜索公司，入职闭坑",
+        toolbartext: ["个人中心", "我的调侃"]
+      }
+    },
+    {
       path: "/addCompany",
       name: "addCompany",
       component: () => import("./views/Mine/AddCompony.vue"),
