@@ -454,6 +454,9 @@ export default {
             .content-bar-right {
               font-size: 16px;
               font-weight: 600;
+              .more {
+                color: #00baad;
+              }
             }
           }
         }
@@ -534,6 +537,9 @@ export default {
             display: flex;
             gap: 5px;
             align-items: center;
+            .more {
+                color: #00baad;
+              }
           }
         }
       }
