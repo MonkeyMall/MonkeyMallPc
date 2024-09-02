@@ -66,7 +66,7 @@ export default {
   },
   data() {
     return {
-      uploadUrl: '', // process.env.VUE_APP_BASE_API + '/file/upload', // 上传的图片服务器地址
+      uploadUrl: process.env.VUE_APP_API+ '/upload', // process.env.VUE_APP_BASE_API + '/file/upload', // 上传的图片服务器地址
       headers: {
         // Authorization: 'Bearer ' + getToken()
       },
@@ -217,15 +217,16 @@ export default {
       return true
     },
     handleUploadSuccess(res, file) {
+      console.log('上传图片', res)
       // 如果上传成功
-      if (res.Bucket) {
+      if (res.url) {
         // 获取富文本组件实例
         const quill = this.Quill
         // 获取光标所在位置
         const length = quill.getSelection().index
         // 插入图片  res.url为服务器返回的图片地址
         // const url = 'https://' + config.COS_CDN_PREFIX + res.Location
-        const url = 'https://' + res.Location
+        const url = process.env.VUE_APP_PUBLIC_PATH + res.url
         quill.insertEmbed(length, 'image', url)
         // 调整光标到最后
         quill.setSelection(length + 1)

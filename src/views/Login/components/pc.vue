@@ -65,8 +65,8 @@ export default {
     return {
       readonly: false,
       form: {
-        username: "songyanbin",
-        password: "admin123",
+        username: "",
+        password: "",
       },
       list: []
     };

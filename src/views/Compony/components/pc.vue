@@ -317,6 +317,7 @@ export default {
       border-radius: 40px;
       background: #2bc7a0;
       color: #fff;
+      cursor: pointer;
     }
   }
 }

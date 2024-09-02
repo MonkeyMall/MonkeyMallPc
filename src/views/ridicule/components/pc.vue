@@ -74,10 +74,10 @@
           <ul v-if="commentInfo.data && commentInfo.data.length">
             <li v-for="(item, index) in commentInfo.data" :key="index">
               <p class="anthor">
-                <span class="person">{{ item.userId.username }}</span>
-                <span class="pl-author" v-if="commentInfo.contentInfo[0].userId == item.userId._id">作者</span>
+                <span v-if="item.userId && item.userId.username" class="person">{{ item.userId.username }}</span>
+                <span class="pl-author" v-if="item.userId && commentInfo.contentInfo[0].userId == item.userId._id">作者</span>
                 <span v-if="item.creatUserId">评论</span>
-                <span class="person" v-if="item.creatUserId">{{ item.creatUserId.username }}</span>
+                <span class="person" v-if="item.creatUserId && item.creatUserId.username">{{ item.creatUserId.username }}</span>
                 <!-- <span class="pl-author" v-if="item.creatUserId._id == item.userId._id && item.creatUserId">作者</span> -->
               </p>
               <p class="pl-cons">{{ item.commentContents }}</p>
@@ -282,10 +282,7 @@ export default {
         this.plText = ''
         this.fhText = ''
         this.getData()
-        this.getCommentList({
-          page: 1,
-          contentId: item._id
-        })
+        this.getCommentList(item.contentInfo[0]._id)
       }
     }
   }

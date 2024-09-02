@@ -1,6 +1,6 @@
 <template>
   <div class="ridicule">
-    <ul class="web-left">
+    <ul class="web-left" v-if="list.length > 0">
       <li v-for="(item, index) in list" 
         :key="index" 
         :class="[lookIndex === index ? 'active' : '']"
@@ -15,6 +15,10 @@
         />
       </div>
     </ul>
+    <div v-else class="empty">
+      <p>您暂无收藏任何调侃</p>
+      <div class="creatTk" @click="goTkFn">调侃列表</div>
+    </div>
   </div>
 </template>
 
@@ -95,12 +99,35 @@ export default {
           title: item.title
         }
       })
+    },
+    goTkFn() {
+      this.$router.push('/ridicule')
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.empty {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  color: #8491a5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  .creatTk {
+    width: 100px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 30px;
+    background: #2bc7a0;
+    margin-top: 10px;
+    color: #fff;
+    cursor: pointer;
+  }
+}
 .PC-drawer {
   position: relative;
   height: 100vh;

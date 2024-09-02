@@ -77,9 +77,9 @@ export default {
     return {
       readonly: false,
       form: {
-        username: "songyanbin",
-        password: "admin123",
-        repassword: 'admin123'
+        username: "",
+        password: "",
+        repassword: ''
       },
       list: []
     };

@@ -13,6 +13,7 @@
     </div>
     <div>
       <p class="label-title">联系我们</p>
+      <p>客服：小宋</p>
       <p>邮箱：598349146@qq.com</p>
     </div>
     <div>

@@ -2,7 +2,12 @@
   <div :class="['toolbar', scrollHide ? 'toolbar-hide fadeOut animated' : '']" v-show="isShow">
     <el-breadcrumb separator="/">
       <!-- :to="{ path: '/' }" -->
-      <el-breadcrumb-item v-for="(item,index) in list" :key="index">{{ item }}</el-breadcrumb-item>
+      <el-breadcrumb-item 
+        v-for="(item,index) in list" 
+        :key="index">
+        <a :href="item.path" v-if="item.path">{{ item.text }}</a>
+        <span v-else>{{ item.text }}</span>
+      </el-breadcrumb-item>
       <!-- <el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>
       <el-breadcrumb-item>活动列表</el-breadcrumb-item>
       <el-breadcrumb-item>活动详情</el-breadcrumb-item> -->

@@ -23,7 +23,9 @@ const router = new Router({
         keywords: "搜索公司，入职闭坑",
         description:
           "搜索公司，入职闭坑",
-        toolbartext: ["首页"]
+        toolbartext: [{
+          text: "首页"
+        }]
       }
     },
     {
@@ -37,7 +39,12 @@ const router = new Router({
         headline: "公司详情-猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
         description: "公司详情，搜索公司，入职闭坑",
-        toolbartext: ["首页", "公司详情"]
+        toolbartext: [{
+          text: "首页",
+          path: "/"
+        }, {
+          text: "公司详情"
+        }]
       }
     },
     {
@@ -52,7 +59,9 @@ const router = new Router({
         keywords: "社区，调侃，社会现状，失业人员",
         description:
           "搜索公司，入职闭坑",
-        toolbartext: ["侃言"]
+        toolbartext: [{
+          text: "侃言"
+        }]
       }
     },
     {
@@ -67,7 +76,9 @@ const router = new Router({
         keywords: "社区，调侃，社会现状，失业人员",
         description:
           "搜索公司，入职闭坑",
-        toolbartext: ["关于我们"]
+        toolbartext: [{
+          text: "关于我们"
+        }]
       }
     },
     {
@@ -81,7 +92,9 @@ const router = new Router({
         headline: "个人中心-猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
         description: "公司详情，搜索公司，入职闭坑",
-        toolbartext: ["个人中心"]
+        toolbartext: [{
+          text: "个人中心"
+        }]
       }
     },
     {
@@ -95,7 +108,12 @@ const router = new Router({
         headline: "我的调侃-猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
         description: "公司详情，搜索公司，入职闭坑",
-        toolbartext: ["个人中心", "我的调侃"]
+        toolbartext: [{
+          text: "个人中心",
+          path: "/mine"
+        },{
+          text: "我的调侃"
+        }]
       }
     },
     {
@@ -109,7 +127,12 @@ const router = new Router({
         headline: "收藏调侃-猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
         description: "公司详情，搜索公司，入职闭坑",
-        toolbartext: ["个人中心", "我的调侃"]
+        toolbartext: [{
+          text: "个人中心",
+          path: "/mine"
+        },{
+          text: "我收藏的调侃"
+        }]
       }
     },
     {
@@ -123,7 +146,12 @@ const router = new Router({
         headline: "创建公司-猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
         description: "公司详情，搜索公司，入职闭坑",
-        toolbartext: ["个人中心", "创建公司"]
+        toolbartext: [{
+          text: "个人中心",
+          path: "/mine"
+        },{
+          text: "创建公司"
+        }]
       }
     },
     {
@@ -137,7 +165,12 @@ const router = new Router({
         headline: "创建调侃-猿猴社区",
         keywords: "公司详情，搜索公司，入职闭坑",
         description: "公司详情，搜索公司，入职闭坑",
-        toolbartext: ["个人中心", "创建调侃"]
+        toolbartext: [{
+          text: "个人中心",
+          path: "/mine"
+        },{
+          text: "创建调侃"
+        }]
       }
     },
     {
