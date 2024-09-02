@@ -226,7 +226,7 @@ export default {
         const length = quill.getSelection().index
         // 插入图片  res.url为服务器返回的图片地址
         // const url = 'https://' + config.COS_CDN_PREFIX + res.Location
-        const url = process.env.VUE_APP_PUBLIC_PATH + res.url
+        const url = 'https://www.monkeysmall.com/' + res.url
         quill.insertEmbed(length, 'image', url)
         // 调整光标到最后
         quill.setSelection(length + 1)
