@@ -8,7 +8,21 @@
       <!-- @click="tapBarItem('click', item._id, index)" -->
        <div :ref="'p_' + index">
         <!-- //{{ item.by }} -->
-         <p class="title">{{ item.title }}</p> 
+         <div class="title">
+          <div class="categoryOptions-item">
+          <!-- item.category -->
+          <div 
+            :class="['categoryOptions', 'categoryOptions' + item.category]"
+            v-for="(options, i) in categoryOptions" 
+            :key="i" 
+            v-if="options.value === item.category"
+            >
+            <!-- v-if="options.value === item.category" -->
+            {{ options.label }}
+          </div>
+          </div>
+          {{ item.title }}
+        </div> 
          <div :class="['content', item.isShowMore ? 'active' : '']">
            <span v-html="item.content.length > 200 && !item.isShowMore ? item.content.slice(0, 200) + '...' : item.content"></span>
            <!-- <span v-if="item.content.length > 200" class="more" @click="moreFn(index)">{{!item.isShowMore ? '阅读全文' : '收起'}}</span> -->
@@ -127,6 +141,8 @@ import windowRight from "@/components/windowRight/windowRight";
 import empty from "@/components/empty/index";
 import pageNum from "@/components/pageNum/index.vue";
 import { mapState, mapMutations } from "vuex";
+import dictData from '@/utils/dictData.js'
+
 
 var that = null;
 export default {
@@ -138,6 +154,7 @@ export default {
   },
   data() {
     return {
+      categoryOptions: dictData.categoryOptions,
       list: [],
       countNumArr: [],
       collentTypeArr: [],
@@ -290,6 +307,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$mult-color-grey: #999; //辅助灰色，rgba(153, 153, 153, 1);
+$mult-color-placeholder: #FC515F; // 强调文字颜色 rgba(252, 81, 95, 1)
+$mult-color-tag-1: #FF8D1A; // rgba(255, 141, 26, 1);
+$mult-color-tag-2: #3568F5; // rgba(53, 104, 245, 1);
+$mult-color-tag-3: #00baad; // rgba(0, 186, 173, 1);
+$mult-color-tag-4: #e05fe9;
+$mult-color-tag-5: #e9615f;
+$mult-color-tag-6: #6be95f;
+$mult-color-tag-7: #1100ff;
+
+.categoryOptions-item{
+  font-size: 14px;
+  color: #fff;
+  display: flex;
+  gap: 5px;
+  .categoryOptions {
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: $mult-color-grey;
+  }
+  .categoryOptions1{
+    background: $mult-color-tag-1;
+  }
+  .categoryOptions2{
+    background: $mult-color-tag-5;
+  }
+  .categoryOptions3{
+    background: $mult-color-tag-2;
+  }
+  .categoryOptions4{
+    background: $mult-color-tag-4;
+  }
+  .categoryOptions5{
+    background: $mult-color-tag-6;
+  }
+  .categoryOptions9{
+    background: $mult-color-tag-7;
+  }
+  .categoryOptions7{
+    background: $mult-color-placeholder;
+  }
+  .categoryOptions8{
+    background: $mult-color-tag-3;
+  }
+}
+
 .PC-drawer {
   position: relative;
   height: 100vh;
@@ -447,6 +510,11 @@ export default {
                 font-size: 16px;
                 font-weight: 600;
               }
+              .content-bar-item {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+              }
             }
             .content-bar-right {
               font-size: 16px;
@@ -463,6 +531,9 @@ export default {
         font-weight: 600;
         text-align: left;
         margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
       .creatTime{
         color: #8491a5;
@@ -480,14 +551,6 @@ export default {
         }
       }
       .content-bar-box {
-        // width: 1200px;
-        // height: 100vh;
-        // position: fixed;
-        // top: 0;
-        // left: 0;
-        // right: 0;
-        // bottom: 0;
-        // background: red;
         font-weight: bold;
         .content-bar {
           display: flex;
@@ -496,6 +559,7 @@ export default {
           .content-bar-left {
             display: flex;
             gap: 15px;
+            align-items: center;
             .content-bar-item {
               font-size: 14px;
               color: #8491a5;
@@ -526,6 +590,7 @@ export default {
                 }
               }
             }
+            
           }
           .content-bar-right {
             font-size: 14px;

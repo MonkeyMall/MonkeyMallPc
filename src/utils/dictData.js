@@ -14,6 +14,15 @@ const categoryOptions = [{
   label: '阅读心得',
   value: '5'
 }, {
+  label: '求助消息',
+  value: '7'
+}, {
+  label: '前沿科技',
+  value: '8'
+}, {
+  label: '技术分享',
+  value: '9'
+}, {
   label: '其他',
   value: '6'
 }]
