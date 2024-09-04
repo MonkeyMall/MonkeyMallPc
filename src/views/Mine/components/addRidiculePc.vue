@@ -85,6 +85,7 @@ export default {
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
           let { code } = await addRidicule(this.ruleForm)
+          console.log('addRidicule:', code)
           if (code === 200) {
             this.$router.push('/ridicule')
           }

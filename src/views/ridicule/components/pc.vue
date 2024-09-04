@@ -314,6 +314,7 @@ $mult-color-tag-4: #e05fe9;
 $mult-color-tag-5: #e9615f;
 $mult-color-tag-6: #6be95f;
 $mult-color-tag-7: #1100ff;
+
 .categoryOptions-item{
   font-size: 14px;
   color: #fff;
@@ -480,7 +481,7 @@ img {
     li {
       // width: 100%;
       padding: 10px;
-      cursor: pointer;
+      // cursor: pointer;
       &:not(:last-child) {
         border-bottom: 1px solid #f8f8fa;
       }
@@ -548,12 +549,16 @@ img {
         font-size: 18px;
         color: #191b1f;
         text-align: left;
-        p {
-          ::v-deep img {
-            display: block;
-            width: 100%;
-          }
+        /deep/ img {
+          display: inline-block;
+          width: 100%;
         }
+        // p {
+        //   ::v-deep img {
+        //     display: block;
+        //     width: 100%;
+        //   }
+        // }
         .more{
           font-size: 14px;
           color: #09408e;
@@ -611,6 +616,7 @@ img {
             align-items: center;
             .more {
                 color: #00baad;
+                cursor: pointer;
               }
           }
         }
