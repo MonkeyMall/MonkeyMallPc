@@ -15,6 +15,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+img {
+  display: inline-block;
+  width: 100%;
+}
 .cl-icon-back:before {
   content: "\e7e0";
 }

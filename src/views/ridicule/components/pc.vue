@@ -22,7 +22,7 @@
           {{ item.title }}
         </div> 
          <div :class="['content', item.isShowMore ? 'active' : '']">
-           <span v-html="item.content.length > 200 && !item.isShowMore ? item.content.slice(0, 200) + '...' : item.content"></span>
+           <div v-html="item.content.length > 100 && !item.isShowMore ? item.content.slice(0, 100) + '...' : item.content"></div>
            <!-- <span v-if="item.content.length > 200" class="more" @click="moreFn(index)">{{!item.isShowMore ? '阅读全文' : '收起'}}</span> -->
          </div>
          <div class="creatTime">
@@ -314,7 +314,6 @@ $mult-color-tag-4: #e05fe9;
 $mult-color-tag-5: #e9615f;
 $mult-color-tag-6: #6be95f;
 $mult-color-tag-7: #1100ff;
-
 .categoryOptions-item{
   font-size: 14px;
   color: #fff;
@@ -350,7 +349,10 @@ $mult-color-tag-7: #1100ff;
     background: $mult-color-tag-3;
   }
 }
-
+img {
+  display: inline-block;
+  width: 100%;
+}
 .PC-drawer {
   position: relative;
   height: 100vh;
@@ -383,7 +385,9 @@ $mult-color-tag-7: #1100ff;
       font-size: 16px;
     }
     ul {
+      width: 100%;
       li {
+        width: 100%;
         padding: 10px 0;
         &:not(:last-child) {
           border-bottom: 1px solid #f8f8fa;
@@ -464,15 +468,17 @@ $mult-color-tag-7: #1100ff;
   width: 1200px;
   margin: 0px auto;
   display: flex;
-  gap: 20px;
+  // gap: 20px;
   .pageFy {
     margin-top: 20px;
   }
   ul {
+    width: 100%;
     background: #fff;
     padding: 20px;
     flex: 1;
     li {
+      // width: 100%;
       padding: 10px;
       cursor: pointer;
       &:not(:last-child) {
@@ -542,6 +548,12 @@ $mult-color-tag-7: #1100ff;
         font-size: 18px;
         color: #191b1f;
         text-align: left;
+        p {
+          ::v-deep img {
+            display: block;
+            width: 100%;
+          }
+        }
         .more{
           font-size: 14px;
           color: #09408e;
