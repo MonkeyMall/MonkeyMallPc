@@ -1,5 +1,5 @@
 <template>
-  <div :class="['container-component', swi ? 'swi' : '']">
+  <div :class="['PC-container-component', swi ? 'swi' : '']">
     <Header v-if="isHeader && !isMobile()" />
     <div :class="[platform === 'pc' ? 'main-pc' : 'main-mb']">
       <slot name="main"></slot>
@@ -69,7 +69,7 @@ export default {
 /* .main-mb {
   margin-top: 100px;
 } */
-.container-component.swi{
+.PC-container-component.swi{
   padding-top: 120px;
 }
 </style>

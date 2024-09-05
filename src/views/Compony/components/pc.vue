@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="PC-compony">
     <div class="componyTitle">
       <p class="componyTitle-title">{{ info.name }}</p>
     </div>
@@ -187,137 +187,140 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.label-title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #333333;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  .addMessage {
-    font-size: 14px;
-    color: #999999;
-    cursor: pointer;
-    padding: 5px 10px;
-    background: #f8f8f8;
-    border-radius: 8px;
-    &:hover {
-      color: #fff;
-      background: #ff6600;
-    }
-  }
-}
-.mt-30 {
-  margin-top: 30px;
-}
-.componyTitle {
-  width: 1200px;
-  margin: 0 auto 0;
-  background: #fff;
-  padding: 20px 30px;
-  .componyTitle-title {
+.PC-compony {
+
+  .label-title {
     font-size: 24px;
     font-weight: 600;
     color: #333333;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .addMessage {
+      font-size: 14px;
+      color: #999999;
+      cursor: pointer;
+      padding: 5px 10px;
+      background: #f8f8f8;
+      border-radius: 8px;
+      &:hover {
+        color: #fff;
+        background: #ff6600;
+      }
+    }
   }
-}
-.compony {
-  width: 1200px;
-  margin: 30px auto 0;
-  background: #fff;
-  padding: 30px;
-  .label-content {
-    position: relative;
-    border-radius: 12px;
-    border: none;
-    background: #f8f8f8;
-    padding: 20px;
-    height: auto;
-    .business-detail-box {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 100%; /* 确保容器宽度不超过其父元素宽度 */
-      .business-detail-name {
-        flex: 0 0 33.3333%; /* 每个item占据100% / 3 */
-        max-width: 100%; /* 确保item宽度不超过容器宽度 */
-        font-size: 15px;
-        color: #333;
-        line-height: 21px;
-        margin-bottom: 30px;
-        .t {
-          display: block;
-          font-size: 14px;
-          color: #999;
-          line-height: 20px;
-          margin-bottom: 8px;
+  .mt-30 {
+    margin-top: 30px;
+  }
+  .componyTitle {
+    width: 1160px;
+    margin: 0 auto 0;
+    background: #fff;
+    padding: 20px 30px;
+    .componyTitle-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333333;
+    }
+  }
+  .compony {
+    width: 1160px;
+    margin: 30px auto 0;
+    background: #fff;
+    padding: 30px;
+    .label-content {
+      position: relative;
+      border-radius: 12px;
+      border: none;
+      background: #f8f8f8;
+      padding: 20px;
+      height: auto;
+      .business-detail-box {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%; /* 确保容器宽度不超过其父元素宽度 */
+        .business-detail-name {
+          flex: 0 0 33.3333%; /* 每个item占据100% / 3 */
+          max-width: 100%; /* 确保item宽度不超过容器宽度 */
+          font-size: 15px;
+          color: #333;
+          line-height: 21px;
+          margin-bottom: 30px;
+          .t {
+            display: block;
+            font-size: 14px;
+            color: #999;
+            line-height: 20px;
+            margin-bottom: 8px;
+          }
         }
       }
     }
-  }
-  
-  .company-talents-list {
-    overflow: hidden;
-    margin-top: 20px;
-    li {
-      float: left;
-      background: #f8f8f8;
-      border-radius: 4px;
-      padding: 4px 12px;
-      font-size: 14px;
-      color: #666;
-      line-height: 20px;
-      margin-right: 8px;
-      margin-bottom: 12px;
-    }
-  }
-}
-.empty{
-  width: 1200px;
-  margin: 30px auto;
-  background: #fff;
-  padding: 30px;
-  .company-ganshou {
-    .usrname {
-      font-size: 14px;
-      color: #333;
-      line-height: 20px;
-      margin-bottom: 8px;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
+    
+    .company-talents-list {
+      overflow: hidden;
+      margin-top: 20px;
+      li {
+        float: left;
+        background: #f8f8f8;
+        border-radius: 4px;
+        padding: 4px 12px;
+        font-size: 14px;
+        color: #666;
+        line-height: 20px;
+        margin-right: 8px;
+        margin-bottom: 12px;
       }
     }
-    .usrtext {
-      font-size: 14px;
-      color: #666;
-      line-height: 20px;
-      background: #f8f8f8;
-      padding: 10px;
-      margin-left: 50px;
-    }
   }
-  .empty-box {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #999;
-    gap: 20px;
-    .joinMessageBtn {
-      width: 150px;
-      line-height: 40px;
-      text-align: center;
-      border-radius: 40px;
-      background: #2bc7a0;
-      color: #fff;
-      cursor: pointer;
+  .empty{
+    width: 1160px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 30px;
+    .company-ganshou {
+      .usrname {
+        font-size: 14px;
+        color: #333;
+        line-height: 20px;
+        margin-bottom: 8px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+      }
+      .usrtext {
+        font-size: 14px;
+        color: #666;
+        line-height: 20px;
+        background: #f8f8f8;
+        padding: 10px;
+        margin-left: 50px;
+      }
+    }
+    .empty-box {
+      width: 100%;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #999;
+      gap: 20px;
+      .joinMessageBtn {
+        width: 150px;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 40px;
+        background: #2bc7a0;
+        color: #fff;
+        cursor: pointer;
+      }
     }
   }
 }

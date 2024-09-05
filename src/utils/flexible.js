@@ -92,8 +92,8 @@
     const isMobile = isAndroid || isIPhone;
     var remSplit = isMobile ? 10 : 25.6;
     var width = docEl.getBoundingClientRect().width;
-    // if (width / dpr > 540) {
-    //   width = 540 * dpr;
+    // if (width / dpr > 780) {
+    //   width = 780 * dpr;
     // }
     var rem = width / remSplit;
     docEl.style.fontSize = rem + "px";

@@ -1,5 +1,5 @@
 <template>
-  <div class="addRidiculePc">
+  <div class="PC-addRidiculePc">
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
       <el-form-item label="标题" prop="title">
         <el-input v-model="ruleForm.title" placeholder="请输入标题"></el-input>
@@ -103,7 +103,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.addRidiculePc {
+.PC-addRidiculePc {
   width: 1200px;
   margin: 0px auto;
   background: #fff;

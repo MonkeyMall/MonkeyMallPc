@@ -20,9 +20,8 @@ const router = new Router({
         title: "首页",
         type: "搜索公司，入职闭坑",
         headline: "猿猴社区",
-        keywords: "搜索公司，入职闭坑",
-        description:
-          "搜索公司，入职闭坑",
+        keywords: "搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
         toolbartext: [{
           text: "首页"
         }]
@@ -37,8 +36,8 @@ const router = new Router({
         title: "公司详情",
         type: "公司详情，搜索公司，入职闭坑",
         headline: "公司详情-猿猴社区",
-        keywords: "公司详情，搜索公司，入职闭坑",
-        description: "公司详情，搜索公司，入职闭坑",
+        keywords: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
         toolbartext: [{
           text: "首页",
           path: "/"
@@ -56,9 +55,8 @@ const router = new Router({
         title: "侃言",
         type: "社区，调侃，社会现状，失业人员",
         headline: "侃言-猿猴社区",
-        keywords: "社区，调侃，社会现状，失业人员",
-        description:
-          "搜索公司，入职闭坑",
+        keywords: "社区，调侃，社会现状，失业人员,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
         toolbartext: [{
           text: "侃言"
         }]
@@ -73,9 +71,8 @@ const router = new Router({
         title: "关于我们",
         type: "社区，调侃，社会现状，失业人员",
         headline: "关于我们-猿猴社区",
-        keywords: "社区，调侃，社会现状，失业人员",
-        description:
-          "搜索公司，入职闭坑",
+        keywords: "社区，调侃，社会现状，失业人员,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
         toolbartext: [{
           text: "关于我们"
         }]
@@ -90,8 +87,8 @@ const router = new Router({
         title: "个人中心",
         type: "公司详情，搜索公司，入职闭坑",
         headline: "个人中心-猿猴社区",
-        keywords: "公司详情，搜索公司，入职闭坑",
-        description: "公司详情，搜索公司，入职闭坑",
+        keywords: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
         toolbartext: [{
           text: "个人中心"
         }]
@@ -106,8 +103,8 @@ const router = new Router({
         title: "我的调侃",
         type: "公司详情，搜索公司，入职闭坑",
         headline: "我的调侃-猿猴社区",
-        keywords: "公司详情，搜索公司，入职闭坑",
-        description: "公司详情，搜索公司，入职闭坑",
+        keywords: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
         toolbartext: [{
           text: "个人中心",
           path: "/mine"
@@ -125,8 +122,8 @@ const router = new Router({
         title: "我收藏的调侃",
         type: "公司详情，搜索公司，入职闭坑",
         headline: "收藏调侃-猿猴社区",
-        keywords: "公司详情，搜索公司，入职闭坑",
-        description: "公司详情，搜索公司，入职闭坑",
+        keywords: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
         toolbartext: [{
           text: "个人中心",
           path: "/mine"
@@ -144,8 +141,8 @@ const router = new Router({
         title: "创建公司",
         type: "公司详情，搜索公司，入职闭坑",
         headline: "创建公司-猿猴社区",
-        keywords: "公司详情，搜索公司，入职闭坑",
-        description: "公司详情，搜索公司，入职闭坑",
+        keywords: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
         toolbartext: [{
           text: "个人中心",
           path: "/mine"
@@ -163,8 +160,8 @@ const router = new Router({
         title: "创建调侃",
         type: "公司详情，搜索公司，入职闭坑",
         headline: "创建调侃-猿猴社区",
-        keywords: "公司详情，搜索公司，入职闭坑",
-        description: "公司详情，搜索公司，入职闭坑",
+        keywords: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
         toolbartext: [{
           text: "个人中心",
           path: "/mine"
@@ -182,9 +179,8 @@ const router = new Router({
         title: "登录",
         type: "登录，社区，调侃，社会现状，失业人员",
         headline: "登录-猿猴社区",
-        keywords: "登录，社区，调侃，社会现状，失业人员",
-        description:
-          "登录，社区，调侃，社会现状，失业人员，搜索公司，入职闭坑"
+        keywords: "登录，社区，调侃，社会现状，失业人员,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "登录，社区，调侃，社会现状，失业人员，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区"
       }
     },
     {
@@ -196,9 +192,8 @@ const router = new Router({
         title: "注册",
         type: "登录，社区，调侃，社会现状，失业人员",
         headline: "注册-猿猴社区",
-        keywords: "登录，社区，调侃，社会现状，失业人员",
-        description:
-          "登录，社区，调侃，社会现状，失业人员，搜索公司，入职闭坑"
+        keywords: "登录，社区，调侃，社会现状，失业人员,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "登录，社区，调侃，社会现状，失业人员，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区"
       }
     },
   ]

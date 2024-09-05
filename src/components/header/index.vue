@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import WebMenu from "./webMenu";
+import WebMenu from "./pcMenu";
 import MbMenu from "./mbMenu";
 export default {
   name: "Header",

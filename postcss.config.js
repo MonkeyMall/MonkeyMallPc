@@ -15,9 +15,9 @@ module.exports = {
       propList: ["*"], // 需要转换的属性列表，['*']表示所有属性都会被转换
       minPixelValue: 2, // 小于或等于该值的像素单位不被转换
       mediaQuery: false, // 是否在媒体查询的css代码中也进行转换，默认false
-      replace: true, // 是否转换后直接更换属性值
-      exclude: /node_modules/i,
-      selectorBlackList: [/^\.PC/, /^\.el$/] // 过滤掉.norem-开头的class，不进行rem转换
+      replace: false, // 是否转换后直接更换属性值
+      exclude: /node_modules/i, // 忽略以 pc 开头的文件 /node_modules/i
+      selectorBlackList: [/^\.PC/, /^\.el$/, /^\#PC/, /^\.main-pc/] // 过滤掉.norem-开头的class，不进行rem转换
     }
   }
 };

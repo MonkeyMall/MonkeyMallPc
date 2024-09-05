@@ -55,12 +55,6 @@ export default {
       bottom: 0;
       left: 0;
     }
-    .footer-box {
-      position: relative;
-      display: flex;
-      width: 1200px;
-      margin: 0 auto;
-    }
   }
 }
 </style>

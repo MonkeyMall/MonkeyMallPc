@@ -1,5 +1,5 @@
 <template>
-  <div class="ridicule">
+  <div class="PC-ridicule">
     <ul class="web-left" v-if="list.length">
       <li v-for="(item, index) in list" 
         :key="index" 
@@ -315,157 +315,9 @@ $mult-color-tag-5: #e9615f;
 $mult-color-tag-6: #6be95f;
 $mult-color-tag-7: #1100ff;
 
-.categoryOptions-item{
-  font-size: 14px;
-  color: #fff;
-  display: flex;
-  gap: 5px;
-  .categoryOptions {
-    padding: 2px 4px;
-    border-radius: 3px;
-    background: $mult-color-grey;
-  }
-  .categoryOptions1{
-    background: $mult-color-tag-1;
-  }
-  .categoryOptions2{
-    background: $mult-color-tag-5;
-  }
-  .categoryOptions3{
-    background: $mult-color-tag-2;
-  }
-  .categoryOptions4{
-    background: $mult-color-tag-4;
-  }
-  .categoryOptions5{
-    background: $mult-color-tag-6;
-  }
-  .categoryOptions9{
-    background: $mult-color-tag-7;
-  }
-  .categoryOptions7{
-    background: $mult-color-placeholder;
-  }
-  .categoryOptions8{
-    background: $mult-color-tag-3;
-  }
-}
-img {
-  display: inline-block;
-  width: 100%;
-}
-.PC-drawer {
-  position: relative;
-  height: 100vh;
-  ::v-deep .el-drawer__header {
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    text-align: left;
-  } 
-  ::v-deep .el-drawer__body {
-    font-size: 14px;
-    text-align: left;
-  }
-  ::v-deep .demo-drawer__footer{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 20px;
-    background: #fff;
-  }
-  .pl-input {
-    display: flex;
-    gap: 10px;
-  }
-  .pl-list {
-    margin-bottom: 80px;
-    .select-item {
-      margin: 20px;
-      color: #000;
-      font-size: 16px;
-    }
-    ul {
-      width: 100%;
-      li {
-        width: 100%;
-        padding: 10px 0;
-        &:not(:last-child) {
-          border-bottom: 1px solid #f8f8fa;
-        }
-        .anthor {
-          margin-bottom: 5px;
-          font-size: 12px;
-          color: #8491a5;
-          display: flex;
-          gap: 10px;
-          align-items: center;
-          .person {
-            font-size: 15px;
-          }
-        }
-      }
-    }
-    ul {
-      li {
-        padding: 10px 0;
-        border-bottom: 1px solid #f8f8fa;
-        .anthor {
-          margin-bottom: 5px;
-          font-size: 12px;
-          color: #8491a5;
-          display: flex;
-          gap: 10px;
-          align-items: center;
-          .person {
-            font-size: 15px;
-            font-weight: bold;
-            text-decoration: none;
-            color: rgb(55, 58, 64);
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-          }
-          .pl-author {
-            background: #f8f8fa;
-            padding: 2px 8px;
-            border-radius: 5px;
-            color: #8491a5;
-          }
-        }
-        .pl-cons {
-          margin-bottom: 5px;
-        }
-        .pl-bar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          &-btn {
-            color: rgb(132, 145, 165);
-            cursor: pointer;
-            &:hover {
-              color:rgb(57, 62, 71);
-            }
-          }
-          &-time {
-            color: #8491a5;
-          }
-        }
-        .hf-input {
-          margin-top: 5px;
-        }
-      }
-    } 
-    .empty {
-      text-align: center;
-      padding: 20px;
-      color: #8491a5;
-      margin-top: 60px;
-    }
-  }
-}
 
-.ridicule {
+
+.PC-ridicule {
   width: 1200px;
   margin: 0px auto;
   display: flex;
@@ -546,7 +398,9 @@ img {
         margin-top: 10px
       }
       .content{
-        font-size: 18px;
+        font-size: 14px;
+        line-height: 24px;
+        text-indent: 2em;
         color: #191b1f;
         text-align: left;
         /deep/ img {
@@ -627,6 +481,155 @@ img {
     width: 240px;
     min-height: 100%;
     background: #fff;
+  }
+  .categoryOptions-item{
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    gap: 5px;
+    .categoryOptions {
+      padding: 2px 4px;
+      border-radius: 3px;
+      background: $mult-color-grey;
+    }
+    .categoryOptions1{
+      background: $mult-color-tag-1;
+    }
+    .categoryOptions2{
+      background: $mult-color-tag-5;
+    }
+    .categoryOptions3{
+      background: $mult-color-tag-2;
+    }
+    .categoryOptions4{
+      background: $mult-color-tag-4;
+    }
+    .categoryOptions5{
+      background: $mult-color-tag-6;
+    }
+    .categoryOptions9{
+      background: $mult-color-tag-7;
+    }
+    .categoryOptions7{
+      background: $mult-color-placeholder;
+    }
+    .categoryOptions8{
+      background: $mult-color-tag-3;
+    }
+  }
+  img {
+    display: inline-block;
+    width: 100%;
+  }
+  .PC-drawer {
+    position: relative;
+    height: 100vh;
+    ::v-deep .el-drawer__header {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      text-align: left;
+    } 
+    ::v-deep .el-drawer__body {
+      font-size: 14px;
+      text-align: left;
+    }
+    ::v-deep .demo-drawer__footer{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 20px;
+      background: #fff;
+    }
+    .pl-input {
+      display: flex;
+      gap: 10px;
+    }
+    .pl-list {
+      margin-bottom: 80px;
+      .select-item {
+        margin: 20px;
+        color: #000;
+        font-size: 16px;
+      }
+      ul {
+        width: 100%;
+        li {
+          width: 100%;
+          padding: 10px 0;
+          &:not(:last-child) {
+            border-bottom: 1px solid #f8f8fa;
+          }
+          .anthor {
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #8491a5;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            .person {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+      ul {
+        li {
+          padding: 10px 0;
+          border-bottom: 1px solid #f8f8fa;
+          .anthor {
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #8491a5;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            .person {
+              font-size: 15px;
+              font-weight: bold;
+              text-decoration: none;
+              color: rgb(55, 58, 64);
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+            .pl-author {
+              background: #f8f8fa;
+              padding: 2px 8px;
+              border-radius: 5px;
+              color: #8491a5;
+            }
+          }
+          .pl-cons {
+            margin-bottom: 5px;
+          }
+          .pl-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &-btn {
+              color: rgb(132, 145, 165);
+              cursor: pointer;
+              &:hover {
+                color:rgb(57, 62, 71);
+              }
+            }
+            &-time {
+              color: #8491a5;
+            }
+          }
+          .hf-input {
+            margin-top: 5px;
+          }
+        }
+      } 
+      .empty {
+        text-align: center;
+        padding: 20px;
+        color: #8491a5;
+        margin-top: 60px;
+      }
+    }
   }
 }
 </style>

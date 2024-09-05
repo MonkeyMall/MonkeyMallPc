@@ -1,5 +1,5 @@
 <template>
-  <div class="ridicule">
+  <div class="PC-ridicule">
     <ul class="web-left" v-if="list.length > 0">
       <li v-for="(item, index) in list" 
         :key="index" 
@@ -237,140 +237,140 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.empty {
-  width: 100%;
-  text-align: center;
-  padding: 20px;
-  color: #8491a5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  .creatTk {
-    width: 100px;
-    line-height: 30px;
-    text-align: center;
-    border-radius: 30px;
-    background: #2bc7a0;
-    margin-top: 10px;
-    color: #fff;
-    cursor: pointer;
-  }
-}
-.PC-drawer {
-  position: relative;
-  height: 100vh;
-  ::v-deep .el-drawer__header {
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    text-align: left;
-  } 
-  ::v-deep .el-drawer__body {
-    font-size: 14px;
-    text-align: left;
-  }
-  ::v-deep .demo-drawer__footer{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 20px;
-    background: #fff;
-  }
-  .pl-input {
-    display: flex;
-    gap: 10px;
-  }
-  .pl-list {
-    margin-bottom: 80px;
-    .select-item {
-      margin: 20px;
-      color: #000;
-      font-size: 16px;
-    }
-    ul {
-      li {
-        padding: 10px 0;
-        &:not(:last-child) {
-          border-bottom: 1px solid #f8f8fa;
-        }
-        .anthor {
-          margin-bottom: 5px;
-          font-size: 12px;
-          color: #8491a5;
-          display: flex;
-          gap: 10px;
-          align-items: center;
-          .person {
-            font-size: 15px;
-          }
-        }
-      }
-    }
-    ul {
-      li {
-        padding: 10px 0;
-        border-bottom: 1px solid #f8f8fa;
-        .anthor {
-          margin-bottom: 5px;
-          font-size: 12px;
-          color: #8491a5;
-          display: flex;
-          gap: 10px;
-          align-items: center;
-          .person {
-            font-size: 15px;
-            font-weight: bold;
-            text-decoration: none;
-            color: rgb(55, 58, 64);
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-          }
-          .pl-author {
-            background: #f8f8fa;
-            padding: 2px 8px;
-            border-radius: 5px;
-            color: #8491a5;
-          }
-        }
-        .pl-cons {
-          margin-bottom: 5px;
-        }
-        .pl-bar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          &-btn {
-            color: rgb(132, 145, 165);
-            cursor: pointer;
-            &:hover {
-              color:rgb(57, 62, 71);
-            }
-          }
-          &-time {
-            color: #8491a5;
-          }
-        }
-        .hf-input {
-          margin-top: 5px;
-        }
-      }
-    } 
-    .empty {
-      text-align: center;
-      padding: 20px;
-      color: #8491a5;
-      margin-top: 60px;
-    }
-  }
-}
 
-.ridicule {
+.PC-ridicule {
   width: 100%;
   margin: 0px auto;
   display: flex;
   gap: 20px;
+  .empty {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    color: #8491a5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    .creatTk {
+      width: 100px;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 30px;
+      background: #2bc7a0;
+      margin-top: 10px;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+  .PC-drawer {
+    position: relative;
+    height: 100vh;
+    ::v-deep .el-drawer__header {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      text-align: left;
+    } 
+    ::v-deep .el-drawer__body {
+      font-size: 14px;
+      text-align: left;
+    }
+    ::v-deep .demo-drawer__footer{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 20px;
+      background: #fff;
+    }
+    .pl-input {
+      display: flex;
+      gap: 10px;
+    }
+    .pl-list {
+      margin-bottom: 80px;
+      .select-item {
+        margin: 20px;
+        color: #000;
+        font-size: 16px;
+      }
+      ul {
+        li {
+          padding: 10px 0;
+          &:not(:last-child) {
+            border-bottom: 1px solid #f8f8fa;
+          }
+          .anthor {
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #8491a5;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            .person {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+      ul {
+        li {
+          padding: 10px 0;
+          border-bottom: 1px solid #f8f8fa;
+          .anthor {
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #8491a5;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            .person {
+              font-size: 15px;
+              font-weight: bold;
+              text-decoration: none;
+              color: rgb(55, 58, 64);
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+            .pl-author {
+              background: #f8f8fa;
+              padding: 2px 8px;
+              border-radius: 5px;
+              color: #8491a5;
+            }
+          }
+          .pl-cons {
+            margin-bottom: 5px;
+          }
+          .pl-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &-btn {
+              color: rgb(132, 145, 165);
+              cursor: pointer;
+              &:hover {
+                color:rgb(57, 62, 71);
+              }
+            }
+            &-time {
+              color: #8491a5;
+            }
+          }
+          .hf-input {
+            margin-top: 5px;
+          }
+        }
+      } 
+      .empty {
+        text-align: center;
+        padding: 20px;
+        color: #8491a5;
+        margin-top: 60px;
+      }
+    }
+  }
   .pageFy {
     margin-top: 20px;
   }

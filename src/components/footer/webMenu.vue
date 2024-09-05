@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-box">
+  <div class="PC-footer-box">
     <div class="footer-box-left">
       <div class="qr-code">
         <img src="@/static/imgs/logo.png" alt="">
@@ -50,15 +50,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.footer {
-  background: white;
-  height: auto;
-  font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
+.PC-footer-box {
+  position: relative;
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
   .footer-box-left {
-    width: 500px;
+    flex: 1;
     height: 200px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 30px;
     .ss {
       display: flex;

@@ -1,7 +1,7 @@
 <template>
   <ContainerLayout :isHeader="true" :isFooter="true">
     <template slot="main">
-      <div class="mine">
+      <div class="PC-mine">
         <div class="user-info">
           <img src="@/static/imgs/logo.png">
           <div class="user-name">{{ userInfo.username }}</div>
@@ -40,7 +40,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.mine {
+.PC-mine {
   width: 1200px;
   margin: 0px auto;
   display: flex;

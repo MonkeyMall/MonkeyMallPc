@@ -1,5 +1,5 @@
 <template>
-  <div :class="['toolbar', scrollHide ? 'toolbar-hide fadeOut animated' : '']" v-show="isShow">
+  <div :class="['PC-toolbar', scrollHide ? 'toolbar-hide fadeOut animated' : '']" v-show="isShow">
     <el-breadcrumb separator="/">
       <!-- :to="{ path: '/' }" -->
       <el-breadcrumb-item 
@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.toolbar {
+.PC-toolbar {
   width: 1200px;
   height: 50px;
   margin: 0 auto;

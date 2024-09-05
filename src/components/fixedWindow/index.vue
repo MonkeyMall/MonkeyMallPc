@@ -80,6 +80,10 @@ export default {
   background: #f5f6f9;
   cursor: pointer;
   border-radius: 50%;
+  &:hover {
+    scale: 1.3;
+    animation: 1s ease-in-out 0s infinite normal none running scale;
+  }
   .icon {
     width: 100%;
     height: 100%;

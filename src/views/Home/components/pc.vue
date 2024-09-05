@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="PC-home">
     <ul class="web-left" v-if="list.length">
       <li v-for="(item, index) in list" :key="index" @click="goComponyInfo(item._id)">
         <img :src="item.logo || require('@static/imgs/yuan.png')" alt="" class="c-logo">
@@ -101,7 +101,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
+.PC-home {
   width: 1200px;
   margin: 0 auto;
   display: flex;

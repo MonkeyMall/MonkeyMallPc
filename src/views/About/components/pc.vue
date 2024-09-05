@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="PC-about">
     <p class="title">关于我们</p>
     <div>
       <p>本社区主要是提供公司相关的信息查询和所查公司的相关评价，全部数据军来源于网络，个人开发者数据维护和来源是最难和麻烦的事情，还需要用户的多多帮助。</p>
@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about {
+.PC-about {
   width: 1160px;
   margin: 0px auto;
   background: #fff;
