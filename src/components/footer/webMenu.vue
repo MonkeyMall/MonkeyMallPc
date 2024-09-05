@@ -6,7 +6,7 @@
       </div>
       <div class="ss">
         <p class="wec wec1">猿猴宝宝社区</p>
-        <p class="des des1">共享找工作</p>
+        <p class="des des1">摸鱼跌侃之家</p>
         <p class="des des1">一起来调侃</p>
       </div>
     </div>
@@ -21,9 +21,11 @@
     </div>
     <div class="footer-box-left">
       <div>
+        <p class="wec">客服：小宋</p>
+        <p class="wec">头条号：北漂程序员回山西</p>
         <p class="wec">联系方式：598349146@qq.com</p>
-        <p class="des">版权所有 © all rights reserved</p>
-        <p class="des">晋ICP备2024043727号</p>
+        <p class="des des2 des3">版权所有 © all rights reserved</p>
+        <p class="des des2">晋ICP备2024043727号</p>
       </div>
     </div>
   </div>
@@ -77,14 +79,23 @@ export default {
       }
     }
     .des {
-      margin-top: 20px;
-      margin-bottom: 24px;
+      margin-top: 15px;
       color: #ffffff;
       font-size: 14px;
       line-height: 16px;
+      margin-bottom: 20px;
       &.des1 {
         color: #999;
         margin-bottom: 0;
+      }
+      &.des2 {
+        color: #999;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      &.des3 {
+        color: #999;
+        margin-top: 20px;
       }
     }
     .qr-code {

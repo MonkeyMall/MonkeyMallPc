@@ -6,7 +6,7 @@
           <img src="@/static/imgs/logo.png" alt="">
           <div class="text">
             猿猴宝宝社区<br/>
-            <span>- 共享找工作 -</span>
+            <span>- 摸鱼跌侃 -</span>
           </div>
         </div>
         <div class="search" v-if="isSearch">
