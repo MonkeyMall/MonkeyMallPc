@@ -27,8 +27,9 @@
       </div>
       <div class="menu">
         <ul>
+          <!-- @mouseenter="enterBlock($event)" @mouseleave="leaveBlock($event)" -->
           <li @click="onJump('/', 'router')" :class="[$route.meta.name == 'home' ? 'active' : '']">首页</li>
-          <li @click="onJump('/ridicule', 'router')" :class="[$route.meta.name == 'ridicule' ? 'active' : '']">论坛</li>
+          <li @click="onJump('/ridicule', 'router')" :class="[ $route.meta.name == 'ridicule' ? 'active' : '']">论坛</li>
           <!-- <li @click="onJump('', 'router')">积分商城</li> -->
           <li @click="onJump('/about', 'router')" :class="[$route.meta.name == 'about' ? 'active' : '']">关于我们</li>
         </ul>
@@ -136,6 +137,13 @@ export default {
     onSearch() {
       console.log('搜索内容', this.input)
       this.$store.commit('SET_SEARCHTEXT', this.input)
+    },
+    enterBlock(event) {
+      console.log(11, event.currentTarget)
+      event.currentTarget.classList.add('animated bounce')
+    },
+    leaveBlock(event) {
+      event.currentTarget.classList.remove('animated bounce')
     }
   }
 };

@@ -36,7 +36,7 @@
                  <!-- <svg class="icon" aria-hidden="true">
                    <use xlink:href="#icon-liaotian"></use>
                  </svg> -->
-                 {{ countNumArr[index] }} 条评论
+                 查看 {{ countNumArr[index] }} 条评论
                </div>
                <div class="content-bar-item" @click="tapBarItem('pl', item._id, index)">
                 <i class="iconfont">&#xe604;</i>
