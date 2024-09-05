@@ -435,6 +435,7 @@ $mult-color-tag-7: #1100ff;
               cursor: pointer;
               margin-top: 5px;
               .iconfont{
+                font-size: 14px !important;
                 color: #8491a5;
                 &.active {
                   color: #00baad;
@@ -449,6 +450,7 @@ $mult-color-tag-7: #1100ff;
               &:hover {
                 color: rgba(0, 186, 173, .6);
                 .iconfont{
+                  font-size: 14px !important;
                   fill: rgba(0, 186, 173, .6);
                 }
               }
