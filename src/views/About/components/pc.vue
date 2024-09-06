@@ -13,7 +13,9 @@
     </div>
     <div>
       <p class="label-title">联系我们</p>
-      <p>邮箱：598349146@qq.com</p>
+      <p>邮箱：598349146@qq.com（小宋）</p>
+      <p>扫码添加微信（请注明来意，非诚勿扰）</p>
+      <img src="@/static/imgs/my.jpg" alt="" class="wechatImg">
     </div>
     <div>
       <p class="label-title">项目合作</p>

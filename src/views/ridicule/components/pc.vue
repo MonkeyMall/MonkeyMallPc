@@ -86,10 +86,10 @@
           <ul v-if="commentInfo.data && commentInfo.data.length">
             <li v-for="(item, index) in commentInfo.data" :key="index">
               <p class="anthor">
-                <span v-if="item.userId && item.userId.username" class="person">{{ item.userId.username }}</span>
+                <span v-if="item.userId && item.userId.username" class="person">{{ usernameFormat(item.userId.username) }}</span>
                 <span class="pl-author" v-if="item.userId && commentInfo.contentInfo[0].userId == item.userId._id">作者</span>
                 <span v-if="item.creatUserId">评论</span>
-                <span class="person" v-if="item.creatUserId && item.creatUserId.username">{{ item.creatUserId.username }}</span>
+                <span class="person" v-if="item.creatUserId && item.creatUserId.username">{{ usernameFormat(item.creatUserId.username) }}</span>
                 <!-- <span class="pl-author" v-if="item.creatUserId._id == item.userId._id && item.creatUserId">作者</span> -->
               </p>
               <p class="pl-cons">{{ item.commentContents }}</p>
@@ -133,7 +133,8 @@ import {
   getRidiculeIsCollent
 } from "@/api/index";
 import {
-  isLogin
+  isLogin,
+  usernameFormat
 } from "@/utils/index";
 import windowRight from "@/components/windowRight/windowRight";
 import empty from "@/components/empty/index";
@@ -192,6 +193,7 @@ export default {
     }
   },
   methods: {
+    usernameFormat,
     // 监听
     scrollItemToBottom(list) {
       window.addEventListener('scroll', () => {
@@ -326,7 +328,7 @@ $mult-color-tag-7: #1100ff;
     margin-top: 20px;
   }
   ul {
-    width: 100%;
+    // width: 100%;
     background: #fff;
     padding: 20px;
     flex: 1;
@@ -555,7 +557,7 @@ $mult-color-tag-7: #1100ff;
         font-size: 16px;
       }
       ul {
-        width: 100%;
+        // width: 100%;
         li {
           width: 100%;
           padding: 10px 0;

@@ -20,6 +20,15 @@
       </div>
     </div>
     <div class="footer-box-left">
+      <div class="qr-code">
+        <img src="@/static/imgs/my.jpg" alt="">
+      </div>
+      <div>
+        <p class="wec">本人微信</p>
+        <p class="des">扫码添加，注明来意</p>
+      </div>
+    </div>
+    <div class="footer-box-left">
       <div>
         <p class="wec">客服：小宋</p>
         <p class="wec">头条号：北漂程序员回山西</p>
