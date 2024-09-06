@@ -16,7 +16,6 @@
               <input
                 v-model="form.username"
                 placeholder="请输入用户名"
-                maxlength="20"
                 type="text"
                 :readonly="readonly"
                 autocomplete="off"
