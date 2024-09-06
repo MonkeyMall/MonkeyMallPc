@@ -407,7 +407,7 @@ $mult-color-tag-7: #1100ff;
         text-align: left;
         /deep/ img {
           display: inline-block;
-          width: 100%;
+          // width: 100%;
         }
         // p {
         //   ::v-deep img {
@@ -523,7 +523,7 @@ $mult-color-tag-7: #1100ff;
   }
   img {
     display: inline-block;
-    width: 100%;
+    // width: 100%;
   }
   .PC-drawer {
     position: relative;
