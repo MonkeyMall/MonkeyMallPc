@@ -118,9 +118,11 @@ export default {
       padding: 20px;
       margin-bottom: 20px;
       border-radius: 4px;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
       background: #fff;
       cursor: pointer;;
+      &:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+      }
       .c-logo {
         width: 50px;
         height: 50px;
