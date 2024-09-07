@@ -26,6 +26,9 @@ const categoryOptions = [{
   label: '军事科技',
   value: '10'
 }, {
+  label: '热点新闻',
+  value: '11'
+}, {
   label: '其他',
   value: '6'
 }]

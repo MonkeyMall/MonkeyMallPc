@@ -155,3 +155,12 @@ export function getRidiculeIsCollent(query) {
   })
 }
 
+// 调侃阅读量
+export function setRidiculeView(query) {
+  return request({
+    url: '/api/ridicule/view',
+    method: 'get',
+    params: query
+  })
+}
+

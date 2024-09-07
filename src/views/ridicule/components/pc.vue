@@ -130,7 +130,8 @@ import {
   ridiculeCommentList,
   addCommentRidicule,
   ridiculeCollent,
-  getRidiculeIsCollent
+  getRidiculeIsCollent,
+  setRidiculeView
 } from "@/api/index";
 import {
   isLogin,
@@ -234,8 +235,13 @@ export default {
       this.commentInfo = data
     },
     // 点击阅读更多
-    moreFn(index) {
+    async moreFn(index) {
       this.lookIndex = index
+      if (!this.list[index].isShowMore) {
+        await setRidiculeView({
+          id: this.list[index]._id
+        })
+      }
       this.list.forEach((item, i) => {
         if(i === index){
           item.isShowMore = !item.isShowMore
@@ -521,6 +527,9 @@ $mult-color-tag-7: #1100ff;
     }
     .categoryOptions10{
       background: #3a7e68;
+    }
+    .categoryOptions11{
+      background: rgb(255, 150, 7);
     }
   }
   img {
