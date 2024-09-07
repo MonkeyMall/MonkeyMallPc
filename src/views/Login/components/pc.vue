@@ -118,7 +118,7 @@ $color: #2c3142;
   background-size: cover;
 	color: $color;
   .login-box {
-    height: 283px;
+    // height: 283px;
     display: flex;
     background-color: #fff;
 		border-radius: 5px;
@@ -126,7 +126,7 @@ $color: #2c3142;
     padding: 20px;
     .login-box-left {
       width: 300px;
-      height: 100%;
+      // height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;

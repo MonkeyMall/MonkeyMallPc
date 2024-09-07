@@ -328,12 +328,10 @@ $mult-color-tag-7: #1100ff;
     margin-top: 20px;
   }
   ul {
-    // width: 100%;
     background: #fff;
     padding: 20px;
     flex: 1;
     li {
-      // width: 100%;
       padding: 10px;
       // cursor: pointer;
       &:not(:last-child) {
@@ -406,6 +404,7 @@ $mult-color-tag-7: #1100ff;
         color: #191b1f;
         text-align: left;
         /deep/ img {
+          max-width: 1000px;
           display: inline-block;
           // width: 100%;
         }
@@ -519,6 +518,9 @@ $mult-color-tag-7: #1100ff;
     }
     .categoryOptions8{
       background: $mult-color-tag-3;
+    }
+    .categoryOptions10{
+      background: #3a7e68;
     }
   }
   img {

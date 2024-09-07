@@ -11,7 +11,7 @@
       <div class="box">
         <p class="desc">猿猴宝宝社区，欢迎您</p>
         <div class="form">
-          <el-form label-position="top" class="form" label-width="150px">
+          <el-form label-position="top" class="form" label-width="180px">
             <el-form-item label="用户名">
               <input
                 v-model="form.username"
@@ -172,7 +172,7 @@ $color: #2c3142;
       }
     }
     .box {
-      width: 300px;
+      width: 400px;
       height: 100%;
       padding: 30px;
       font-size: 12px;
@@ -189,7 +189,7 @@ $color: #2c3142;
         gap: 10px;
         margin-bottom: 20px;
         .el-form-item__label {
-          width: 60px;
+          width: 80px;
           text-align: right;
           color: #666;
           margin-bottom: 0;

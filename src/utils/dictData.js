@@ -5,7 +5,7 @@ const categoryOptions = [{
   label: '生活感悟',
   value: '2'
 }, {
-  label: '工作调侃',
+  label: '职场感悟',
   value: '3'
 }, {
   label: '职业规划',
@@ -22,6 +22,9 @@ const categoryOptions = [{
 }, {
   label: '技术分享',
   value: '9'
+}, {
+  label: '军事科技',
+  value: '10'
 }, {
   label: '其他',
   value: '6'
