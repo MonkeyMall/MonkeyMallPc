@@ -4,12 +4,14 @@
     <div class="PC-fixed-window" v-show="isShow">
       <div class="item special" @click="showOpen">
         <div class="container">
-          <img class="icon" src="@/static/imgs/jy.png" alt="返回顶部" />
+          <img class="icon" src="@/static/imgs/jy.png" alt="作者留言" />
+          <p class="top-des">作者留言</p>
         </div>
       </div>
       <div class="item special" @click="toTop" id="top">
         <div class="container">
           <img class="icon" src="@/static/imgs/top.png" alt="返回顶部" />
+          <p class="top-des">返回顶部</p>
         </div>
       </div>
     </div>
@@ -122,13 +124,13 @@ export default {
   z-index: 6;
 }
 .PC-fixed-window {
-  width: 40px;
+  // width: 40px;
   // height: 80px;
   position: fixed;
   z-index: 999;
   right: 50px;
   bottom: 100px;
-  padding: 20px;
+  padding: 30px 20px;
   background: #fff;
   cursor: pointer;
   display: flex;
@@ -142,21 +144,40 @@ export default {
   .icon {
     width: 30px;
     height: 30px;
+    &:hover {
+      scale: 1.15;
+    }
+    // img {
+    //   color: rgba(0, 0, 0, .4);
+    // }
+  }
+  .top-des {
+    font-size: 12px;
+    // color: #333;
+    color: rgba(0, 0, 0, .4);
   }
   .item {
-    width: 40px;
-    height: 40px;
+    // width: 40px;
+    // height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f5f6f9;
-    border-radius: 50%;
+    // background: #f5f6f9;
+    // border-radius: 50%;
     // margin-bottom: 30px;
     // &:first-of-type {
     //   border-bottom: 1px solid red;
     // }
     &:hover {
-      scale: 1.3;
+      .top-des {
+        color: rgba(0, 0, 0, .6);
+      }
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
   }
 }
