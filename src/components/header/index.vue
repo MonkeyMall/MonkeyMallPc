@@ -35,6 +35,6 @@ export default {
 .header {
   background: white;
   height: auto;
-  font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
+  font-family:  Alibaba-PuHuiTi;
 }
 </style>

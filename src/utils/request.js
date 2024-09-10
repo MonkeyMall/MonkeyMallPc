@@ -35,13 +35,15 @@ service.interceptors.response.use(
     console.log('请求结果', response);
     if (response.data.code !== 200) {
       console.log('请求结果 - !200', response);
-      // Message({
-      //   showClose: true,
-      //   message: response.data.message,
-      //   type: "warning",
-      //   duration: 3 * 1000
-      // });
-      // router.push({ path: '/login' })
+      if (response.data && response.data.message) {
+        Message({
+          showClose: true,
+          message: response.data.message,
+          type: "warning",
+          duration: 3 * 1000
+        });
+        router.push({ path: '/login' })
+      }
     return Promise.reject(response);
     } else {
       return response.data;

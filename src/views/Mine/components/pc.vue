@@ -17,6 +17,10 @@
         <i class="el-icon-chat-dot-square"></i>
         创建调侃
       </div>
+      <div class="mine-item" @click="jump('/myLiuyan')">
+        <i class="iconfont">&#xe645;</i>
+        我的留言
+      </div>
       <div class="mine-item" @click="jump('')">
         <i class="iconfont">&#xe606;</i>
         收货地址

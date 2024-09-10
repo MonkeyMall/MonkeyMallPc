@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 .mb-menu {
-  font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
+  font-family: Alibaba-PuHuiTi;
   -webkit-tap-highlight-color: transparent;
   display: flex;
   flex-direction: column;
@@ -64,7 +64,7 @@ export default {
         font-size: 24px;
         border: 1px solid #000000;
         margin: 0 44px;
-        font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
+        font-family:  Alibaba-PuHuiTi;
       }
       .menu-btn {
         width: 32px;

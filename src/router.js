@@ -114,6 +114,25 @@ const router = new Router({
       }
     },
     {
+      path: "/myLiuyan",
+      name: "myLiuyan",
+      component: () => import("./views/Mine/MyLiuyan.vue"),
+      meta: {
+        name: 'mine',
+        title: "我的留言",
+        type: "公司详情，搜索公司，入职闭坑",
+        headline: "我的调侃-猿猴社区",
+        keywords: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "公司详情，搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
+        toolbartext: [{
+          text: "个人中心",
+          path: "/mine"
+        },{
+          text: "我的留言"
+        }]
+      }
+    },
+    {
       path: "/myCollentPcRidicule",
       name: "myCollentPcRidicule",
       component: () => import("./views/Mine/CollentRidicule.vue"),

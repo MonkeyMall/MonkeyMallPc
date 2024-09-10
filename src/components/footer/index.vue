@@ -44,7 +44,7 @@ export default {
 .footer {
   background: white;
   height: auto;
-  font-family: Alibaba-PuHuiTi-R, Alibaba-PuHuiTi;
+  font-family:  Alibaba-PuHuiTi;
   margin-top: 40px;
   &.webFooter {
     width: 100%;

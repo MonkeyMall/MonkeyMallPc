@@ -164,3 +164,19 @@ export function setRidiculeView(query) {
   })
 }
 
+// 留言
+export function liuyanAdd(params) {
+	return request({
+		url: "/api/liuyan/add",
+		method: "post",
+		data: params
+	});
+}
+
+export function liuyanList(query) {
+  return request({
+    url: '/api/liuyan/list',
+    method: 'get',
+    params: query
+  })
+}

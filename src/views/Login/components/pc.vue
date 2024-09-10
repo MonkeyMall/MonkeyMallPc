@@ -7,6 +7,8 @@
         <div class="qr-code">
           <img src="@/static/imgs/wechat.jpg" alt="">
         </div>
+        <p class="tips">1.扫描进入小程序我的页面，复制用户名 或 点击重选注册</p>
+        <p class="tips tips1">2.默认密码admin123</p>
       </div>
       <div class="box">
         <p class="desc">猿猴宝宝社区，欢迎您</p>
@@ -22,7 +24,6 @@
                 @focus="readonly = false"
               />
             </el-form-item>
-  
             <el-form-item label="密码">
               <input
                 v-model="form.password"
@@ -104,6 +105,16 @@ $color: #2c3142;
   &:hover {
     color: #409eff;
   }
+}
+.tips {
+  width: 100%;
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 30px;
+  text-align: left;
+}
+.tips1 {
+  margin-top: 10px;
 }
 .page-login {
 	display: flex;
