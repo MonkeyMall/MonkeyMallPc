@@ -1,20 +1,20 @@
 <template>
   <div class="PC-ridicule">
-    <ul class="web-left" v-if="list.length">
-      <div class="search">
-        <div
-          :class="['categoryOptions', 'categoryOptions6', query.category === '' ? 'active' : '']"
-          @click="filterFn('')">
-          全部
-        </div>
-        <div
-          v-for="(options, i) in categoryOptions" 
-          :class="['categoryOptions', 'categoryOptions' + options.value, options.value === query.category ? 'active' : '']"
-          :key="i"
-          @click="filterFn(options.value)">
-          {{ options.label }}
-        </div>
+    <div class="search">
+      <div
+        :class="['categoryOptions', 'categoryOptions6', query.category === '' ? 'active' : '']"
+        @click="filterFn('')">
+        全部
       </div>
+      <div
+        v-for="(options, i) in categoryOptions" 
+        :class="['categoryOptions', 'categoryOptions' + options.value, options.value === query.category ? 'active' : '']"
+        :key="i"
+        @click="filterFn(options.value)">
+        {{ options.label }}
+      </div>
+    </div>
+    <ul class="web-left" v-if="list.length">
       <li v-for="(item, index) in list" 
         :key="index" 
         :class="[lookIndex === index ? 'active' : '', item.by < 0 && item.isShowMore ? 'fixed' : '']"
@@ -342,8 +342,8 @@ $mult-color-tag-5: #e9615f;
 $mult-color-tag-6: #6be95f;
 $mult-color-tag-7: #1100ff;
 .search {
-  border-bottom: 1px solid rgba(0, 186, 173, .6);
-  margin-bottom: 20px;
+  // border-bottom: 1px solid rgba(0, 186, 173, .6);
+  margin-bottom: 10px;
 }
 .categoryOptions {
   padding: 2px 4px;
@@ -402,7 +402,7 @@ $mult-color-tag-7: #1100ff;
 .PC-ridicule {
   width: 1200px;
   margin: 0px auto;
-  display: flex;
+  // display: flex;
   // gap: 20px;
   .pageFy {
     margin-top: 20px;
@@ -410,6 +410,8 @@ $mult-color-tag-7: #1100ff;
   .search {
     display: flex;
     gap: 10px;
+    background: #fff;
+    padding: 20px 30px 0 30px;
   }
   ul {
     background: #fff;
