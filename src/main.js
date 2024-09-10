@@ -17,7 +17,7 @@ import animated from "animate.css";
 // import "swiper/css/swiper.css";
 import "@/utils/directives";
 // import VueLazyload from "vue-lazyload";
-// import Mixin from "@/mixins/language";
+import Mixin from "@/mixins/language";
 import { point } from "@/mixins/point";
 import Resource from "@/config/resource";
 import vueMiniPlayer from "vue-mini-player";
@@ -34,7 +34,7 @@ import isMobile from "@/utils/deviceType";
 Vue.use(common);
 Vue.config.productionTip = false;
 Vue.component("icon-svg", IconSvg);
-// Vue.mixin(Mixin);
+Vue.mixin(Mixin);
 // Vue.mixin(gioPoint);
 // Vue.use(VueAweSomeSwiper);
 
