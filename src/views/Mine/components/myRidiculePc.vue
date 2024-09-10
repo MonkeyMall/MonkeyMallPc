@@ -298,7 +298,7 @@ export default {
         li {
           padding: 10px 0;
           &:not(:last-child) {
-            border-bottom: 1px solid #f8f8fa;
+            border-bottom: 1px dashed #EBEEF3;
           }
           .anthor {
             margin-bottom: 5px;
@@ -316,7 +316,7 @@ export default {
       ul {
         li {
           padding: 10px 0;
-          border-bottom: 1px solid #f8f8fa;
+          border-bottom: 1px dashed #EBEEF3;
           .anthor {
             margin-bottom: 5px;
             font-size: 12px;
@@ -382,7 +382,7 @@ export default {
       padding: 10px;
       cursor: pointer;
       &:not(:last-child) {
-        border-bottom: 1px solid #f8f8fa;
+        border-bottom: 1px dashed #EBEEF3;
       }
       &.active {
         border: 1px solid rgba(0, 186, 173, .6);
