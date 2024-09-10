@@ -1,6 +1,20 @@
 <template>
   <div class="PC-ridicule">
     <ul class="web-left" v-if="list.length">
+      <div class="search">
+        <div
+          :class="['categoryOptions', 'categoryOptions6', query.category === '' ? 'active' : '']"
+          @click="filterFn('')">
+          全部
+        </div>
+        <div
+          v-for="(options, i) in categoryOptions" 
+          :class="['categoryOptions', 'categoryOptions' + options.value, options.value === query.category ? 'active' : '']"
+          :key="i"
+          @click="filterFn(options.value)">
+          {{ options.label }}
+        </div>
+      </div>
       <li v-for="(item, index) in list" 
         :key="index" 
         :class="[lookIndex === index ? 'active' : '', item.by < 0 && item.isShowMore ? 'fixed' : '']"
@@ -169,6 +183,7 @@ export default {
       query: {
         page: 1,
         title: '',
+        category: '',
         reffer: 'pc'
       }
     };
@@ -218,6 +233,10 @@ export default {
       this.total = count
       this.countNumArr = countNumArr
       this.collentTypeArr = collentTypeArr
+    },
+    filterFn(val) {
+      this.query.category = val
+      this.getData()
     },
     handleCurrentChange(val) {
       this.query.page = val
@@ -322,7 +341,62 @@ $mult-color-tag-4: #e05fe9;
 $mult-color-tag-5: #e9615f;
 $mult-color-tag-6: #6be95f;
 $mult-color-tag-7: #1100ff;
-
+.search {
+  border-bottom: 1px solid rgba(0, 186, 173, .6);
+  margin-bottom: 20px;
+}
+.categoryOptions {
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: $mult-color-grey;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 20px;
+  &.active {
+    position: relative;
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+      border-bottom-color: $mult-color-placeholder;
+      position: absolute;
+      bottom: -10px;
+      left: calc(50% - 6px);
+    }
+  }
+}
+.categoryOptions1{
+  background: $mult-color-tag-1;
+}
+.categoryOptions2{
+  background: $mult-color-tag-5;
+}
+.categoryOptions3{
+  background: $mult-color-tag-2;
+}
+.categoryOptions4{
+  background: $mult-color-tag-4;
+}
+.categoryOptions5{
+  background: $mult-color-tag-6;
+}
+.categoryOptions9{
+  background: $mult-color-tag-7;
+}
+.categoryOptions7{
+  background: $mult-color-placeholder;
+}
+.categoryOptions8{
+  background: $mult-color-tag-3;
+}
+.categoryOptions10{
+  background: #3a7e68;
+}
+.categoryOptions11{
+  background: rgb(255, 150, 7);
+}
 
 
 .PC-ridicule {
@@ -332,6 +406,10 @@ $mult-color-tag-7: #1100ff;
   // gap: 20px;
   .pageFy {
     margin-top: 20px;
+  }
+  .search {
+    display: flex;
+    gap: 10px;
   }
   ul {
     background: #fff;
