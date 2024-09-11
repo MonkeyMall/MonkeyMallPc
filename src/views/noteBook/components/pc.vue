@@ -8,9 +8,16 @@
           全部
         </div>
         <div
+          v-if="isLogin"
           :class="['categoryOptions', 'categoryOptions6', query.type === 1 ? 'active' : '']"
           @click="filterFn(1)">
           我的
+        </div>
+        <div
+          v-if="isLogin"
+          :class="['categoryOptions', 'categoryOptions6', query.type === 2 ? 'active' : '']"
+          @click="filterFn(2)">
+          我的收藏
         </div>
       </div>
       <div class="creatBtn" @click="addNoteBookFn">
@@ -37,7 +44,7 @@
               <div class="content-bar-item startTime" @click="tapBarItem('pl', item._id, index)">
                 发布于：<span v-time="item.startTime"></span>
               </div>
-              <div class="content-bar-item" @click="collenctFn(item)">
+              <div v-if="query.type !== 2" class="content-bar-item" @click="collenctFn(item)">
                 <i :class="['iconfont', collentTypeArr[index] ? 'active zoomIn animated' : '']">&#xe661;</i>
                   收藏
               </div>
@@ -141,7 +148,8 @@ import {
   noteBookList,
   noteBookAdd,
   notebookCollent,
-  getNoteBookIsCollent
+  getNoteBookIsCollent,
+  noteBookCollenctList
 } from "@/api/index";
 import {
   isLogin,
@@ -152,6 +160,9 @@ import pageNum from "@/components/pageNum/index.vue";
 import { mapState, mapMutations } from "vuex";
 import dictData from '@/utils/dictData.js'
 import clip from '@/utils/clipboard'
+import {
+  getItem
+} from '@/utils/storage.js'
 
 var that = null;
 export default {
@@ -163,6 +174,7 @@ export default {
   },
   data() {
     return {
+      isLogin: getItem('userInfo'),
       categoryOptions: dictData.categoryOptions,
       list: [],
       collectList: [],
@@ -224,19 +236,12 @@ export default {
           let [div] = this.$refs['p_' + i ]  // 特别注意这一行，赋值给了数组
           this.$set(this.list[i], 'by', window.innerHeight - div.getBoundingClientRect().bottom )
         }
-        // if (isCollect) {
-        //   for (let i = 0; i <= list.length; i++) {
-        //     let [div] = this.$refs['pp_' + i ]  // 特别注意这一行，赋值给了数组
-        //     this.$set(this.collectList[i], 'by', window.innerHeight - div.getBoundingClientRect().bottom )
-        //   }
-        // }
       })
     },
-    // 评论列表
+    // 列表
     async getData() {
       let {data, count, collentTypeArr, collenctdata = []} = await noteBookList(this.query);
       console.log('noteBookList:', data)
-      console.log(111, collenctdata)
       data.map(item =>{
         item.isShowMore = false
       })
@@ -244,15 +249,18 @@ export default {
       this.collentTypeArr = collentTypeArr
       this.scrollItemToBottom(data)
       this.total = count || 0
-      // if (collenctdata && collenctdata.length > 0) {
-      //   collenctdata.map(item =>{
-      //     item.isShowMore = false
-      //   })
-      //   this.collectList = collenctdata || []
-      //   this.scrollItemToBottom(collenctdata, true)
-      // } else {
-      //   this.collectList = []
-      // }
+    },
+    // 收藏列表
+    async getCollectListData() {
+      this.query.page = 1
+      let {data, count} = await noteBookCollenctList(this.query);
+      console.log('noteBookList:', data)
+      data.map(item =>{
+        item.isShowMore = false
+      })
+      this.list = data || []
+      this.scrollItemToBottom(data)
+      this.total = count || 0
     },
     async copyFn(text, event) {
       clip(text, event)
@@ -279,7 +287,11 @@ export default {
     },
     filterFn(val) {
       this.query.type = val
-      this.getData()
+      if (val === 2) {
+        this.getCollectListData()
+      } else {
+        this.getData()
+      }
     },
     handleCurrentChange(val) {
       this.query.page = val

@@ -197,6 +197,14 @@ export function noteBookList(query) {
     params: query
   })
 }
+// 用户收藏备忘录列表
+export function noteBookCollenctList(query) {
+  return request({
+    url: '/api/noteBook/collenct/list',
+    method: 'get',
+    params: query
+  })
+}
 
 // 用户收藏备忘录
 export function notebookCollent(params) {
