@@ -20,6 +20,8 @@ import Quill from 'quill'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
+import 'highlight.js/styles/monokai-sublime.css'; // 代码高亮样式
+import hljs from 'highlight.js'; // 代码高亮
 // import {
 //   getToken
 // } from '@/utils/auth'
@@ -108,7 +110,12 @@ export default {
             ['clean'], // 清除文本格式
             ['link', 'image'], // 链接、图片、视频
             ['formula']
-          ]
+          ],
+          syntax: { 
+            highlight: text => { 
+                return hljs.highlightAuto(text).value; // 这里就是代码高亮需要配置的地方 
+            }
+          },
         },
         placeholder: '请输入内容',
         readOnly: this.readOnly

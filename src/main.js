@@ -22,6 +22,8 @@ import { point } from "@/mixins/point";
 import Resource from "@/config/resource";
 import vueMiniPlayer from "vue-mini-player";
 import "vue-mini-player/lib/vue-mini-player.css";
+import hljs from 'highlight.js';
+
 // 富文本组件
 import Editor from "@/components/Editor"
 Vue.component('Editor', Editor)
@@ -48,6 +50,12 @@ Vue.use(ElementUI);
 // });
 Vue.prototype.isMobileDevice = isMobile;
 Vue.prototype.Resource = Resource.Resource;
+Vue.directive('highlight', (el) => {
+  let blocks = el.querySelectorAll('pre');
+  blocks.forEach((block)=>{
+      hljs.highlightBlock(block)
+  })
+})
 point();
 new Vue({
   router,

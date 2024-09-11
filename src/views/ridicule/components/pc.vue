@@ -14,12 +14,11 @@
         {{ options.label }}
       </div>
     </div>
-    <ul class="web-left" v-if="list.length">
+    <ul class="web-left" v-if="list.length && collenctdata.length">
       <li v-for="(item, index) in list" 
         :key="index" 
         :class="[lookIndex === index ? 'active' : '', item.by < 0 && item.isShowMore ? 'fixed' : '']"
       >
-      <!-- @click="tapBarItem('click', item._id, index)" -->
        <div :ref="'p_' + index">
          <div class="title">
           <div class="categoryOptions-item">

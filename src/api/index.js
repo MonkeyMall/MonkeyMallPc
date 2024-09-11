@@ -180,3 +180,37 @@ export function liuyanList(query) {
     params: query
   })
 }
+
+// 备忘录
+export function noteBookAdd(params) {
+	return request({
+		url: "/api/noteBook/add",
+		method: "post",
+		data: params
+	});
+}
+
+export function noteBookList(query) {
+  return request({
+    url: '/api/noteBook/list',
+    method: 'get',
+    params: query
+  })
+}
+
+// 用户收藏备忘录
+export function notebookCollent(params) {
+	return request({
+		url: "/api/notebook/collect",
+		method: "post",
+		data: params
+	});
+}
+// 查询指定用户是否收藏了指定备忘录
+export function getNoteBookIsCollent(query) {
+  return request({
+    url: '/api/NoteBook/collect/isCollect',
+    method: 'get',
+    params: query
+  })
+}
