@@ -30,6 +30,7 @@
           <!-- @mouseenter="enterBlock($event)" @mouseleave="leaveBlock($event)" -->
           <li @click="onJump('/', 'router')" :class="[$route.meta.name == 'home' ? 'active' : '']">首页</li>
           <li @click="onJump('/ridicule', 'router')" :class="[ $route.meta.name == 'ridicule' ? 'active' : '']">论坛</li>
+          <li @click="onJump('/noteBook', 'router')" :class="[ $route.meta.name == 'noteBook' ? 'active' : '']">备忘录</li>
           <!-- <li @click="onJump('', 'router')">积分商城</li> -->
           <li @click="onJump('/about', 'router')" :class="[$route.meta.name == 'about' ? 'active' : '']">关于我们</li>
         </ul>

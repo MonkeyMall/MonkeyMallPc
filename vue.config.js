@@ -379,8 +379,8 @@ module.exports = {
     hotOnly: false, // 热更新
     proxy: {
       "/api": {
-        target: 'https://monkeysmall.com/api/', // homePage Banner
-        // target: "http://localhost:8080/api/",
+        // target: 'https://monkeysmall.com/api/', // homePage Banner
+        target: "http://localhost:8080/api/",
         secure: false,
         changeOrigin: true, // 开启代理，在本地创建一个虚拟服务端
         // ws: true, // 是否启用websockets

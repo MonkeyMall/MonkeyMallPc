@@ -63,6 +63,22 @@ const router = new Router({
       }
     },
     {
+      path: "/noteBook",
+      name: "noteBook",
+      component: () => import("./views/noteBook/Index.vue"),
+      meta: {
+        name: 'noteBook',
+        title: "备忘录",
+        type: "社区，调侃，社会现状，失业人员，备忘录",
+        headline: "备忘录-猿猴社区",
+        keywords: "社区，调侃，社会现状，失业人员,猿猴社区,失业人员,社区,程序员,程序员社区",
+        description: "搜索公司，入职闭坑,猿猴社区,失业人员,社区,程序员,程序员社区",
+        toolbartext: [{
+          text: "备忘录"
+        }]
+      }
+    },
+    {
       path: "/about",
       name: "about",
       component: () => import("./views/About/Index.vue"),
