@@ -59,7 +59,7 @@ export default {
   },
   data() {
     return {
-      isShow: true,
+      isShow: false,
       dialogVisible: false,
       ruleForm: {
         desc: ''

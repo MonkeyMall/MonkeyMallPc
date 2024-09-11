@@ -116,7 +116,7 @@ export default {
       font-size: 14px;
       border: 1px solid #efefef;
       padding: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       border-radius: 4px;
       background: #fff;
       cursor: pointer;;
