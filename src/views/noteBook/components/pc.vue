@@ -145,7 +145,6 @@ import {
 } from "@/api/index";
 import {
   isLogin,
-  usernameFormat
 } from "@/utils/index";
 import windowRight from "@/components/windowRight/windowRight";
 import empty from "@/components/empty/index";
@@ -156,7 +155,7 @@ import clip from '@/utils/clipboard'
 
 var that = null;
 export default {
-  name: "Ridicule",
+  name: "NoteBook",
   components: {
     windowRight,
     empty,
@@ -215,16 +214,9 @@ export default {
     ...mapState(['searchText', 'userInfo'])
   },
   watch: {
-    searchText: {
-      handler(newVal) {
-        this.query.title = newVal
-        this.getData()
-      },
-      immediate: true
-    }
+    
   },
   methods: {
-    usernameFormat,
     // 监听
     scrollItemToBottom(list, isCollect = false) {
       window.addEventListener('scroll', () => {
@@ -251,7 +243,7 @@ export default {
       this.list = data || []
       this.collentTypeArr = collentTypeArr
       this.scrollItemToBottom(data)
-      this.total = count
+      this.total = count || 0
       // if (collenctdata && collenctdata.length > 0) {
       //   collenctdata.map(item =>{
       //     item.isShowMore = false
@@ -296,11 +288,9 @@ export default {
     // 收藏
     async collenctFn(item) {
       if(!isLogin()) return
-      console.log('收藏', this.userInfo)
       let data = await getNoteBookIsCollent({
         notebookId: item._id
       })
-      console.log('收藏数据', data)
       if(data.message == '自己不能收藏自己的备忘录') {
         return this.$message({
           message: data.message,
