@@ -33,6 +33,7 @@
       >
        <div :ref="'p_' + index">
          <div class="title">
+          <span v-if="!item.posted">待发布</span>
           {{ item.title }}
         </div> 
          <div :class="['content', item.isShowMore ? 'active' : '']">
@@ -133,10 +134,11 @@
               <el-option label="否" :value="0"></el-option>
             </el-select>
           </el-form-item>
+          <p class="tips">是：全部人可见；否：数据只有本人可见；</p>
         </el-form>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="resetForm('ruleForm')">取 消</el-button>
+        <!-- <el-button @click="resetForm('ruleForm')">取 消</el-button> -->
         <el-button type="primary"  @click="submitForm('ruleForm')">确 定</el-button>
       </span>
     </el-dialog>
@@ -373,6 +375,11 @@ $mult-color-tag-7: #1100ff;
   color: #fefefe;
   font-size: 12px;
 }
+.tips {
+  font-size: 12px;
+  color: #999;
+  margin-top: 0;
+}
 .search {
   // border-bottom: 1px solid rgba(0, 186, 173, .6);
   margin-bottom: 10px;
@@ -497,6 +504,13 @@ $mult-color-tag-7: #1100ff;
         display: flex;
         align-items: center;
         gap: 10px;
+        span {
+          font-size: 12px;
+          padding: 4px 6px;
+          border-radius: 4px;
+          background: #f0f0f0;
+          font-weight: 0;
+        }
       }
       .creatTime{
         color: #8491a5;

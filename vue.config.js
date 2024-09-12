@@ -164,9 +164,10 @@ module.exports = {
         new PrerenderSpaPlugin({
           staticDir: resolve("dist"),
           routes: [
-            "/", "/login", "/componyInfo", "/ridicule", 
-            "/about", "/mine",
-            "/mine", "/addCompany", "/addRidicule"
+            "/", "/login", "/register", "/componyInfo", "/ridicule", 
+            "/about", "/mine", "/myLiuyan", "/myRidicule",
+            "/mine", "/addCompany", "/addRidicule",
+            "/noteBook"
           ],
           postProcess(ctx) {
             console.log('是什么东西呀', ctx)
