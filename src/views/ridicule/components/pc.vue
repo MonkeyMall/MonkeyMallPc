@@ -20,19 +20,19 @@
         :class="[lookIndex === index ? 'active' : '', item.by < 0 && item.isShowMore ? 'fixed' : '']"
       >
        <div :ref="'p_' + index">
-         <div class="title">
+        <div class="title">
           <div class="categoryOptions-item">
-          <div 
-            :class="['categoryOptions', 'categoryOptions' + item.category]"
-            v-for="(options, i) in categoryOptions" 
-            :key="i" 
-            v-if="options.value === item.category"
-            >
-            <!-- v-if="options.value === item.category" -->
-            {{ options.label }}
+            <div 
+              :class="['categoryOptions', 'categoryOptions' + item.category]"
+              v-for="(options, i) in categoryOptions" 
+              :key="i" 
+              v-if="options.value === item.category"
+              >
+              <!-- v-if="options.value === item.category" -->
+              {{ options.label }}
+            </div>
           </div>
-          </div>
-          {{ item.title }}
+          <span>{{ item.title }}</span>
         </div> 
          <div :class="['content', item.isShowMore ? 'active' : '']">
            <div v-html="item.content.length > 100 && !item.isShowMore ? item.content.slice(0, 100) + '...' : item.content"></div>
@@ -426,12 +426,24 @@ $mult-color-tag-7: #1100ff;
         border: 1px solid rgba(0, 186, 173, .6);
         border-radius: 8px;
       }
+      .title {
+        span {
+          background: linear-gradient(to right, #ec6b5f, #61c554) no-repeat;
+          background-size: 0 2px;
+          background-position: right bottom;
+          transition: background-size 1s;
+        }
+      }
       &:hover {
         // border-top: 1px solid #f0f0f0;
         // border-bottom: 1px solid #f0f0f0;
         background: #f8f8fa;
         .title {
           color: #55a393;
+          span {
+            background-position: left bottom;
+            background-size: 100% 2px;
+          }
         }
       }
       &.fixed {
@@ -474,7 +486,7 @@ $mult-color-tag-7: #1100ff;
         text-align: left;
         margin-bottom: 5px;
         display: flex;
-        align-items: center;
+        // align-items: center;
         gap: 10px;
       }
       .creatTime{
