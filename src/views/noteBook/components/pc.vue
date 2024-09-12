@@ -53,6 +53,10 @@
                 <i class="iconfont">&#xec7a;</i>
                   复制全部
               </div>
+              <div v-if="query.type == 1" class="content-bar-item" @click="notebookStatusFn(item)">
+                <i class="iconfont">&#xe994;</i>
+                  {{!item.posted ? '全量发布' : '隐藏'}}
+              </div>
             </div>
             <div class="content-bar-right">
               <span v-if="item.contents.length > 200" class="more" @click="moreFn(index)">{{!item.isShowMore ? '阅读全文' : '收起'}}</span>
@@ -151,7 +155,8 @@ import {
   noteBookAdd,
   notebookCollent,
   getNoteBookIsCollent,
-  noteBookCollenctList
+  noteBookCollenctList,
+  notebookStatus
 } from "@/api/index";
 import {
   isLogin,
@@ -319,6 +324,21 @@ export default {
       if (dataCollent.code === 200) {
         this.$message({
           message: data.isCollect ? '取消收藏成功' : '收藏成功',
+          type: 'success'
+        });
+        this.getData()
+      }
+    },
+    // 显示隐藏
+    async notebookStatusFn(item) {
+      if(!isLogin()) return
+      let data = await notebookStatus({
+        id: item._id,
+        status: item.posted ? false : true
+      })
+      if (data.code === 200) {
+        this.$message({
+          message: '修改成功',
           type: 'success'
         });
         this.getData()

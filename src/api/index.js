@@ -222,3 +222,11 @@ export function getNoteBookIsCollent(query) {
     params: query
   })
 }
+// 备忘录状态修改
+export function notebookStatus(params) {
+	return request({
+		url: "/api/notebook/status",
+		method: "post",
+		data: params
+	});
+}
