@@ -400,48 +400,6 @@ $mult-color-tag-7: #1100ff;
   color: #999;
   margin-top: 0;
 }
-.search {
-  // border-bottom: 1px solid rgba(0, 186, 173, .6);
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  .btns {
-    display: flex;
-    gap: 8px;
-    font-size: 20px;
-    .categoryOptions {
-      padding: 2px 4px;
-      border-radius: 3px;
-      color: #333;
-      cursor: pointer;
-      margin-bottom: 20px;
-      &.active {
-        position: relative;
-        font-weight: bold;
-        &:after {
-          content: '';
-          display: block;
-          width: 0;
-          height: 0;
-          border: 6px solid transparent;
-          border-bottom-color: $mult-color-placeholder;
-          position: absolute;
-          bottom: -10px;
-          left: calc(50% - 6px);
-        }
-      }
-    }
-
-  }
-  .creatBtn {
-    font-size: 16px;
-    cursor: pointer;
-    &:hover {
-      color: #3568F5;
-    }
-  }
-}
-
 
 .PC-ridicule {
   width: 1200px;
@@ -450,6 +408,47 @@ $mult-color-tag-7: #1100ff;
   // gap: 20px;
   .pageFy {
     margin-top: 20px;
+  }
+  .search {
+    // border-bottom: 1px solid rgba(0, 186, 173, .6);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    .btns {
+      display: flex;
+      gap: 8px;
+      font-size: 20px;
+      .categoryOptions {
+        padding: 2px 4px;
+        border-radius: 3px;
+        color: #333;
+        cursor: pointer;
+        margin-bottom: 20px;
+        &.active {
+          position: relative;
+          font-weight: bold;
+          &:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-bottom-color: $mult-color-placeholder;
+            position: absolute;
+            bottom: -10px;
+            left: calc(50% - 6px);
+          }
+        }
+      }
+
+    }
+    .creatBtn {
+      font-size: 16px;
+      cursor: pointer;
+      &:hover {
+        color: #3568F5;
+      }
+    }
   }
   .search {
     display: flex;

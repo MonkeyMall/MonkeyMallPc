@@ -33,6 +33,7 @@
         <p class="wec">客服：小宋</p>
         <p class="wec">头条号：北漂程序员回山西</p>
         <p class="wec">联系方式：598349146@qq.com</p>
+        <p class="wec">技术博客：<a href="https://shuy.cc" target="_blank">https://shuy.cc</a></p>
         <p class="des des2 des3">版权所有 © all rights reserved</p>
         <p class="des des2">晋ICP备2024043727号</p>
       </div>
@@ -82,6 +83,9 @@ export default {
       font-size: 16px;
       font-weight: 600;
       line-height: 23px;
+      a {
+        color: #ffffff;
+      }
       &.wec1 {
         color: #00baad;
         margin-bottom: 0;
