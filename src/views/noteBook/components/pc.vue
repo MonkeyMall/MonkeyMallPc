@@ -399,6 +399,7 @@ $mult-color-tag-7: #1100ff;
   font-size: 12px;
   color: #999;
   margin-top: 0;
+  padding-left: 90px;
 }
 
 .PC-ridicule {
@@ -408,6 +409,9 @@ $mult-color-tag-7: #1100ff;
   // gap: 20px;
   .pageFy {
     margin-top: 20px;
+  }
+  ::v-deep .el-dialog {
+    border-radius: 20px;
   }
   .search {
     // border-bottom: 1px solid rgba(0, 186, 173, .6);

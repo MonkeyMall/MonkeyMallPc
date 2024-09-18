@@ -100,7 +100,11 @@ export default {
   },
   methods: {
     toTop() {
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      // document.body.scrollTop = document.documentElement.scrollTop = 0;
     },
     showOpen() {
       this.dialogVisible = true;
