@@ -35,7 +35,7 @@
         <p class="wec">联系方式：598349146@qq.com</p>
         <p class="wec">技术博客：<a href="https://shuy.cc" target="_blank">https://shuy.cc</a></p>
         <p class="des des2 des3">版权所有 © all rights reserved</p>
-        <p class="des des2">晋ICP备2024043727号</p>
+        <p class="des des2"><a href="https://beian.miit.gov.cn/" style="color: #fff" target="_blank">晋ICP备2024043727号-1</a></p>
       </div>
     </div>
   </div>

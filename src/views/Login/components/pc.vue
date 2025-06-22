@@ -46,7 +46,7 @@
       </div>
     </div>
     <p class="copyright">
-      晋ICP备2024043727号
+      <a href="https://beian.miit.gov.cn/" style="color: #fff" target="_blank">晋ICP备2024043727号-1</a>
     </p>
 	</div>
 </template>
